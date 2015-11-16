@@ -1,0 +1,14 @@
+<!--
+Template for myContentPane directive
+==
+Displayed only when selected is true.
+Included into myTabbablePanel directive via transclude.
+==
+REQUIREMENTS:
+- The myTabbablePanel directive as a parent.
+- The title attribute must be passed in.
+  e.g., <my-pane title="World tab"></my-pane>
+ -->
+
+<div class="tab-pane" ng-show="selected" ng-transclude>
+</div>

@@ -1,0 +1,26 @@
+<!--
+Template for myTabbablePanel directive
+==
+The myContentPane directive is required as a child.
+ -->
+
+<div class="tabbable">
+
+  <!-- Tabs -->
+  <ul class="nav nav-tabs">
+
+    <li ng-repeat="pane in vm.panes" ng-class="{active:pane.selected}">
+
+      <a href="" ng-click="vm.updateSelection(pane)">
+        {{ pane.title }}
+      </a>
+
+    </li>
+
+  </ul>
+
+  <!-- Tab contents -->
+  <div class="tab-content" ng-transclude>
+  </div>
+
+</div>
