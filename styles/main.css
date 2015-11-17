@@ -2,7 +2,7 @@ html, body {
    font-family: 'Roboto', sans-serif;
 }
 
-/*.site-layout--head {
+.site-layout--head {
   background: #abc;
   height: 60px;
 }
@@ -20,4 +20,4 @@ html, body {
 .site-layout--foot {
   background: #def;
   height: 60px;
-}*/
+}

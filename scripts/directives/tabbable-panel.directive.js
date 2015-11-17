@@ -1,32 +1,22 @@
 (function() {
 
-  var myApp = angular.module("myApp", []);
+  // This module contains the myTabbablePanel and myContentPane directives.
+  // Used to create a taggable panel.
+  angular.module("taggable", []);
 
 
   // --------------------------------------------------------------------------- //
   // --------------------------------------------------------------------------- //
 
 
-  myApp.controller(
-    "AppController",
-    function( $scope ) {
-      // Empty.
-    }
-  );
-
-
-  // --------------------------------------------------------------------------- //
-  // --------------------------------------------------------------------------- //
-
-
-  //
-  myApp.directive('myTabbablePanel', function() {
+  angular.module("taggable").
+  directive('myTabbablePanel', function() {
 
     return {
       restrict: 'E',
       transclude: true,
       scope: {},
-      templateUrl: 'my-tabbable-panel.html',
+      templateUrl: 'views/tabbable-frame.html',
 
       controllerAs: "vm",
       controller: ['$scope', function( $scope ) {
@@ -38,8 +28,8 @@
         vm.panes = [];
 
         // Expose the public methods.
-        vm.updateSelection  = updateSelection;
-        vm.addPane          = addPane;
+        vm.updateSelection = updateSelection;
+        vm.addPane         = addPane;
 
 
         // ---
@@ -80,7 +70,8 @@
 
 
   //
-  myApp.directive('myContentPane', function() {
+  angular.module("taggable")
+  .directive('myContentPane', function() {
 
     return {
       require: '^myTabbablePanel',  // Mix in myTabbablePanel directive's controller.
@@ -90,7 +81,7 @@
       scope: {
         title: '@'
       },
-      templateUrl: 'my-content-pane.html',
+      templateUrl: 'views/taggable-content-pane.html',
 
       link: function(scope, element, attrs, tabsCtrl) {
 
@@ -106,5 +97,5 @@
 
   });
 
-})();
 
+})();
