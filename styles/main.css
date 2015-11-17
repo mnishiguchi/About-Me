@@ -1,6 +1,14 @@
-html, body {
-   font-family: 'Roboto', sans-serif;
-}
+/*
+  The styles for Masatoshi Nishiguchi's personal web site
+  Filename: main.css
+  Author:   Masatoshi Nishiguchi
+  Date:     November 16, 2015
+*/
+
+
+/**
+ * Universal
+ */
 
 .container {
   max-width: 900px;
@@ -11,65 +19,110 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
 
-.tab-pane {
-  padding: 10px;
+body {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+
+  background: url(http://i.imgur.com/kVJs7Pb.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  color: #FFFFFF;
 }
 
-/*.navbar {
-  position: relative;
-  min-height: 50px;
-  margin-bottom: 0px;
-  // border: 1px solid transparent;
-}*/
-
-/* Navbar colors */
-/*.navbar-inverse {
-    background-color: #666666;
-    border-color:     #666666;
-}
-*/
-/* title */
-/*.navbar-inverse .navbar-brand {
-    color: #0000FF;
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 2.0em;
-  color: #0000FF;
-  letter-spacing: -1px;
-  font-weight: bold;
-  &:hover {
-    color: #0000FF;
-    text-decoration: none;
-  }
+h1 {
+  font-size: 3.0em;
 }
 
-.navbar-inverse .navbar-brand:hover,
-.navbar-inverse .navbar-brand:focus {
-    color: #0000FF;
-}*/
-
-/* navbar links */
-
-/*.navbar-inverse .navbar-nav > li > a {
-    color: #0000FF;
+p {
+  font-size: 1.25em;
+  line-height: 1.6;
+  color: #FFFFFF;
 }
 
-.navbar-inverse .navbar-nav > li > a:hover,
-.navbar-inverse .navbar-nav > li > a:focus {
-    color: #0000FF;
-}*/
+hr {
+  max-width: 400px;
+  border-color: #999999;
+}
 
-/*dropdown links*/
+img.masa-photo {
+  height: 200px;
+  width: 200px;
+  margin: 40px 0px 0px 0px;
+  border: 7px solid white;
+  border-radius: 20px;
+}
 
-/*.navbar .nav > li.dropdown.open.active > a:hover,
-.navbar .nav > li.dropdown.open > a {
-   color: #fff;
-   background-color: #001144;
-   border-color: #fff;
-}*/
+.icon_link {
+}
+
+.icon_link > i {
+}
+
+.content_card {
+  background: linear-gradient(to top, rgba(0,0,0,1) , rgba(0,0,0,.4));
+}
+
+
+/**
+ * Logo and address
+ */
+
+.brand {
+  font-size: 4.0em;
+  font-weight: 800;
+  margin: 30px 0 0 0;
+}
+
+.address-bar {
+  color: #CCCCCC;
+  font-size: 1.3em;
+  font-weight: 300;
+  margin: 10px 0 30px 0;
+}
+
+
+/**
+ * Navigation bar at the top
+ */
+
+.navbar {
+  text-align: center;
+}
+
+.navbar ul {
+  padding: 30px 0;
+  background: rgba(99, 99, 99, .5);
+}
+
+.navbar li {
+  display: inline;
+  padding: 0 5px 0 5px;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 1.1em;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #DDDDDD;
+  padding: 0 20px;
+}
+
+.navbar a:hover {
+  color: #BBBBBB;
+}
+
+.navbar a.active {
+  color: #BBBBBB;
+}
 
 
 footer {
