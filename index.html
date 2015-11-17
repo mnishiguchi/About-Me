@@ -18,16 +18,11 @@
 <body ng-controller="AppController">
   <div class="container">
 
-    <tabbable-frame>
+    <h1>Masatoshi Nishiguchi</h1>
 
-      <div ng-include src="'/views/content-1.html'"></div>
-      <div ng-include src="'/views/content-2.html'"></div>
-      <div ng-include src="'/views/content-3.html'"></div>
-      <div ng-include src="'/views/content-4.html'"></div>
-      <div ng-include src="'/views/content-5.html'"></div>
-      <div ng-include src="'/views/content-6.html'"></div>
+    <hr>
 
-    </tabbable-frame>
+    <simple-tab-panel></simple-tab-panel>
 
     <div ng-include src="'/views/footer.html'"></div>
   </div>
@@ -46,7 +41,6 @@
   <script type="text/javascript" src="/scripts/vendor/angular.js"></script>
 
   <script type="text/javascript" src="/scripts/app.js"></script>
-  <script type="text/javascript" src="/scripts/directives/tabbable-panel.directive.js"></script>
 
 </body>
 </html>

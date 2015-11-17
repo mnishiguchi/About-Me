@@ -4,27 +4,32 @@ html, body {
 
 .container {
   max-width: 900px;
+  padding-top: 30px;
 }
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
 
-.navbar {
+.tab-pane {
+  padding: 10px;
+}
+
+/*.navbar {
   position: relative;
   min-height: 50px;
   margin-bottom: 0px;
   // border: 1px solid transparent;
-}
+}*/
 
 /* Navbar colors */
-.navbar-inverse {
+/*.navbar-inverse {
     background-color: #666666;
     border-color:     #666666;
 }
-
+*/
 /* title */
-.navbar-inverse .navbar-brand {
+/*.navbar-inverse .navbar-brand {
     color: #0000FF;
 }
 
@@ -44,27 +49,27 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
     color: #0000FF;
-}
+}*/
 
 /* navbar links */
 
-.navbar-inverse .navbar-nav > li > a {
+/*.navbar-inverse .navbar-nav > li > a {
     color: #0000FF;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
     color: #0000FF;
-}
+}*/
 
 /*dropdown links*/
 
-.navbar .nav > li.dropdown.open.active > a:hover,
+/*.navbar .nav > li.dropdown.open.active > a:hover,
 .navbar .nav > li.dropdown.open > a {
    color: #fff;
    background-color: #001144;
    border-color: #fff;
-}
+}*/
 
 
 footer {

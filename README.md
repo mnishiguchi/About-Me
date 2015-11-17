@@ -1,6 +1,11 @@
 # my_one_page_website
 
-- Multi-transcluding layout container
-- Flexible tabbable interface
-- http://v4-alpha.getbootstrap.com/
-- http://v4-alpha.getbootstrap.com/getting-started/introduction/
+## About
+- Demo: http://project-nishiguchi.bitballoon.com/
+- Tab interface for site navigation
+
+## Dependencies
+- AngularJS
+- Bootstrap4
+    + http://v4-alpha.getbootstrap.com/
+    + http://v4-alpha.getbootstrap.com/components/buttons/
