@@ -1,25 +1,32 @@
 <!--
-Template for myTabbablePanel directive
+Template for tabbableFrame directive
 ==
-The myContentPane directive is required as a child.
+The tabbableContentPane directive is required as a child.
  -->
 
 <div class="tabbable">
 
-  <!-- Tabs -->
-  <ul class="nav nav-tabs">
+  <!-- Navigation bar (Tabs) -->
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <a href="#" class="navbar-brand"></a>
 
-    <li ng-repeat="pane in vm.panes" ng-class="{active:pane.selected}">
+    <ul class="nav nav-pills">
+      <li
+        ng-repeat="pane in vm.panes"
+        ng-class="{ active:pane.selected }"
+        class="nav-item">
 
-      <a href="" ng-click="vm.updateSelection(pane)">
-        {{ pane.title }}
-      </a>
+        <a ng-click="vm.updateSelection(pane)" class="nav-link" href="">
+          {{ pane.title }}
+        </a>
 
-    </li>
+      </li>
 
-  </ul>
+    </ul>
+  </nav>
 
-  <!-- Tab contents -->
+
+  <!-- Selected content -->
   <div class="tab-content" ng-transclude>
   </div>
 

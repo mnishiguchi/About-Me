@@ -18,48 +18,25 @@
 <body ng-controller="AppController">
   <div class="container">
 
-    <!--
-    The app
-    -->
-    <my-tabbable-panel>
+    <tabbable-frame>
 
-      <my-content-pane title="Hello tab">
+      <div ng-include src="'/views/content-1.html'"></div>
+      <div ng-include src="'/views/content-2.html'"></div>
+      <div ng-include src="'/views/content-3.html'"></div>
+      <div ng-include src="'/views/content-4.html'"></div>
+      <div ng-include src="'/views/content-5.html'"></div>
+      <div ng-include src="'/views/content-6.html'"></div>
 
-        <h4>Hello</h4>
-        <p>
-          Lorem ipsum dolor sit amet
-        </p>
+    </tabbable-frame>
 
-      </my-content-pane>
-
-
-      <my-content-pane title="World tab">
-
-        <h4>World</h4>
-        <em>Mauris elementum elementum enim at suscipit.</em>
-        <p>
-          <a href ng-click="i = i + 1">counter: {{ i || 0 }}</a>
-        </p>
-
-      </my-content-pane>
-
-
-      <my-content-pane title="3rd tab">
-
-        <h4>This is my 3rd tab</h4>
-        <em>Mauris elementum elementum enim at suscipit.</em>
-        <p>
-          <a href ng-click="i = i + 1">counter: {{ i || 0 }}</a>
-        </p>
-
-      </my-content-pane>
-
-
-    </my-tabbable-panel>
+    <div ng-include src="'/views/footer.html'"></div>
   </div>
 
   <noscript>
-    <div class="nojs">Javascript is either disabled or not supported in your browser. Please enable it or use a Javascript enabled browser.</div>
+    <div class="nojs">
+      Javascript is either disabled or not supported in your browser.
+      Please enable it or use a Javascript enabled browser.
+    </div>
   </noscript>
 
   <!-- Load Scripts

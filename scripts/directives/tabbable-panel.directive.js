@@ -1,16 +1,16 @@
 (function() {
 
-  // This module contains the myTabbablePanel and myContentPane directives.
-  // Used to create a taggable panel.
-  angular.module("taggable", []);
+  // This module contains the tabbableFrame and tabbableContentPane directives.
+  // Used to create a tabbable panel.
+  angular.module("tabbable", []);
 
 
   // --------------------------------------------------------------------------- //
   // --------------------------------------------------------------------------- //
 
 
-  angular.module("taggable").
-  directive('myTabbablePanel', function() {
+  angular.module( "tabbable" ).
+  directive('tabbableFrame', function() {
 
     return {
       restrict: 'E',
@@ -70,22 +70,22 @@
 
 
   //
-  angular.module("taggable")
-  .directive('myContentPane', function() {
+  angular.module( "tabbable" )
+  .directive('tabbableContentPane', function() {
 
     return {
-      require: '^myTabbablePanel',  // Mix in myTabbablePanel directive's controller.
+      require: '^tabbableFrame',  // Mix in tabbableFrame directive's controller.
 
       restrict: 'E',
       transclude: true,
       scope: {
         title: '@'
       },
-      templateUrl: 'views/taggable-content-pane.html',
+      templateUrl: 'views/tabbable-content-pane.html',
 
       link: function(scope, element, attrs, tabsCtrl) {
 
-        // Call myTabbablePanel's addPane function.
+        // Call tabbableFrame's addPane function.
         tabsCtrl.addPane(scope);
 
       }
@@ -93,7 +93,7 @@
 
     // NOTE: When a directive requires a controller, its link function receives
     // that controller as the fourth argument of its link function.
-    // Taking advantage of this, myContentPane can call the addPane function of myTabbablePanel.
+    // Taking advantage of this, tabbableContentPane can call the addPane function of tabbableFrame.
 
   });
 

@@ -1,13 +1,13 @@
 (function() {
 
-  angular.module( "myApp", ["taggable"] );
+  angular.module( "myApp", ["tabbable"] );
 
 
   // --------------------------------------------------------------------------- //
   // --------------------------------------------------------------------------- //
 
 
-  angular.module("myApp").controller(
+  angular.module( "myApp" ).controller(
     "AppController",
     function() {
       // Empty.
