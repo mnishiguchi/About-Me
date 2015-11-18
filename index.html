@@ -7,7 +7,7 @@
 
 <!DOCTYPE html>
 
-<html lang="en-us" ng-app="myApp">
+<html lang="en-us" ng-app="mnApp">
 
 <head>
   <title>Masatoshi Nishiguchi</title>
@@ -30,11 +30,11 @@
 
 <body ng-controller="AppController">
 
-  <div ng-include src="'/views/header.html'"></div>
+  <site-header></site-header>
 
   <div class="container">
-    <simple-tab-panel></simple-tab-panel>
-    <div ng-include src="'/views/footer.html'"></div>
+    <tab-panel></tab-panel>
+    <site-footer></site-footer>
   </div>
 
   <noscript>
