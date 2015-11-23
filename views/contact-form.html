@@ -1,7 +1,6 @@
 <!--
-
-TODO
-
+This is a form to send the site owner feedback via email.
+Contains two forms: one for ratings, one for a message.
  -->
 
 <form novalidate
@@ -10,17 +9,20 @@ TODO
 
   <!--  Live Preview -->
   <section>
+    <!-- Stars -->
     <div>
-      Rate this website:
-      <strong>{{ vm.stars }} Stars</strong>
+      <div ng-repeat="n in [ 1,2,3,4,5 ]" class="stars">
+        <i ng-if="n <= vm.stars" class="fa fa-star"></i>
+      </div>
     </div>
-
+    <!-- Message -->
     <div>
       {{ vm.message }}
     </div>
   </section>
 
-  <!--  Input field for stars -->
+
+  <!--  Input fields for stars -->
   <fieldset class="form-group">
 
     <select required
@@ -38,6 +40,7 @@ TODO
     </select>
 
   </fieldset>
+
 
   <!--  Input field for message -->
   <fieldset class="form-group">

@@ -67,6 +67,17 @@ img.masa-photo {
 }
 
 
+/* Contact form */
+
+
+.stars {
+  display: inline-block;
+}
+
+.stars > i.fa-star {
+  color: yellow;
+}
+
 /**
  * Navigation bar at the top
  */
