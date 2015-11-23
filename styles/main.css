@@ -15,10 +15,6 @@
   padding-top: 30px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
-}
-
 body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
@@ -31,7 +27,7 @@ body {
   color: #FFFFFF;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .logo {
   font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
   letter-spacing: 1px;
@@ -67,25 +63,7 @@ img.masa-photo {
 }
 
 .content_card {
-  background: linear-gradient(to top, rgba(0,0,0,1) , rgba(0,0,0,.4));
-}
-
-
-/**
- * Logo and address
- */
-
-.brand {
-  font-size: 4.0em;
-  font-weight: 800;
-  margin: 30px 0 0 0;
-}
-
-.address-bar {
-  color: #CCCCCC;
-  font-size: 1.3em;
-  font-weight: 300;
-  margin: 10px 0 30px 0;
+  background: rgba(0,0,0,.4);
 }
 
 
@@ -93,7 +71,7 @@ img.masa-photo {
  * Navigation bar at the top
  */
 
-.navbar {
+/*.navbar {
   text-align: center;
 }
 
@@ -122,7 +100,7 @@ img.masa-photo {
 
 .navbar a.active {
   color: #BBBBBB;
-}
+}*/
 
 
 footer {
