@@ -1,7 +1,9 @@
 (function() {
 
   // Module declaration.
-  angular.module( "mnApp", [ "tabPanelComponents", "gravatarComponents" ] );
+  angular.module( "mnApp", [ "tabPanelComponents",
+                             "gravatarComponents",
+                             "contactFormComponents" ] );
 
 
   // --------------------------------------------------------------------------- //
@@ -37,5 +39,10 @@
       templateUrl: '/views/footer.html',
     }; // end return
   }); // end directive
+
+
+  // --------------------------------------------------------------------------- //
+  // --------------------------------------------------------------------------- //
+
 
 })();

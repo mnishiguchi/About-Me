@@ -1,0 +1,64 @@
+<!--
+
+TODO
+
+ -->
+
+<form novalidate
+  name="messageForm"
+  ng-submit="messageForm.$valid && vm.handleMessageSubmit()">
+
+  <!--  Live Preview -->
+  <section>
+    <div>
+      Rate this website:
+      <strong>{{ vm.stars }} Stars</strong>
+    </div>
+
+    <div>
+      {{ vm.message }}
+    </div>
+  </section>
+
+  <!--  Input field for stars -->
+  <fieldset class="form-group">
+
+    <select required
+      ng-model="vm.stars"
+      class="form-control"
+      ng-options="stars for stars in [ 5,4,3,2,1 ]"
+      title="Stars" >
+
+      <option
+        value=""
+        selected="selected">
+        Rate this website
+      </option>
+
+    </select>
+
+  </fieldset>
+
+  <!--  Input field for message -->
+  <fieldset class="form-group">
+
+    <textarea required
+      ng-model="vm.message"
+      class="form-control"
+      placeholder="Write a short message to Masa..."
+      title="Message">
+    </textarea>
+
+  </fieldset>
+
+
+  <!--  Submit -->
+  <fieldset class="form-group">
+
+    <input type="submit"
+      class="btn btn-primary pull-right"
+      value="Send message" />
+
+  </fieldset>
+
+</form>
