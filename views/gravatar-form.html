@@ -3,17 +3,20 @@
   View template for the gravatar-form directive.
 -->
 
-<input type="text"
-  ng-model="userEmail"
-  class="form-control"
-  placeholder="Enter your email">
+<div>
+  <input type="text"
+    ng-model="userEmail"
+    class="form-control"
+    placeholder="Enter your email">
 
-<a
-  href="http://www.gravatar.com"
-  class="gravatarLink">
-  <gravatar
-    email="userEmail"
-    size="36">
-  </gravatar>
-</a>
+  <a
+    href="http://www.gravatar.com"
+    class="gravatarLink">
+    <gravatar
+      email="userEmail"
+      size="36">
+    </gravatar>
+  </a>
+</div>
+
 

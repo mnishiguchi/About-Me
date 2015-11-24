@@ -55,15 +55,29 @@ hr {
  */
 
 
+.navbar {
+  position: relative;
+  height: 70px;
+  margin-bottom: 0px;
+  padding: 16px 10px 0 10px;
+}
+
 .logo {
   font-family: 'Merriweather', serif;
-  font-size: 1.5em;
+  font-size: 2.0em;
   font-weight: 900;
   color: #000000;
+  float: left;
+  letter-spacing: -1px;
   text-transform: uppercase;
           text-shadow: 1px 1px 2px #FFFFFF;
      -moz-text-shadow: 1px 1px 2px #FFFFFF;
   -webkit-text-shadow: 1px 1px 2px #FFFFFF;
+}
+
+.logo:hover {
+  color: #000000;
+  text-decoration: none;
 }
 
 .gravatarLink,
@@ -84,9 +98,11 @@ hr {
     box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
+
 /*
   Tabs
  */
+
 
 .nav-tabs {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;

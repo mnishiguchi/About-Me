@@ -55,6 +55,11 @@
         // Expose the public functions.
         vm.gravatarUrl = gravatarUrl;
 
+        // Standadize on the lowercase email.
+        props.email = (props.email === undefined || props.email === null)
+                    ? ""
+                    : props.email.toLowerCase();
+
         // Get the initial image.
         vm.url = vm.gravatarUrl(props.email, props.size);
 
@@ -64,7 +69,7 @@
           function(newVal, oldVal) {
 
             if (newVal !== oldVal) {
-              vm.url = vm.gravatarUrl($scope.email, props.size);
+              vm.url = vm.gravatarUrl(newVal.toLowerCase(), props.size);
             }
 
           }

@@ -6,10 +6,25 @@
   class="navbar navbar-light bg-faded"
   ng-click="vm.changeBackgroundColor()"
   ng-style="vm.css">
+
   <a
-    class="navbar-brand logo"
-    href="#">
-    Masatoshi Nishiguchi</a>
+    href="http://www.gravatar.com"
+    class="navbar-brand gravatarLink">
+    <gravatar
+      email="'NISHIGUCHI.MASA@GMAIL.COM'"
+      size="36">
+    </gravatar>
+  </a>
+
+  <ul class="nav navbar-nav">
+    <li class="nav-item">
+      <a
+        class="logo"
+        href="#">
+        Masatoshi Nishiguchi
+      </a>
+    </li>
+  </ul>
 
   <form
     class="form-inline navbar-form pull-right">
