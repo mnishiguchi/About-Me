@@ -11,7 +11,6 @@
 
 
 .container {
-  max-width: 900px;
   padding-top: 30px;
 }
 
@@ -64,7 +63,7 @@ hr {
 
 .logo {
   font-family: 'Merriweather', serif;
-  font-size: 2.0em;
+  font-size: 1.8em;
   font-weight: 900;
   color: #000000;
   float: left;
@@ -130,16 +129,24 @@ hr {
  */
 
 
-.page-content {
-  padding: 0 60px;
+.container.page {
+  padding: 20px 80px 80px 80px;
+  background: rgba(0,0,0,.4);
+  border-radius: 0 0 5px 5px;
 }
 
-.page-content p {
+.container.page p {
   font-size: 1.2em;
   line-height: 1.5;
 }
 
-img.masa-photo {
+
+#index-author header {
+  padding-bottom: 80px;
+}
+
+
+#index-author img {
   height: 200px;
   width: 200px;
   margin: 40px 0 0 0;
@@ -147,15 +154,21 @@ img.masa-photo {
   border-radius: 20px;
 }
 
-.icon_link {
+#index-author h4 {
+  text-transform: uppercase;
+  margin-top: 30px;
 }
 
-.icon_link > i {
+#index-author .icon_link {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  font-size: 2.0em;
 }
 
-.content_card {
-  background: rgba(0,0,0,.4);
+#index-author .icon_link > i {
 }
+
+
 
 
 /*
@@ -187,7 +200,7 @@ img.masa-photo {
 
 footer {
   line-height: 3em;
-  margin-top: 45px;
+  margin-top: 40px;
   padding-top: 5px;
   border-top: 1px solid #999999;
   color: #CCCCCC;
