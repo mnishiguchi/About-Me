@@ -41,7 +41,7 @@
         email: "=",
         size:  "="
       },
-      template: '<img ng-src="{{ vm.url }}"></img>',
+      templateUrl: "/views/gravatar.html",
 
       controllerAs: "vm",
       controller: ['$scope', function( $scope ) {

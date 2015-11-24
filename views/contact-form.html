@@ -1,18 +1,26 @@
 <!--
+  Filename: contact-form.html
+  View template for the contact-form directive.
   This is a form to send the site owner feedback via email.
   Contains two forms: one for ratings, one for a message.
  -->
 
 <form novalidate
   name="messageForm"
+  class="messageForm"
   ng-submit="messageForm.$valid && vm.handleMessageSubmit()">
 
   <!--  Live Preview -->
   <section>
     <!-- Stars -->
     <div>
-      <div ng-repeat="n in [ 1,2,3,4,5 ]" class="stars">
-        <i ng-if="n <= vm.stars" class="fa fa-star"></i>
+      <div
+        ng-repeat="n in [ 1,2,3,4,5 ]"
+        class="stars">
+        <i
+          ng-if="n <= vm.stars"
+          class="fa fa-star">
+        </i>
       </div>
     </div>
     <!-- Message -->

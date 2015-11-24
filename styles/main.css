@@ -9,6 +9,7 @@
  * Universal
  */
 
+
 .container {
   max-width: 900px;
   padding-top: 30px;
@@ -48,6 +49,12 @@ hr {
   border-color: #999999;
 }
 
+
+/*
+  Top-navbar
+ */
+
+
 .logo {
   font-family: 'Merriweather', serif;
   font-size: 1.5em;
@@ -59,9 +66,27 @@ hr {
   -webkit-text-shadow: 1px 1px 2px #FFFFFF;
 }
 
+.gravatarLink,
+.gravatarLink img {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+}
 
+.gravatarLink:before {
+    display: inline-block;
+    content:'';
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.2);
+}
 
-/* Tabs */
+/*
+  Tabs
+ */
 
 .nav-tabs {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -83,7 +108,11 @@ hr {
   color: #BBBBBB;
 }
 
-/* Page-content */
+
+/*
+  Page-content
+ */
+
 
 .page-content {
   padding: 0 60px;
@@ -97,7 +126,7 @@ hr {
 img.masa-photo {
   height: 200px;
   width: 200px;
-  margin: 40px 0px 0px 0px;
+  margin: 40px 0 0 0;
   border: 7px solid white;
   border-radius: 20px;
 }
@@ -113,7 +142,9 @@ img.masa-photo {
 }
 
 
-/* Contact form */
+/*
+  Contact form
+ */
 
 
 .stars {
@@ -124,40 +155,18 @@ img.masa-photo {
   color: yellow;
 }
 
-/**
- * Navigation bar at the top
- */
+.messageForm input.ng-invalid.ng-touched {
+  background-color: #FA787E;
+}
+
+.messageForm input.ng-valid.ng-touched {
+  background-color: #78FA89;
+}
+
+
 /*
-.navbar {
-  text-align: center;
-}
-
-.navbar ul {
-  padding: 30px 0;
-  background: rgba(99, 99, 99, .5);
-}
-
-.navbar li {
-  display: inline;
-  padding: 0 5px 0 5px;
-  text-transform: uppercase;
-  font-weight: normal;
-  font-size: 1.1em;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: #DDDDDD;
-  padding: 0 20px;
-}
-
-.navbar a:hover {
-  color: #BBBBBB;
-}
-
-.navbar a.active {
-  color: #BBBBBB;
-}*/
+  Footer
+ */
 
 
 footer {
@@ -171,15 +180,4 @@ footer {
 
 footer small {
   float: left;
-}
-
-/*
-  Forms
- */
-.ng-invalid.ng-touched {
-  background-color: #FA787E;
-}
-
-.ng-valid.ng-touched {
-  background-color: #78FA89;
 }
