@@ -1,3 +1,6 @@
+/**
+ * Defines tab-panel related components.
+ */
 (function() {
 
   // Module declaration.
@@ -28,8 +31,8 @@
           'Home',
           'About',
           'Tools',
-          'Hobbies',
-          'Code',
+          'Blog',
+          'Resources',
           'Contact'
         ];
         vm.contentUrls = [

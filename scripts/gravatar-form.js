@@ -1,3 +1,6 @@
+/**
+ * Defines gravatar related components.
+ */
 (function() {
 
   // Module declaration.

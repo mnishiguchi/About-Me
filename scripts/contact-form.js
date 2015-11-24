@@ -1,3 +1,6 @@
+/**
+ * Defines contact-form related components.
+ */
 (function() {
 
   // Module declaration.

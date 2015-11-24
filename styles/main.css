@@ -1,5 +1,4 @@
 /*
-  The styles for Masatoshi Nishiguchi's personal web site
   Filename: main.css
   Author:   Masatoshi Nishiguchi
   Date:     November 16, 2015
@@ -16,7 +15,8 @@
 }
 
 body {
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: georgia, 'Times New Roman', times, serif;
+  /*font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
   text-align: center;
 
   background: url(http://i.imgur.com/kVJs7Pb.jpg) no-repeat center center fixed;
@@ -46,6 +46,52 @@ p {
 hr {
   max-width: 400px;
   border-color: #999999;
+}
+
+.logo {
+  font-family: 'Merriweather', serif;
+  font-size: 1.5em;
+  font-weight: 900;
+  color: #000000;
+  text-transform: uppercase;
+          text-shadow: 1px 1px 2px #FFFFFF;
+     -moz-text-shadow: 1px 1px 2px #FFFFFF;
+  -webkit-text-shadow: 1px 1px 2px #FFFFFF;
+}
+
+
+
+/* Tabs */
+
+.nav-tabs {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+
+.nav-tabs a {
+  text-decoration: none;
+  color: #DDDDDD;
+  padding: 0 20px;
+}
+
+.nav-tabs a:hover {
+  color: #BBBBBB;
+}
+
+.nav-tabs a.active {
+  color: #BBBBBB;
+}
+
+/* Page-content */
+
+.page-content {
+  padding: 0 60px;
+}
+
+.page-content p {
+  font-size: 1.2em;
+  line-height: 1.5;
 }
 
 img.masa-photo {
@@ -81,8 +127,8 @@ img.masa-photo {
 /**
  * Navigation bar at the top
  */
-
-/*.navbar {
+/*
+.navbar {
   text-align: center;
 }
 

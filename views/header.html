@@ -1,20 +1,21 @@
-<nav class="navbar navbar-light bg-faded">
-  <a class="navbar-brand logo" href="#">Masatoshi Nishiguchi</a>
-
 <!--
-  <form class="form-inline navbar-form pull-right">
-    <input class="form-control" type="text" placeholder="Search">
-    <button class="btn btn-success-outline" type="submit">Search</button>
-  </form>
+  Filename: header.html
 -->
 
-  <form class="form-inline navbar-form pull-right">
+<nav
+  class="navbar navbar-light bg-faded"
+  ng-click="vm.changeBackgroundColor()"
+  ng-style="vm.css">
+  <a
+    class="navbar-brand logo"
+    href="#">
+    Masatoshi Nishiguchi</a>
+
+  <form
+    class="form-inline navbar-form pull-right">
 
     <gravatar-form></gravatar-form>
 
   </form>
 
 </nav>
-
-
-
