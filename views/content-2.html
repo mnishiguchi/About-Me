@@ -3,28 +3,33 @@
 -->
 
 <div class="container page">
-  <div class="card-block">
 
-    <h4 class="card-title">About</h4>
+  <div class="row">
+    <div class="col-sm-offset-2 col-sm-8">
 
-    <p class="card-text">
-      In college in Japan, I majored in Linguistics, was particularly interested in Syntax.
-      There, I acquired the ability of analysing things systematically as well as
-      learning how to speak English language profesionally. Later, I learned
-      counseling/psychotherapy because then I believed that was how I could
-      contribute to the society.
-      <br /><br />
-      As a profession, I ended up being a sales person of industrial machinary,
-      where I learned a variety of things such as some mechanical engineering,
-      and customer service as well as the sales techniques.
-      <br /><br />
-      So how did I start coding? In 2014, I met a professional programmer at a gym.
-      And he told me how coding was fun and talked me into it.
-      Now I am really into it.
-    </p>
-    <p>
-      <a href ng-click="i = i + 1">counter: {{ i || 0 }}</a>
-    </p>
+      <h1>About</h1>
 
-  </div>
-</div>
+      <p>
+        In college in Japan, I majored in Linguistics, was particularly interested in Syntax.
+        There, I acquired the ability of analysing things systematically as well as
+        learning how to speak English language profesionally. Later, I learned
+        counseling/psychotherapy because then I believed that was how I could
+        contribute to the society.
+        <br /><br />
+        As a profession, I ended up being a sales person of industrial machinary,
+        where I learned a variety of things such as some mechanical engineering,
+        and customer service as well as the sales techniques.
+        <br /><br />
+        So how did I start coding? In 2014, I met a professional programmer at a gym.
+        And he told me how coding was fun and talked me into it.
+        Now I am really into it.
+      </p>
+
+      <p>
+        <a href ng-click="i = i + 1">counter: {{ i || 0 }}</a>
+      </p>
+
+    </div><!-- end col-* -->
+  </div><!-- end row -->
+
+</div><!-- end container -->
