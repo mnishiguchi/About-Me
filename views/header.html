@@ -3,13 +3,14 @@
 -->
 
 <nav
-  class="navbar navbar-light bg-faded"
+  class="navbar navbar-light bg-faded top-navbar"
   ng-click="vm.changeBackgroundColor()"
   ng-style="vm.css">
 
   <a
     href="http://www.gravatar.com"
     class="navbar-brand gravatarLink">
+
     <gravatar
       email="'NISHIGUCHI.MASA@GMAIL.COM'"
       size="36">
@@ -19,7 +20,7 @@
   <ul class="nav navbar-nav">
     <li class="nav-item">
       <a
-        class="logo"
+        class="nav-link logo"
         href="#">
         Masatoshi Nishiguchi
       </a>
@@ -30,7 +31,8 @@
     class="form-inline navbar-form pull-right">
 
     <gravatar-form></gravatar-form>
-
   </form>
 
 </nav>
+
+<div class="clearfix"></div>
