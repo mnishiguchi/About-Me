@@ -200,12 +200,18 @@ hr {
 
 .messageForm select.ng-invalid.ng-dirty,
 .messageForm textarea.ng-invalid.ng-dirty {
-  background-color: #FA787E;
+  box-shadow: 0 0 5px #FA787E;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 2px solid #FA787E;
 }
 
 .messageForm select.ng-valid.ng-dirty,
 .messageForm textarea.ng-valid.ng-dirty {
-  background-color: #78FA89;
+  box-shadow: 0 0 5px #78FA89;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 2px solid #78FA89;
 }
 
 .messageForm .form-help {

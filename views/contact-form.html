@@ -38,8 +38,8 @@
   <fieldset class="form-group">
     <label for="stars">Stars</label>
     <select required
-      ng-required="{ vm.stars > 0 }"
       ng-model="vm.stars"
+      ng-required="{ vm.stars > 0 }"
       ng-options="count for count in [ 5,4,3,2,1 ]"
       class="form-control"
       id="stars"
@@ -67,6 +67,7 @@
     <label for="messages">Message</label>
     <textarea required
       ng-model="vm.message"
+      ng-minlength="10"
       placeholder="Write a short message to Masa..."
       class="form-control"
       id="message"
