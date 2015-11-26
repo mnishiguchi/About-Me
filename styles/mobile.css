@@ -1,0 +1,38 @@
+/**
+ * Styling for mobile devices
+ */
+
+
+@media (max-width: 47.9em) {
+
+  .logo {
+    font-size: 1.5em;
+  }
+
+  .nav-tabs {
+    font-size: 0.8em;
+  }
+
+  .container.page h1 {
+    font-size: 2.0em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  #index-author header {
+    padding-bottom: 40px;
+  }
+
+  #index-author img {
+    height: 150px;
+    width: 150px;
+    margin: 20px 0 0 0;
+    border: 4px solid white;
+    border-radius: 10px;
+  }
+
+  #index-author h4 {
+    font-size: 1.5em;
+    margin-top: 24px;
+  }
+}

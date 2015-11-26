@@ -39,7 +39,7 @@
     <label for="stars">Stars</label>
     <select required
       ng-model="vm.stars"
-      ng-required="{ vm.stars > 0 }"
+      ng-required="vm.stars !== 0"
       ng-options="count for count in [ 5,4,3,2,1 ]"
       class="form-control"
       id="stars"
@@ -48,7 +48,7 @@
 
       <option
         selected="selected"
-        value="">
+        value=""><!-- NOTE: Empty value is required for showing the default text. -->
         Rate this website
       </option>
     </select>

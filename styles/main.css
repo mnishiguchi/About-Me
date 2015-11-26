@@ -14,15 +14,22 @@
   padding-top: 30px;
 }
 
+/*
+The shorthand property for background.
+- background-color
+- background-image
+- background-repeat
+- background-attachment
+- background-position
+ */
 body {
   font-family: georgia, 'Times New Roman', times, serif;
-
-  background: url(http://i.imgur.com/kVJs7Pb.jpg) no-repeat center center fixed;
+  color: #FFFFFF;
+  background: url(http://i.imgur.com/kVJs7Pb.jpg) repeat-y center bottom fixed;
   -webkit-background-size: cover;
      -moz-background-size: cover;
           background-size: cover;
        -o-background-size: cover;
-  color: #FFFFFF;
 }
 
 h1, h2, h3, h4, h5, h6, .logo {
@@ -48,6 +55,14 @@ label {
 hr {
   max-width: 400px;
   border-color: #999999;
+}
+
+.divider{
+  margin: 0 8px 0 8px;
+}
+
+.divider:before {
+  content: "|";
 }
 
 
@@ -186,6 +201,16 @@ hr {
 
 
 /*
+  Movie search
+ */
+
+
+.movie-poster {
+  padding: 20px 0;
+}
+
+
+/*
   Contact form
  */
 
@@ -235,44 +260,4 @@ footer {
 
 footer small {
   float: left;
-}
-
-
-/**
- * Styling for mobile devices
- */
-
-
-@media (max-width: 47.9em) {
-
-  .logo {
-    font-size: 1.5em;
-  }
-
-  .nav-tabs {
-    font-size: 0.8em;
-  }
-
-  .container.page h1 {
-    font-size: 2.0em;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-
-  #index-author header {
-    padding-bottom: 40px;
-  }
-
-  #index-author img {
-    height: 150px;
-    width: 150px;
-    margin: 20px 0 0 0;
-    border: 4px solid white;
-    border-radius: 10px;
-  }
-
-  #index-author h4 {
-    font-size: 1.5em;
-    margin-top: 24px;
-  }
 }

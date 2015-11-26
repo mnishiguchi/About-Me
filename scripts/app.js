@@ -1,13 +1,14 @@
 /**
- *
- *
+ * The main Augular module for this website.
  */
 (function() {
 
   // Module declaration.
   angular.module( "mnApp", [ "tabPanelComponents",
                              "gravatarComponents",
-                             "contactFormComponents" ] );
+                             "contactFormComponents",
+                             "movieSearchComponents"
+  ]);
 
 
   // --------------------------------------------------------------------------- //
@@ -63,14 +64,11 @@
         // I generate a random RGBA string. e.g., rgba(100, 50, 25, 0.5)
         function getRandomRGBA() {
 
-          // Generate random values for RGB
           var red   = Math.floor(Math.random() * 255);
           var green = Math.floor(Math.random() * 255);
           var blue  = Math.floor(Math.random() * 255);
 
-          // Prepare a CSS RGBA value as a string
           return 'rgba(' + red + ',' + green + ',' + blue + ',0.5)';
-
         }
 
       }] // end controller
@@ -86,10 +84,5 @@
       templateUrl: '/views/footer.html',
     }; // end return
   }); // end directive
-
-
-  // --------------------------------------------------------------------------- //
-  // --------------------------------------------------------------------------- //
-
 
 })();

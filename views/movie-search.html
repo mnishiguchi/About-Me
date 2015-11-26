@@ -1,0 +1,94 @@
+<!--
+  Filename: movie-search.html
+-->
+
+<!-- Search bar -->
+<form>
+  <div class="form-group">
+    <input type="text"
+      ng-model="vm.search"
+      ng-change="vm.handleSearch()"
+      onclick="select()"
+      class="form-control"
+      placeholder="Enter movie name" autofocus />
+  </div>
+</form>
+
+<!-- Alert box -->
+<div
+  ng-if="vm.searching"
+  class="alert alert-info" role="alert">
+  Loading results...
+</div>
+
+<!-- Movie info -->
+<div ng-if="vm.movieInfo.Response === 'True'">
+  <img
+    ng-src="{{ vm.getMoviePosterUrl() }}"
+    class="movie-poster">
+
+  <h2
+    class="movie-title">
+    <a
+      href="http://imdb.com/title/{{ vm.movieInfo.imdbID }}"
+      target="_blank">
+      {{ vm.movieInfo.Title }}
+    </a>
+    <small>({{ vm.movieInfo.Year }})</small>
+  </h2>
+
+  <p>
+    <strong>Released on:</strong>
+    {{ vm.movieInfo.Released }} ({{ vm.movieInfo.Runtime }})
+  </p>
+
+  <p>
+    {{ vm.movieInfo.Plot }}
+  </p>
+
+  <!-- Description list -->
+  <div class="container">
+    <dl class="dl-horizontal ">
+      <dt class="col-sm-3">
+        <span class="label label-primary">Directors</span>
+      </dt>
+      <dd class="col-sm-9">
+        {{ vm.movieInfo.Director }}
+      </dd>
+
+      <dt class="col-sm-3">
+        <span class="label label-primary">Actors</span>
+      </dt>
+      <dd class="col-sm-9">
+        {{ vm.movieInfo.Actors }}
+      </dd>
+
+      <dt class="col-sm-3">
+        <span class="label label-primary">Genre</span>
+      </dt>
+      <dd class="col-sm-9">
+        {{ vm.movieInfo.Genre }}
+      </dd>
+    </dl>
+  </div>
+
+  <!-- Link buttons -->
+  <p>
+    <a
+      ng-href="{{ vm.getYouTubeUrl() }}"
+      target="_blank"
+      class="btn btn-secondary btn-sm">
+      <i class="fa fa-youtube fa-2x"></i>
+    </a>
+
+    <span class="divider"></span>
+
+    <a
+      ng-href="{{ vm.getAmazonUrl() }}"
+      target="_blank"
+      class="btn btn-secondary btn-sm">
+      <i class="fa fa-amazon fa-2x"></i>
+    </a>
+  </p>
+
+</div>

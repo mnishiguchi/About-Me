@@ -1,0 +1,46 @@
+<div ng-if="!details">
+  Loading results...
+</div>
+
+<div ng-if="details.Response==='True'">
+  <img ng-src="{{ details.Poster=='N/A' ? 'http://placehold.it/150x220&text=N/A' : 'http://imdb.wemakesites.net/api/1.0/img/?url='+details.Poster }}" class="thumbnail animated flip product-poster">
+
+  <span class="span-outer">
+    something
+  </span>
+
+  <p>something</p>
+
+  <p>{{ details.Plot }}</p>
+
+  <p class="outer-p">
+    <div class="inner-p">
+      something
+    </div>
+    <div class="inner-p">
+      something
+    </div>
+    <div class="inner-p">
+      something
+    </div>
+  </p>
+
+  <p class="outer-p-2">Ratings:<br>
+    <strong>nanntoka</strong>: <span class="label label-success">donburi</span><br>
+    <strong>gannbare</strong>: <span class="label label-success">tonkatsu</span>
+  </p>
+
+  <p class="outer-p-3">
+    <a ng-href="#" target="_blank" class="btn btn-default btn-xs btn-info">ohayou</a>
+    <span class="divider"></span>
+    <a ng-href="#" target="_blank" class="btn btn-default btn-xs btn-info">konnichiwa</a>
+    <span class="divider"></span>
+    <a ng-href="#" target="_blank" class="btn btn-default btn-xs btn-info">otsukaresame</a>
+    <span class="divider"></span>
+    <a ng-href="#" target="_blank" class="btn btn-default btn-xs btn-info">sayounara</a>
+  </p>
+</div>
+
+<div ng-if="details.Response==='False'">
+  No results found.
+</div>
