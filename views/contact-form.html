@@ -10,66 +10,87 @@
   class="messageForm"
   ng-submit="messageForm.$valid && vm.handleMessageSubmit()">
 
+
   <!--  Live Preview -->
-  <section>
-    <!-- Stars -->
-    <div>
-      <div
-        ng-repeat="n in [ 1,2,3,4,5 ]"
-        class="stars">
-        <i
-          ng-if="n <= vm.stars"
-          class="fa fa-star">
-        </i>
-      </div>
+  <div class="card card-inverse" style="background-color: #333; border-color: #333;">
+
+    <div class="card-block">
+      <!-- Stars -->
+      <h3 class="card-title">
+        <div
+          ng-repeat="n in [ 1,2,3,4,5 ]"
+          class="stars">
+          <i
+            ng-if="n <= vm.stars"
+            class="fa fa-star">
+          </i>
+        </div>
+      </h3>
+      <!-- Message -->
+      <p class="card-text">
+        {{ vm.message }}
+      </p>
     </div>
-    <!-- Message -->
-    <div>
-      {{ vm.message }}
-    </div>
-  </section>
+  </div>
 
 
   <!--  Input fields for stars -->
   <fieldset class="form-group">
-
+    <label for="stars">Stars</label>
     <select required
+      ng-required="{ vm.stars > 0 }"
       ng-model="vm.stars"
+      ng-options="count for count in [ 5,4,3,2,1 ]"
       class="form-control"
-      ng-options="stars for stars in [ 5,4,3,2,1 ]"
+      id="stars"
+      name="stars"
       title="Stars" >
 
       <option
-        value=""
-        selected="selected">
+        selected="selected"
+        value="">
         Rate this website
       </option>
-
     </select>
 
+    <!-- Alert box -->
+    <p
+      ng-show="messageForm.stars.$invalid && !messageForm.stars.$pristine"
+      class="form-help">
+      <em>*required</em>
+    </p>
   </fieldset>
 
 
   <!--  Input field for message -->
   <fieldset class="form-group">
-
+    <label for="messages">Message</label>
     <textarea required
       ng-model="vm.message"
-      class="form-control"
       placeholder="Write a short message to Masa..."
+      class="form-control"
+      id="message"
+      name="message"
       title="Message">
     </textarea>
 
+    <!-- Alert box -->
+    <p
+      ng-show="messageForm.message.$invalid && !messageForm.message.$pristine"
+      class="form-help">
+      <em>*required</em>
+    </p>
   </fieldset>
 
 
   <!--  Submit -->
   <fieldset class="form-group">
-
-    <input type="submit"
-      class="btn btn-primary pull-right"
-      value="Send message" />
-
+    <button type="submit"
+      ng-class="messageForm.$invalid ? 'btn-secondary-outline' : 'btn-success'"
+      ng-disabled="messageForm.$invalid"
+      class="btn pull-right">
+      Send message
+    </button>
   </fieldset>
 
 </form>
