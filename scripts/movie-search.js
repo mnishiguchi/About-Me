@@ -23,15 +23,22 @@
       templateUrl: "/views/movie-search.html",
 
       controllerAs: "vm",
-      controller: ['$scope', '$http', function( $scope, $http ) {
+      controller: ['$scope', '$http', '$log', function( $scope, $http, $log ) {
 
         var vm    = this;
         var props = $scope.props = $scope;  // Alias for $scope
 
-        // Initial state
-        vm.search      = "";
-        vm.movieInfo   = {};
-        vm.searching   = false;
+        // Constants.
+        var OMDB_BASE_URL    = "http://www.omdbapi.com/";
+        var POSTER_BASE_URL  = "http://imdb.wemakesites.net/api/1.0/img/";
+        var PLACEHOLDER_URL  = "http://placehold.it/150x220&text=N/A";
+        var AMAZON_BASE_URL  = "http://www.amazon.in/s/ref=nb_sb_noss_1/";
+        var YOUTUBE_BASE_URL = "https://www.youtube.com/results/";
+
+        // Initial state.
+        vm.searchKey = "";
+        vm.movieInfo = {};
+        vm.loading   = false;
 
         // Expose the public methods.
         vm.fetchInfo         = fetchInfo;
@@ -50,47 +57,49 @@
         function getMoviePosterUrl() {
 
             return (vm.movieInfo.Poster == 'N/A')
-                    ? 'http://placehold.it/150x220&text=N/A'
-                    : 'http://imdb.wemakesites.net/api/1.0/img/?url=' + vm.movieInfo.Poster;
+                    ? PLACEHOLDER_URL
+                    : POSTER_BASE_URL + '?url=' + vm.movieInfo.Poster;
         }
 
         // I provide an URL for a amazon based on the current info.
         function getAmazonUrl() {
 
-            return "http://www.amazon.in/s/ref=nb_sb_noss_1" +
-                   "?url=search-alias%3Ddvd&field-keywords=" + vm.movieInfo.Title;
+            return AMAZON_BASE_URL + "?url=search-alias%3Ddvd&field-keywords="
+                                   + vm.movieInfo.Title;
         }
 
         // I provide an URL for a YouTube based on the current info.
         function getYouTubeUrl() {
 
-            return "https://www.youtube.com/results?search_query=" + vm.movieInfo.Title;
+            return YOUTUBE_BASE_URL + "?search_query=" + vm.movieInfo.Title;
         }
 
         // I fetch movie info from a public API.
         function fetchInfo() {
 
           // Clear the info if there is no search key.
-          if (vm.search === "") {
+          if (vm.searchKey === "") {
             vm.movieInfo = {};
             return;
           }
 
           // GET request for the info.
-          vm.searching = true;
-          var promise = $http.get("http://www.omdbapi.com/?t=" + vm.search
-                        + "&tomatoes=true&plot=full");
-
-          promise.success(function(response) {
-              vm.searching = false;
-              vm.movieInfo = response;
-          });
-
-          promise.error(function(data, status, headers, config) {
-              vm.searching = false;
-              alert("Error fetching the info");
-          });
-        }
+          // https://docs.angularjs.org/api/ng/service/$http
+          vm.loading = true;
+          var url = OMDB_BASE_URL + "?t=" + vm.searchKey + "&tomatoes=true&plot=full"
+          $http.get(url)
+          .then(
+            function successCallback(response) {
+              vm.loading   = false;
+              vm.movieInfo = response.data;
+              $log.info( response.data );
+            },
+            function errorCallback(response) {
+              vm.loading = false;
+              $log.error( response.statusText );
+            }
+          ); // end then
+        } // end fetchInfo
 
       }] // end controller
     }; // end return

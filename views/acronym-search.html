@@ -1,5 +1,5 @@
 <!--
-  Filename: movie-search.html
+  Filename: acronym-search.html
 -->
 
 <!-- Search bar -->
@@ -7,11 +7,11 @@
   <div class="form-group">
     <div class="input-group">
       <input type="text"
-        ng-model="vm.search"
+        ng-model="vm.searchKey"
         ng-model-options="{ updateOn: 'blur' }"
         ng-change="vm.fetchInfo()"
         class="form-control"
-        placeholder="Enter movie name">
+        placeholder="Enter acronym">
       <div class="input-group-addon">
         <a href=""><i class="fa fa-search"></i></a>
       </div>
@@ -26,74 +26,46 @@
   Loading results...
 </div>
 
-<!-- Movie info -->
-<div ng-if="vm.movieInfo.Response === 'True'">
-  <img
-    ng-src="{{ vm.getMoviePosterUrl() }}"
-    class="movie-poster">
-
-  <h2
-    class="movie-title">
-    <a
-      href="http://imdb.com/title/{{ vm.movieInfo.imdbID }}"
-      target="_blank">
-      {{ vm.movieInfo.Title }}
-    </a>
-    <small>({{ vm.movieInfo.Year }})</small>
-  </h2>
-
-  <p>
-    <strong>Released on:</strong>
-    {{ vm.movieInfo.Released }} ({{ vm.movieInfo.Runtime }})
-  </p>
-
-  <p>
-    {{ vm.movieInfo.Plot }}
-  </p>
+<!-- acronym info -->
+<div ng-if="vm.acronymInfo === []">
 
   <!-- Description list -->
   <div class="container">
-    <dl class="dl-horizontal ">
+    <dl
+      ng-repeat="item in vm.acronymInfo"
+      class="dl-horizontal ">
+
       <dt class="col-sm-3">
-        <span class="label label-primary">Directors</span>
+        <span class="label label-primary">LF</span>
       </dt>
       <dd class="col-sm-9">
-        {{ vm.movieInfo.Director }}
+        {{ item.lf }}
       </dd>
 
       <dt class="col-sm-3">
-        <span class="label label-primary">Actors</span>
+        <span class="label label-primary">FREQ</span>
       </dt>
       <dd class="col-sm-9">
-        {{ vm.movieInfo.Actors }}
+        {{ item.freq }}
       </dd>
 
       <dt class="col-sm-3">
-        <span class="label label-primary">Genre</span>
+        <span class="label label-primary">SINCE</span>
       </dt>
       <dd class="col-sm-9">
-        {{ vm.movieInfo.Genre }}
+        {{ item.since }}
       </dd>
     </dl>
   </div>
 
-  <!-- Link buttons -->
-  <p>
-    <a
-      ng-href="{{ vm.getYouTubeUrl() }}"
-      target="_blank"
-      class="btn btn-secondary btn-sm">
-      <i class="fa fa-youtube fa-2x"></i>
-    </a>
-
-    <span class="divider"></span>
-
-    <a
-      ng-href="{{ vm.getAmazonUrl() }}"
-      target="_blank"
-      class="btn btn-secondary btn-sm">
-      <i class="fa fa-amazon fa-2x"></i>
-    </a>
-  </p>
-
 </div>
+
+<!--
+    data[ 0 ].sf
+    data[ 0 ].lfs[ i ].lf
+    data[ 0 ].lfs[ i ].freq
+    data[ 0 ].lfs[ i ].since
+    data[ 0 ].lfs[ i ].vars.[ j ].lf
+    data[ 0 ].lfs[ i ].vars.[ j ].freq
+    data[ 0 ].lfs[ i ].vars.[ j ].since
+-->

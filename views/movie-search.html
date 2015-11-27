@@ -7,7 +7,7 @@
   <div class="form-group">
     <div class="input-group">
       <input type="text"
-        ng-model="vm.search"
+        ng-model="vm.searchKey"
         ng-model-options="{ updateOn: 'blur' }"
         ng-change="vm.fetchInfo()"
         class="form-control"
@@ -21,7 +21,7 @@
 
 <!-- Alert box -->
 <div
-  ng-if="vm.searching"
+  ng-if="vm.loading"
   class="alert alert-info" role="alert">
   Loading results...
 </div>

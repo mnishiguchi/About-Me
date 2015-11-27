@@ -1,26 +1,42 @@
 /**
- * Defines movie-search related components.
- * Fetches movie information based on the search term that is a full movie name.
+ * Defines acronym-search related components.
+ * Fetches acronym information based on the search term that is a full acronym name.
  *
- * Example API URL: http://www.omdbapi.com/?t=ninja&tomatoes=true&plot=full
+ * Documentation: http://www.nactem.ac.uk/software/acromine/rest.html
+ * Example API URL: http://www.nactem.ac.uk/software/acromine/dictionary.py?sf=API
  */
+
+/*
+  Data structure of the response:
+    data[ 0 ].sf
+    data[ 0 ].lfs[ i ].lf
+    data[ 0 ].lfs[ i ].freq
+    data[ 0 ].lfs[ i ].since
+    data[ 0 ].lfs[ i ].vars.[ j ].lf
+    data[ 0 ].lfs[ i ].vars.[ j ].freq
+    data[ 0 ].lfs[ i ].vars.[ j ].since
+
+  Empty result: [ ]
+ */
+
+
 (function() {
 
   // Module declaration.
-  angular.module( "movieSearchComponents", [] );
+  angular.module( "acronymSearchComponents", [] );
 
 
   // --------------------------------------------------------------------------- //
   // --------------------------------------------------------------------------- //
 
 
-  angular.module( "movieSearchComponents" )
-  .directive( 'movieSearch', function () {
+  angular.module( "acronymSearchComponents" )
+  .directive( 'acronymSearch', function () {
 
     return {
       restrict: "E",
       scope: {},
-      templateUrl: "/views/movie-search.html",
+      templateUrl: "/views/acronym-search.html",
 
       controllerAs: "vm",
       controller: ['$scope', '$http', function( $scope, $http ) {
@@ -29,15 +45,12 @@
         var props = $scope.props = $scope;  // Alias for $scope
 
         // Initial state
-        vm.search      = "";
-        vm.movieInfo   = {};
+        vm.searchKey   = "";
+        vm.acronymInfo = [];
         vm.searching   = false;
 
         // Expose the public methods.
-        vm.fetchInfo         = fetchInfo;
-        vm.getMoviePosterUrl = getMoviePosterUrl;
-        vm.getYouTubeUrl     = getYouTubeUrl;
-        vm.getAmazonUrl      = getAmazonUrl;
+        vm.fetchInfo = fetchInfo;
 
 
         // ---
@@ -45,52 +58,31 @@
         // ---
 
 
-        // I provide an URL for a poster based on the current info.
-        // If the current info is empty, I provide a placeholder.
-        function getMoviePosterUrl() {
-
-            return (vm.movieInfo.Poster == 'N/A')
-                    ? 'http://placehold.it/150x220&text=N/A'
-                    : 'http://imdb.wemakesites.net/api/1.0/img/?url=' + vm.movieInfo.Poster;
-        }
-
-        // I provide an URL for a amazon based on the current info.
-        function getAmazonUrl() {
-
-            return "http://www.amazon.in/s/ref=nb_sb_noss_1" +
-                   "?url=search-alias%3Ddvd&field-keywords=" + vm.movieInfo.Title;
-        }
-
-        // I provide an URL for a YouTube based on the current info.
-        function getYouTubeUrl() {
-
-            return "https://www.youtube.com/results?search_query=" + vm.movieInfo.Title;
-        }
-
-        // I fetch movie info from a public API.
+        // I fetch acronym info from a public API.
         function fetchInfo() {
 
           // Clear the info if there is no search key.
-          if (vm.search === "") {
-            vm.movieInfo = {};
+          if (vm.searchKey === "") {
+            vm.acronymInfo = [];
             return;
           }
 
           // GET request for the info.
           vm.searching = true;
-          var promise = $http.get("http://www.omdbapi.com/?t=" + vm.search
-                        + "&tomatoes=true&plot=full");
+          var promise = $http.get("http://www.nactem.ac.uk/software/acromine/dictionary.py?sf="
+                        + vm.searchKey);
 
-          promise.success(function(response) {
+          promise.then(
+            function successCallback(response) {
+              vm.searching   = false;
+              vm.acronymInfo = response.data[0].lfs;
+            },
+            function errorCallback(response) {
               vm.searching = false;
-              vm.movieInfo = response;
-          });
-
-          promise.error(function(data, status, headers, config) {
-              vm.searching = false;
-              alert("Error fetching the info");
-          });
-        }
+              alert("Error fetching data");
+            }
+          ); // end then
+        } // end fetchInfo
 
       }] // end controller
     }; // end return
