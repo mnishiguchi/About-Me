@@ -86,12 +86,15 @@ hr {
   font-size: 1.8em;
   font-weight: 900;
   color: #999999;
-  float: left;
   letter-spacing: -1px;
   text-transform: uppercase;
           text-shadow: 1px 1px 2px #FFFFFF;
      -moz-text-shadow: 1px 1px 2px #FFFFFF;
   -webkit-text-shadow: 1px 1px 2px #FFFFFF;
+
+  height: 43px;
+  line-height: 43px;
+  float: left;
 }
 
 .logo:hover {

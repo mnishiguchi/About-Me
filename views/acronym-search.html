@@ -1,46 +1,99 @@
-<div ng-if="!details">
+<!--
+  Filename: movie-search.html
+-->
+
+<!-- Search bar -->
+<form class="form-inline">
+  <div class="form-group">
+    <div class="input-group">
+      <input type="text"
+        ng-model="vm.search"
+        ng-model-options="{ updateOn: 'blur' }"
+        ng-change="vm.fetchInfo()"
+        class="form-control"
+        placeholder="Enter movie name">
+      <div class="input-group-addon">
+        <a href=""><i class="fa fa-search"></i></a>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- Alert box -->
+<div
+  ng-if="vm.searching"
+  class="alert alert-info" role="alert">
   Loading results...
 </div>
 
-<div ng-if="details.Response==='True'">
-  <img ng-src="{{ details.Poster=='N/A' ? 'http://placehold.it/150x220&text=N/A' : 'http://imdb.wemakesites.net/api/1.0/img/?url='+details.Poster }}" class="thumbnail animated flip product-poster">
+<!-- Movie info -->
+<div ng-if="vm.movieInfo.Response === 'True'">
+  <img
+    ng-src="{{ vm.getMoviePosterUrl() }}"
+    class="movie-poster">
 
-  <span class="span-outer">
-    something
-  </span>
+  <h2
+    class="movie-title">
+    <a
+      href="http://imdb.com/title/{{ vm.movieInfo.imdbID }}"
+      target="_blank">
+      {{ vm.movieInfo.Title }}
+    </a>
+    <small>({{ vm.movieInfo.Year }})</small>
+  </h2>
 
-  <p>something</p>
-
-  <p>{{ details.Plot }}</p>
-
-  <p class="outer-p">
-    <div class="inner-p">
-      something
-    </div>
-    <div class="inner-p">
-      something
-    </div>
-    <div class="inner-p">
-      something
-    </div>
+  <p>
+    <strong>Released on:</strong>
+    {{ vm.movieInfo.Released }} ({{ vm.movieInfo.Runtime }})
   </p>
 
-  <p class="outer-p-2">Ratings:<br>
-    <strong>nanntoka</strong>: <span class="label label-success">donburi</span><br>
-    <strong>gannbare</strong>: <span class="label label-success">tonkatsu</span>
+  <p>
+    {{ vm.movieInfo.Plot }}
   </p>
 
-  <p class="outer-p-3">
-    <a ng-href="#" target="_blank" class="btn btn-default btn-xs btn-info">ohayou</a>
-    <span class="divider"></span>
-    <a ng-href="#" target="_blank" class="btn btn-default btn-xs btn-info">konnichiwa</a>
-    <span class="divider"></span>
-    <a ng-href="#" target="_blank" class="btn btn-default btn-xs btn-info">otsukaresame</a>
-    <span class="divider"></span>
-    <a ng-href="#" target="_blank" class="btn btn-default btn-xs btn-info">sayounara</a>
-  </p>
-</div>
+  <!-- Description list -->
+  <div class="container">
+    <dl class="dl-horizontal ">
+      <dt class="col-sm-3">
+        <span class="label label-primary">Directors</span>
+      </dt>
+      <dd class="col-sm-9">
+        {{ vm.movieInfo.Director }}
+      </dd>
 
-<div ng-if="details.Response==='False'">
-  No results found.
+      <dt class="col-sm-3">
+        <span class="label label-primary">Actors</span>
+      </dt>
+      <dd class="col-sm-9">
+        {{ vm.movieInfo.Actors }}
+      </dd>
+
+      <dt class="col-sm-3">
+        <span class="label label-primary">Genre</span>
+      </dt>
+      <dd class="col-sm-9">
+        {{ vm.movieInfo.Genre }}
+      </dd>
+    </dl>
+  </div>
+
+  <!-- Link buttons -->
+  <p>
+    <a
+      ng-href="{{ vm.getYouTubeUrl() }}"
+      target="_blank"
+      class="btn btn-secondary btn-sm">
+      <i class="fa fa-youtube fa-2x"></i>
+    </a>
+
+    <span class="divider"></span>
+
+    <a
+      ng-href="{{ vm.getAmazonUrl() }}"
+      target="_blank"
+      class="btn btn-secondary btn-sm">
+      <i class="fa fa-amazon fa-2x"></i>
+    </a>
+  </p>
+
 </div>

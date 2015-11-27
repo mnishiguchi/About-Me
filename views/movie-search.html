@@ -28,17 +28,17 @@
 
 <!-- Movie info -->
 <div ng-if="vm.movieInfo.Response === 'True'">
-  <img
-    ng-src="{{ vm.getMoviePosterUrl() }}"
-    class="movie-poster">
 
-  <h2
-    class="movie-title">
-    <a
-      href="http://imdb.com/title/{{ vm.movieInfo.imdbID }}"
-      target="_blank">
-      {{ vm.movieInfo.Title }}
-    </a>
+  <a
+    href="http://imdb.com/title/{{ vm.movieInfo.imdbID }}"
+    target="_blank">
+    <img
+      ng-src="{{ vm.getMoviePosterUrl() }}"
+      class="movie-poster">
+  </a>
+
+  <h2 class="movie-title">
+    {{ vm.movieInfo.Title }}
     <small>({{ vm.movieInfo.Year }})</small>
   </h2>
 
