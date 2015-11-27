@@ -3,14 +3,19 @@
 -->
 
 <!-- Search bar -->
-<form>
+<form class="form-inline">
   <div class="form-group">
-    <input type="text"
-      ng-model="vm.search"
-      ng-change="vm.handleSearch()"
-      onclick="select()"
-      class="form-control"
-      placeholder="Enter movie name" autofocus />
+    <div class="input-group">
+      <input type="text"
+        ng-model="vm.search"
+        ng-model-options="{ updateOn: 'blur' }"
+        ng-change="vm.fetchInfo()"
+        class="form-control"
+        placeholder="Enter movie name">
+      <div class="input-group-addon">
+        <a href=""><i class="fa fa-search"></i></a>
+      </div>
+    </div>
   </div>
 </form>
 

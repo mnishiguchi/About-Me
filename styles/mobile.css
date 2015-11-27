@@ -1,9 +1,9 @@
 /**
- * Styling for mobile devices
+ * Styling for tablets.
  */
 
 
-@media (max-width: 47.9em) {
+@media (max-width: 48em) {
 
   .logo {
     font-size: 1.5em;
@@ -34,5 +34,15 @@
   #index-author h4 {
     font-size: 1.5em;
     margin-top: 24px;
+  }
+}
+
+/**
+ * Styling for smart phones.
+ */
+@media (max-width: 34em) {
+
+  .logo {
+    font-size: 1.2em;
   }
 }

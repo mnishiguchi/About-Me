@@ -7,7 +7,8 @@
   angular.module( "mnApp", [ "tabPanelComponents",
                              "gravatarComponents",
                              "contactFormComponents",
-                             "movieSearchComponents"
+                             "movieSearchComponents",
+                             "breakpointSetterComponents"
   ]);
 
 
@@ -18,8 +19,7 @@
   angular.module( "mnApp" )
   .controller( "AppController", function( $scope ) {
 
-    }
-  );
+  }); // end controller
 
 
   // --------------------------------------------------------------------------- //
@@ -31,6 +31,7 @@
 
     return {
       restrict: "E",
+      scope: {},
       templateUrl: '/views/header.html',
       controllerAs: "vm",
       controller: ['$scope', function( $scope ) {

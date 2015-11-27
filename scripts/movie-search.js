@@ -29,32 +29,21 @@
         var props = $scope.props = $scope;  // Alias for $scope
 
         // Initial state
-        vm.pendingTask = null;
         vm.search      = "";
         vm.movieInfo   = {};
         vm.searching   = false;
 
         // Expose the public methods.
-        vm.handleSearch      = handleSearch;
+        vm.fetchInfo         = fetchInfo;
         vm.getMoviePosterUrl = getMoviePosterUrl;
         vm.getYouTubeUrl     = getYouTubeUrl;
-        vm.getMoviePosterUrl = getMoviePosterUrl;
+        vm.getAmazonUrl      = getAmazonUrl;
 
 
         // ---
         // PUBLIC METHODS.
         // ---
 
-
-        // I perform the search based on the
-        function handleSearch() {
-
-          if (vm.pendingTask) {
-            clearTimeout(vm.pendingTask);
-          }
-
-          vm.pendingTask = setTimeout(fetchInfo, 800);
-        };
 
         // I provide an URL for a poster based on the current info.
         // If the current info is empty, I provide a placeholder.
@@ -77,12 +66,6 @@
 
             return "https://www.youtube.com/results?search_query=" + vm.movieInfo.Title;
         }
-
-
-        // ---
-        // PRIVATE METHODS.
-        // ---
-
 
         // I fetch movie info from a public API.
         function fetchInfo() {

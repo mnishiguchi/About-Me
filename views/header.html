@@ -5,7 +5,7 @@
 <nav
   class="navbar navbar-light bg-faded top-navbar"
   ng-click="vm.changeBackgroundColor()"
-  ng-style="vm.css">
+  ng-style="vm.css" >
 
   <a
     href="https://github.com/mnishiguchi"
@@ -27,7 +27,13 @@
     </li>
   </ul>
 
-  <gravatar-form></gravatar-form>
+  <div
+    breakpoint-setter
+    ng-show="isLarge">
+
+    <gravatar-form></gravatar-form>
+  </div>
+
 </nav>
 
 <div class="clearfix"></div>
