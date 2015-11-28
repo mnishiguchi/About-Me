@@ -1,43 +1,48 @@
-h2.post-title {
-  font-family: Lora,'Times New Roman',serif;
-  font-weight: bold;
-}
-
-.post-preview>a {
+.post-preview >a {
     color: #FFFFFF;
 }
 
-.post-preview>a:hover,
-.post-preview>a:focus {
+.post-preview > a:hover,
+.post-preview > a:focus {
   text-decoration: none;
-  color: #0085a1
+  color: #CCCCCC
 }
-.post-preview>a>.post-title {
-  font-size: 30px;
+
+.post-preview > a > .post-title {
+  font-family: Lora,'Times New Roman',serif;
+  font-weight: bold;
+  font-size: 2.5em;
   margin-top: 30px;
   margin-bottom: 10px
 }
-.post-preview>a>.post-subtitle {
+.post-preview > a > .post-subtitle {
+  font-size: 1.5em;
   margin: 0;
   font-weight: 300;
   margin-bottom: 10px
 }
 
-.post-preview>.post-meta {
-  font-size:18px;
+.post-preview > .post-meta {
+  font-size: 1.3em;
   font-style: italic;
   margin-top: 0;
 }
 
-.post-preview>.post-meta>a {
+.post-preview > .post-meta > a {
   text-decoration: none;
   color: #FFFFFF;
 }
 
-.post-preview>.post-meta>a:hover,
-.post-preview>.post-meta>a:focus {
-  color:#0085a1;
+.post-preview > .post-meta > a:hover,
+.post-preview > .post-meta > a:focus {
+  color:#CCCCCC;
   text-decoration:underline;
+}
+
+.post-preview hr {
+  max-width: 720px;
+  border-color: #CCCCCC;
+  margin-top: 40px;
 }
 
 @media only screen and (min-width:768px) {

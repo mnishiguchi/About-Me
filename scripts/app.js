@@ -9,7 +9,8 @@
                              "contactFormComponents",
                              "movieSearchComponents",
                              "breakpointSetterComponents",
-                             "acronymSearchComponents"
+                             "acronymSearchComponents",
+                             "blogComponents"
   ]);
 
 
