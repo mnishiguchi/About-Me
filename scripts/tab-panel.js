@@ -33,7 +33,6 @@
           'Tools',
           'Blog',
           'Movie search',
-          'Acronym search',
           'Contact'
         ];
         vm.contentUrls = [
@@ -43,7 +42,6 @@
           "/views/content-4.html",
           "/views/content-5.html",
           "/views/content-6.html",
-          "/views/content-7.html",
         ];
 
         // Set the tab position

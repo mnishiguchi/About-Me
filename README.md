@@ -154,9 +154,4 @@ $grid-breakpoints: (
 </form>
 ```
 
-## CORS issues
 
-- http://stackoverflow.com/questions/15542278/angularjs-issue-http-get-not-working/15542526#15542526
-- http://stackoverflow.com/questions/12111936/angularjs-performs-an-options-http-request-for-a-cross-origin-resource
-- http://stackoverflow.com/questions/31899651/angularjs-request-json-from-other-domain
-- http://shawnsimondeveloper.com/nodeproxyangular/
