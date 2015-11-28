@@ -30,6 +30,39 @@
   // --------------------------------------------------------------------------- //
 
 
+
+
+  function AcronymApiService( $http ) {
+    this.$http    = $http;
+    this.url      = "/acronym";
+    //this.BASE_URL = "http://www.nactem.ac.uk/software/acromine/dictionary.py/";
+  };
+
+
+  // I fetch acronym data from the API.
+  // Inject me the into the controller which will display this information.
+  angular.module( "acronymSearchComponents" )
+  .service( 'acronymApiService', AcronymApiService );
+
+  // ---
+  // PUBLIC METHODS.
+  // ---
+
+
+  /**
+   * @param  searchKey
+   * @return promise for controller to use.
+   */
+  AcronymApiService.prototype.getAcronym = function(searchKey) {
+
+    return this.$http.get( this.url + "?sf=" + searchKey );
+  };
+
+
+  // --------------------------------------------------------------------------- //
+  // --------------------------------------------------------------------------- //
+
+
   angular.module( "acronymSearchComponents" )
   .directive( 'acronymSearch', function () {
 
@@ -39,13 +72,11 @@
       templateUrl: "/views/acronym-search.html",
 
       controllerAs: "vm",
-      controller: ['$scope', '$http', '$log', function( $scope, $http, $log ) {
+      controller: ['$scope', '$log', 'acronymApiService',
+                  function( $scope, $log, acronymApiService ) {
 
         var vm    = this;
         var props = $scope.props = $scope;  // Alias for $scope
-
-        // Constants.
-        var BASE_URL = "http://www.nactem.ac.uk/software/acromine/dictionary.py";
 
         // Initial state
         vm.searchKey   = "";
@@ -53,7 +84,7 @@
         vm.loading     = false;
 
         // Expose the public methods.
-        vm.fetchInfo = fetchInfo;
+        vm.fetchData = fetchData;
 
 
         // ---
@@ -62,7 +93,7 @@
 
 
         // I fetch acronym info from a public API.
-        function fetchInfo() {
+        function fetchData() {
 
           // Clear the info if there is no search key.
           if (vm.searchKey === "") {
@@ -72,17 +103,7 @@
 
           // GET request for the info.
           vm.loading = true;
-          var url = BASE_URL + "?sf=" + vm.searchKey
-          var config = {
-            headers: {
-              'Content-Type': 'application/json',
-              "Access-Control-Allow-Origin": "*"
-            }
-          }
-
-          // GET request for the info.
-          // https://docs.angularjs.org/api/ng/service/$http
-          $http.get(url, config)
+          acronymApiService.getAcronym(vm.searchKey)
           .then(
             function successCallback(response) {
               vm.loading     = false;
@@ -95,7 +116,7 @@
               $log.error( response.statusText );
             }
           ); // end then
-        } // end fetchInfo
+        } // end fetchData
 
       }] // end controller
     }; // end return

@@ -10,13 +10,27 @@
                              "movieSearchComponents",
                              "breakpointSetterComponents",
                              "acronymSearchComponents",
-                             "blogComponents"
+                             "blogComponents",
+                             "ngRoute"
   ]);
 
 
   // --------------------------------------------------------------------------- //
   // --------------------------------------------------------------------------- //
 
+
+  // angular.module( "mnApp" )
+  // .config(function( $routeProvider ) {
+
+  //   $routeProvider
+  //     .when('/', {
+  //       templateUrl: 'index.html',
+  //       controller: 'AppController'
+  //     })
+  //     .otherwise({
+  //       redirectTo: '/'
+  //     });
+  // });
 
   // angular.module( "mnApp" )
   // .config(['$httpProvider', function ($httpProvider) {
