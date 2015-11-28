@@ -36,7 +36,7 @@
         var YOUTUBE_BASE_URL = "https://www.youtube.com/results/";
 
         // Initial state.
-        vm.searchKey = "";
+        vm.searchKey = "Trading places";
         vm.movieInfo = {};
         vm.loading   = false;
 
@@ -45,6 +45,9 @@
         vm.getMoviePosterUrl = getMoviePosterUrl;
         vm.getYouTubeUrl     = getYouTubeUrl;
         vm.getAmazonUrl      = getAmazonUrl;
+
+        // Fetch the initial data.
+        fetchInfo();
 
 
         // ---

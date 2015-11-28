@@ -39,15 +39,18 @@
       templateUrl: "/views/acronym-search.html",
 
       controllerAs: "vm",
-      controller: ['$scope', '$http', function( $scope, $http ) {
+      controller: ['$scope', '$http', '$log', function( $scope, $http, $log ) {
 
         var vm    = this;
         var props = $scope.props = $scope;  // Alias for $scope
 
+        // Constants.
+        var BASE_URL = "http://www.nactem.ac.uk/software/acromine/dictionary.py";
+
         // Initial state
         vm.searchKey   = "";
         vm.acronymInfo = [];
-        vm.searching   = false;
+        vm.loading     = false;
 
         // Expose the public methods.
         vm.fetchInfo = fetchInfo;
@@ -68,18 +71,28 @@
           }
 
           // GET request for the info.
-          vm.searching = true;
-          var promise = $http.get("http://www.nactem.ac.uk/software/acromine/dictionary.py?sf="
-                        + vm.searchKey);
+          vm.loading = true;
+          var url = BASE_URL + "?sf=" + vm.searchKey
+          var config = {
+            headers: {
+              'Content-Type': 'application/json',
+              "Access-Control-Allow-Origin": "*"
+            }
+          }
 
-          promise.then(
+          // GET request for the info.
+          // https://docs.angularjs.org/api/ng/service/$http
+          $http.get(url, config)
+          .then(
             function successCallback(response) {
-              vm.searching   = false;
+              vm.loading     = false;
               vm.acronymInfo = response.data[0].lfs;
+              $log.info( response.data );
             },
             function errorCallback(response) {
-              vm.searching = false;
+              vm.loading = false;
               alert("Error fetching data");
+              $log.error( response.statusText );
             }
           ); // end then
         } // end fetchInfo
