@@ -33,7 +33,7 @@
           'About',
           'Tools',
           'Blog',
-          'Movie search',
+          'Projects',
           'Contact'
         ];
         vm.contentUrls = [

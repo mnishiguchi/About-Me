@@ -12,18 +12,14 @@
   padding-top: 30px;
 }
 
-/*
-The shorthand property for background.
-- background-color
-- background-image
-- background-repeat
-- background-attachment
-- background-position
- */
+/*https://developer.mozilla.org/en-US/docs/Web/CSS/background-position*/
 body {
   font-family: georgia, 'Times New Roman', times, serif;
-  color: #FFFFFF;
-  background: url(http://i.imgur.com/kVJs7Pb.jpg) repeat-y center bottom fixed;
+  background-image: url(http://i.imgur.com/kVJs7Pb.jpg);
+  background-repeat: repeat-y;
+  background-attachment: fixed;
+  background-position: center;
+
   -webkit-background-size: cover;
      -moz-background-size: cover;
           background-size: cover;
@@ -38,12 +34,14 @@ h1, h2, h3, h4, h5, h6, .logo {
 
 h1 {
   font-size: 3.0em;
+  color: #FFFFFF;
 }
 
 h2 {
   font-size: 2.5em;
   font-weight: 300;
   padding: 10px 0;
+  color: #FFFFFF;
 }
 
 p {
@@ -54,6 +52,7 @@ p {
 
 td {
   font-size: 1.3em;
+  color: #FFFFFF;
 }
 
 a {
@@ -95,55 +94,22 @@ label {
   font-family: 'Merriweather', serif;
   font-size: 1.8em;
   font-weight: 900;
-  color: #999999;
+  color: #FFFFFF;
   letter-spacing: -1px;
   text-transform: uppercase;
-          text-shadow: 1px 1px 2px #FFFFFF;
-     -moz-text-shadow: 1px 1px 2px #FFFFFF;
-  -webkit-text-shadow: 1px 1px 2px #FFFFFF;
+          text-shadow: 1px 1px 2px #333333;
+     -moz-text-shadow: 1px 1px 2px #333333;
+  -webkit-text-shadow: 1px 1px 2px #333333;
 
   height: 43px;
   line-height: 43px;
   float: left;
 }
 
-.logo:hover {
-  color: #999999;
+.logo:hover,
+.logo:focus {
+  color: #FFFFFF;
   text-decoration: none;
-}
-
-
-/*
-  Gravatar form
-  - Display as table-cell
- */
-
-
-.gravatar-form {
-  display: table;
-}
-
-.gravatar-form > a {
-  display: table-cell;
-  padding-left: 5px;
-}
-
-.gravatarLink,
-.gravatarLink img {
-  display: inline-block;
-  width: 36px;
-  height: 36px;
-  border-radius: 4px;
-}
-
-.gravatarLink:before {
-  display: inline-block;
-  content:'';
-  position: absolute;
-  width: 36px;
-  height: 36px;
-  border-radius: 4px;
-  box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -180,7 +146,7 @@ label {
 .container.page {
   padding-top: 20px;
   padding-bottom: 80px;
-  background: rgba(0,0,0,.4);
+  background: rgba(0, 0, 0, 0.4);
   border-radius: 0 0 5px 5px;
 }
 
@@ -205,6 +171,7 @@ label {
 #index-author h3 {
   text-transform: uppercase;
   margin-top: 30px;
+  color: #FFFFFF;
 }
 
 #index-author .icon_link {
@@ -226,39 +193,6 @@ label {
 }
 
 
-/*
-  Contact form
- */
-
-
-.stars {
-  display: inline-block;
-}
-
-.stars > i.fa-star {
-  color: yellow;
-}
-
-.messageForm select.ng-invalid.ng-dirty,
-.messageForm textarea.ng-invalid.ng-dirty {
-  box-shadow: 0 0 5px #FA787E;
-  padding: 3px 0px 3px 3px;
-  margin: 5px 1px 3px 0px;
-  border: 2px solid #FA787E;
-}
-
-.messageForm select.ng-valid.ng-dirty,
-.messageForm textarea.ng-valid.ng-dirty {
-  box-shadow: 0 0 5px #78FA89;
-  padding: 3px 0px 3px 3px;
-  margin: 5px 1px 3px 0px;
-  border: 2px solid #78FA89;
-}
-
-.messageForm .form-help {
-  color: #FA787E;
-}
-
 
 /*
   Footer
@@ -279,11 +213,16 @@ footer small {
 }
 
 /**
- * Styling for tablets.
+ * Styling for tablet.
  */
 
+@media (max-width: 62em) {
 
-@media (max-width: 48em) {
+  body {
+    background-image: none;
+    background: #333333;  /* graceful degration */
+    background: linear-gradient(to top, rgba(0,0,50,1) , rgba(0,0,50,.4));
+  }
 
   .logo {
     font-size: 1.5em;
@@ -322,7 +261,4 @@ footer small {
  */
 @media (max-width: 34em) {
 
-  .logo {
-    font-size: 1.2em;
-  }
 }

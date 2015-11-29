@@ -42,12 +42,14 @@
         var vm    = this;
         var props = $scope.props = $scope;  // Alias for $scope
 
-        // State
+        // Initial state.
         vm.css   = {};
-        vm.email = 'NISHIGUCHI.MASA@GMAIL.COM';
 
         // Expose the public methods.
         vm.changeBackgroundColor = changeBackgroundColor;
+
+        // Set the initial header color.
+        vm.changeBackgroundColor();
 
 
         // ---

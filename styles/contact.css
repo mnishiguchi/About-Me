@@ -1,0 +1,41 @@
+/*
+  Contact form
+ */
+
+.preview {
+  background-color: #333333;
+  border-color: #FFFFFF;
+}
+
+.messageForm label {
+  color: #FFFFFF;
+}
+
+
+.stars {
+  display: inline-block;
+}
+
+.stars > i.fa-star {
+  color: yellow;
+}
+
+.messageForm select.ng-invalid.ng-dirty,
+.messageForm textarea.ng-invalid.ng-dirty {
+  box-shadow: 0 0 5px #FA787E;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 2px solid #FA787E;
+}
+
+.messageForm select.ng-valid.ng-dirty,
+.messageForm textarea.ng-valid.ng-dirty {
+  box-shadow: 0 0 5px #78FA89;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 2px solid #78FA89;
+}
+
+.messageForm .form-help {
+  color: #FA787E;
+}

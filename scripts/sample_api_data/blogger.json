@@ -1,7 +1,3 @@
-// ---
-// https://www.googleapis.com/blogger/v3/blogs/1351147858586990175/posts?key=AIzaSyAjac0SRkV6lY2-P1syIZ_oI74bCQyFcZU
-// ---
-
 {
     "kind": "blogger#postList",
     "items": [
