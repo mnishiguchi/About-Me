@@ -43,7 +43,8 @@
         var props = $scope.props = $scope;  // Alias for $scope
 
         // State
-        vm.css = {};
+        vm.css   = {};
+        vm.email = 'NISHIGUCHI.MASA@GMAIL.COM';
 
         // Expose the public methods.
         vm.changeBackgroundColor = changeBackgroundColor;

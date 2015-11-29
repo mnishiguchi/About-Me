@@ -3,7 +3,8 @@
   - Toggle post-body by clicking post-title.
 -->
 
-<a ng-click="vm.toggleVisibility()">
+<a
+  ng-click="vm.toggleVisibility()">
   <h2
     class="post-title">
     {{ props.post.title }}
@@ -12,13 +13,15 @@
 
 <p class="post-meta text-muted">
   Posted by
-  <a href="{{ props.post.author_url }}">
+  <a
+    ng-href="{{ props.post.author_url }}">
     {{ props.post.author.displayName }}
   </a>
   <!-- https://docs.angularjs.org/api/ng/filter/date -->
   on {{ props.post.published | date:'short' }}
 
-  <a href="{{ props.post.url }}">
+  <a
+    ng-href="{{ props.post.url }}">
     <img
       src="https://cdn2.iconfinder.com/data/icons/aquaticus/48%20X%2048/blogger.png"
       alt="ic-blogger"
