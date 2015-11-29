@@ -12,7 +12,8 @@
 
 
   angular.module( "contactFormComponents" )
-  .directive( 'contactForm', function () {
+  .directive(
+  'contactForm', function () {
 
     return {
       restrict: "E",

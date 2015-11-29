@@ -4,12 +4,12 @@
 (function() {
 
   // Module declaration.
-  angular.module( "mnApp", [ "tabPanelComponents",
-                             "gravatarComponents",
-                             "contactFormComponents",
-                             "movieSearchComponents",
-                             "breakpointSetterComponents",
-                             "blogComponents",
+  angular.module( "mnApp", ["tabPanelComponents",
+                            "gravatarComponents",
+                            "contactFormComponents",
+                            "movieSearchComponents",
+                            "breakpointSetterComponents",
+                            "blogComponents",
   ]);
 
 
@@ -18,7 +18,8 @@
 
 
   angular.module( "mnApp" )
-  .controller( "AppController", function( $scope ) {
+  .controller(
+  "AppController", function( $scope ) {
 
   }); // end controller
 
@@ -28,12 +29,13 @@
 
 
   angular.module( "mnApp" )
-  .directive( 'siteHeader', function () {
+  .directive(
+  'siteHeader', function () {
 
     return {
       restrict: "E",
       scope: {},
-      templateUrl: '/views/header.html',
+      templateUrl: '/views/site-header.html',
       controllerAs: "vm",
       controller: ['$scope', function( $scope ) {
 
@@ -79,11 +81,12 @@
 
 
   angular.module( "mnApp" )
-  .directive( 'siteFooter', function () {
+  .directive(
+  'siteFooter', function () {
 
     return {
       restrict: "E",
-      templateUrl: '/views/footer.html',
+      templateUrl: '/views/site-footer.html',
     }; // end return
   }); // end directive
 

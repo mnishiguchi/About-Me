@@ -12,7 +12,8 @@
 
 
   angular.module( "tabPanelComponents" )
-  .directive( 'tabPanel', function () {
+  .directive(
+  'tabPanel', function () {
 
     return {
       restrict: "E",

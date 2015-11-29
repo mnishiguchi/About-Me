@@ -13,7 +13,7 @@
 
   angular.module( "blogComponents" )
   .directive(
-  'blogPreview', function () {
+  'blogPosts', function () {
 
     return {
       restrict: "E",
@@ -21,7 +21,7 @@
       templateUrl: "/views/blog-posts.html",
 
       controllerAs: "vm",
-      controller: ['$scope', '$http', '$log', function( $scope, $http, $log) {
+      controller: ['$scope', '$http', '$log', function( $scope, $http, $log ) {
 
         var vm    = this;
         var props = $scope.props = $scope;  // Alias for $scope
@@ -35,10 +35,10 @@
         vm.loading  = false;
 
         // Expose the public methods.
-        vm.loadPostPreviews = loadPostPreviews;
+        vm.loadBlogPosts = loadBlogPosts;
 
         // Load posts preview data.
-        vm.loadPostPreviews();
+        vm.loadBlogPosts();
 
 
         // ---
@@ -47,7 +47,7 @@
 
 
         // I fetch blog posts from a public API.
-        function loadPostPreviews() {
+        function loadBlogPosts() {
 
           // GET request for the info.
           // https://docs.angularjs.org/api/ng/service/$http
@@ -65,7 +65,7 @@
               $log.error( response.statusText );
             }
           ); // end then
-        } // end loadPostPreviews
+        } // end loadBlogPosts
 
       }] // end controller
     }; // end return
@@ -109,7 +109,7 @@
         var props = $scope.props = $scope;  // Alias for $scope
 
         // State
-        vm.isVisible = true;  // visibility initially false;
+        vm.isVisible = false;  // visibility initially false;
 
         // Set visibility
         vm.toggleVisibility = function() {

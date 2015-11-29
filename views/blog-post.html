@@ -15,11 +15,12 @@
   <a href="{{ props.post.author_url }}">
     {{ props.post.author.displayName }}
   </a>
-  on {{ props.post.published | date:'medium' }}
+  <!-- https://docs.angularjs.org/api/ng/filter/date -->
+  on {{ props.post.published | date:'short' }}
 
   <a href="{{ props.post.url }}">
     <img
-      src="http://cdn2.iconfinder.com/data/icons/metro-ui-dock/128/Google_Blogger.png"
+      src="https://cdn2.iconfinder.com/data/icons/aquaticus/48%20X%2048/blogger.png"
       alt="ic-blogger"
       class="ic-blogger"
       height="36px"

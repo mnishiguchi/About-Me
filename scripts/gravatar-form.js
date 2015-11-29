@@ -12,7 +12,8 @@
 
 
   angular.module( "gravatarComponents" )
-  .directive( 'gravatarForm', function () {
+  .directive(
+  'gravatarForm', function () {
 
     return {
       restrict: "E",
@@ -33,7 +34,8 @@
 
 
   angular.module( "mnApp" )
-  .directive('gravatar', function () {
+  .directive(
+  'gravatar', function () {
 
     return {
       restrict: "E",

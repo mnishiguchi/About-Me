@@ -21,8 +21,6 @@
   font-family: Lora,'Times New Roman',serif;
   font-weight: bold;
   font-size: 2.5em;
-  margin-top: 30px;
-  margin-bottom: 10px
 }
 
 #blog-posts .post-subtitle {
@@ -69,7 +67,7 @@
 }
 
 @media only screen and (min-width:768px) {
-  #blog-posts > a > .post-title {
+  #blog-posts .post-title {
     font-size:36px;
   }
 }
