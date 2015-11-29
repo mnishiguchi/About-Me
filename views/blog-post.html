@@ -1,0 +1,35 @@
+<!--
+  Filename: blog-post.html
+  - Toggle post-body by clicking post-title.
+-->
+
+<a ng-click="vm.toggleVisibility()">
+  <h2
+    class="post-title">
+    {{ props.post.title }}
+  </h2>
+</a>
+
+<p class="post-meta text-muted">
+  Posted by
+  <a href="{{ props.post.author_url }}">
+    {{ props.post.author.displayName }}
+  </a>
+  on {{ props.post.published | date:'medium' }}
+
+  <a href="{{ props.post.url }}">
+    <img
+      src="http://cdn2.iconfinder.com/data/icons/metro-ui-dock/128/Google_Blogger.png"
+      alt="ic-blogger"
+      class="ic-blogger"
+      height="36px"
+      width="36px">
+  </a>
+</p>
+
+<p
+  class="post-body"
+  ng-show="vm.isVisible"
+  ng-bind-html="props.post.content | html">
+</p>
+

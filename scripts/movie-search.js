@@ -41,13 +41,13 @@
         vm.loading   = false;
 
         // Expose the public methods.
-        vm.fetchInfo         = fetchInfo;
+        vm.fetchData         = fetchData;
         vm.getMoviePosterUrl = getMoviePosterUrl;
         vm.getYouTubeUrl     = getYouTubeUrl;
         vm.getAmazonUrl      = getAmazonUrl;
 
         // Fetch the initial data.
-        fetchInfo();
+        fetchData();
 
 
         // ---
@@ -78,7 +78,7 @@
         }
 
         // I fetch movie info from a public API.
-        function fetchInfo() {
+        function fetchData() {
 
           // Clear the info if there is no search key.
           if (vm.searchKey === "") {
@@ -102,7 +102,7 @@
               $log.error( response.statusText );
             }
           ); // end then
-        } // end fetchInfo
+        } // end fetchData
 
       }] // end controller
     }; // end return

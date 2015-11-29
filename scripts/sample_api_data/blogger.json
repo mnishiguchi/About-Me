@@ -1,0 +1,39 @@
+// ---
+// https://www.googleapis.com/blogger/v3/blogs/1351147858586990175/posts?key=AIzaSyAjac0SRkV6lY2-P1syIZ_oI74bCQyFcZU
+// ---
+
+{
+    "kind": "blogger#postList",
+    "items": [
+        {
+            "kind": "blogger#post",
+            "id": "4660277629633480235",
+            "blog": {
+              "id": "1351147858586990175"
+            },
+            "published": "2015-01-26T14:37:00-08:00",
+            "updated": "2015-06-02T05:30:05-07:00",
+            "etag": "\"GtyIIQmNmmUjEA0nwhSqMElCJ1g/dGltZXN0YW1wOiAxNDMzMjQ4MjA1NTIyCm9mZnNldDogLTI1MjAwMDAwCg\"",
+            "url": "http://masatoshinishiguchi.blogspot.com/2015/01/hello.html",
+            "selfLink": "https://www.googleapis.com/blogger/v3/blogs/1351147858586990175/posts/4660277629633480235",
+            "title": "Hello world! Welcome to Masatoshi's Blog!!!",
+            "content": "Hi, this is Masa",
+            "author": {
+                "id": "g108001832279690502453",
+                "displayName": "Nishiguchi Masatoshi",
+                "url": "https://www.blogger.com/profile/07091727591270644690",
+                "image": {
+                    "url": "//lh6.googleusercontent.com/-uKkDnAug8xg/AAAAAAAAAAI/AAAAAAAAASg/gEkD_gD1L00/s35-c/photo.jpg"
+                }
+            },
+            "replies": {
+                "totalItems": "0",
+                "selfLink": "https://www.googleapis.com/blogger/v3/blogs/1351147858586990175/posts/4660277629633480235/comments"
+            }
+        },
+        {
+          // ...
+        }
+    ],
+    "etag": "\"GtyIIQmNmmUjEA0nwhSqMElCJ1g/MjAxNS0wNi0wMlQxMjozMDowNS41MjJa\""
+}

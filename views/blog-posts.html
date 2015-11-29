@@ -1,0 +1,22 @@
+<!--
+  Filename: blog-posts.html
+-->
+
+<!-- Loading indicator -->
+<div
+  ng-if="vm.loading">
+  <i class="fa fa-spinner fa-spin"></i>
+  Loading data...
+</div>
+
+<div
+  ng-repeat="post in vm.posts"
+  id="blog-posts">
+
+  <blog-post
+    post="post">
+  </blog-post>
+
+  <hr>
+
+</div>

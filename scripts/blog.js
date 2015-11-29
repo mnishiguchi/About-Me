@@ -12,28 +12,33 @@
 
 
   angular.module( "blogComponents" )
-  .directive( 'blogPreview', function () {
+  .directive(
+  'blogPreview', function () {
 
     return {
       restrict: "E",
       scope: {},
-      templateUrl: "/views/blog-preview.html",
+      templateUrl: "/views/blog-posts.html",
 
       controllerAs: "vm",
-      controller: ['$scope', function( $scope ) {
+      controller: ['$scope', '$http', '$log', function( $scope, $http, $log) {
 
         var vm    = this;
         var props = $scope.props = $scope;  // Alias for $scope
 
-        // State
-        // Current state of the message field
-        vm.posts = {}; // Bound to the fields
+        // Constants.
+        var POSTS_URL = "https://www.googleapis.com/blogger/v3/blogs/" +
+          "1351147858586990175/posts?key=AIzaSyAjac0SRkV6lY2-P1syIZ_oI74bCQyFcZU";
+
+        // Initial state.
+        vm.posts    = {}; // Bound to the fields.
+        vm.loading  = false;
 
         // Expose the public methods.
         vm.loadPostPreviews = loadPostPreviews;
 
         // Load posts preview data.
-        vm.loadPostPreviews()
+        vm.loadPostPreviews();
 
 
         // ---
@@ -41,37 +46,75 @@
         // ---
 
 
-        // I load post previews from the API.
+        // I fetch blog posts from a public API.
         function loadPostPreviews() {
 
-          return vm.posts = [
-            {
-              title: "RUBY ON RAILS",
-              subtitle: "オープンソースのWebアプリケーションフレームワークである。RoRまたは単にRailsと呼ばれる。その名にも示されているようにRubyで書かれている。",
-              author: "Masatoshi Nishiguchi",
-              author_url: "",
-              article_url: "",
-              posted_on: "1288323623006"
-            },
-            {
-              title: "Ruby",
-              subtitle: "まつもとゆきひろ（通称 Matz）により開発されたオブジェクト指向スクリプト言語であり、スクリプト言語が用いられてきた領域でのオブジェクト指向プログラミングを実現する。",
-              author: "Masatoshi Nishiguchi",
-              author_url: "",
-              article_url: "",
-              posted_on: "1288323623006"
-            },
-            {
-              title: "俳句（はいく）",
-              subtitle: "五・七・五の十七音から成る日本語の定型詩である。",
-              author: "Masatoshi Nishiguchi",
-              author_url: "",
-              article_url: "",
-              posted_on: "1288323623006"
-            },
-          ]
+          // GET request for the info.
+          // https://docs.angularjs.org/api/ng/service/$http
+          vm.loading = true;
 
+          $http.get(POSTS_URL)
+          .then(
+            function successCallback(response) {
+              vm.loading = false;
+              vm.posts   = response.data.items;
+              $log.info( vm.posts );
+            },
+            function errorCallback(response) {
+              vm.loading = false;
+              $log.error( response.statusText );
+            }
+          ); // end then
         } // end loadPostPreviews
+
+      }] // end controller
+    }; // end return
+  }); // end directive
+
+
+  // --------------------------------------------------------------------------- //
+  // --------------------------------------------------------------------------- //
+
+
+  // I decode paragraphs that include unicode and escape sequence.
+  angular.module( "blogComponents" )
+  .filter(
+    'html', function( $sce ) {
+
+    return function( input ) {
+        return $sce.trustAsHtml( input );
+    }; // end return
+  }); // end filter
+
+
+  // --------------------------------------------------------------------------- //
+  // --------------------------------------------------------------------------- //
+
+
+  angular.module( "blogComponents" )
+  .directive(
+  'blogPost', function() {
+
+    return {
+      restrict: "E",
+      scope: {
+        post: "="
+      },
+      templateUrl: '/views/blog-post.html',
+
+      controllerAs: "vm",
+      controller: ['$scope', '$sce', function( $scope, $sce ) {
+
+        var vm    = this;
+        var props = $scope.props = $scope;  // Alias for $scope
+
+        // State
+        vm.isVisible = true;  // visibility initially false;
+
+        // Set visibility
+        vm.toggleVisibility = function() {
+          vm.isVisible = !vm.isVisible;
+        };
 
       }] // end controller
     }; // end return

@@ -1,52 +1,75 @@
-.post-preview >a {
-    color: #FFFFFF;
+/**
+ * Filename: blog.css
+ */
+
+
+#blog-posts a {
+  color: #FFFFFF;
 }
 
-.post-preview > a:hover,
-.post-preview > a:focus {
+#blog-posts img {
+  margin: 0 10px;
+}
+
+#blog-posts a:hover,
+#blog-posts a:focus {
   text-decoration: none;
   color: #CCCCCC
 }
 
-.post-preview > a > .post-title {
+#blog-posts .post-title {
   font-family: Lora,'Times New Roman',serif;
   font-weight: bold;
   font-size: 2.5em;
   margin-top: 30px;
   margin-bottom: 10px
 }
-.post-preview > a > .post-subtitle {
+
+#blog-posts .post-subtitle {
   font-size: 1.5em;
   margin: 0;
   font-weight: 300;
   margin-bottom: 10px
 }
 
-.post-preview > .post-meta {
-  font-size: 1.3em;
+#blog-posts .post-meta {
+  font-size: 1.1em;
   font-style: italic;
   margin-top: 0;
+  margin-bottom: 40px;
 }
 
-.post-preview > .post-meta > a {
+#blog-posts .post-meta a {
   text-decoration: none;
   color: #FFFFFF;
 }
 
-.post-preview > .post-meta > a:hover,
-.post-preview > .post-meta > a:focus {
+#blog-posts .post-meta a:hover,
+#blog-posts .post-meta a:focus {
   color:#CCCCCC;
   text-decoration:underline;
 }
 
-.post-preview hr {
+#blog-posts .post-body {
+
+}
+
+#blog-posts .post-body img {
+  height: 128px;
+  width: 128px;
+  border: 2px solid white;
+  border-radius: 5px;
+  margin: 20px auto;
+}
+
+#blog-posts hr {
   max-width: 720px;
   border-color: #CCCCCC;
   margin-top: 40px;
 }
 
 @media only screen and (min-width:768px) {
-  .post-preview>a>.post-title {
+  #blog-posts > a > .post-title {
     font-size:36px;
   }
 }
