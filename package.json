@@ -1,0 +1,22 @@
+{
+  "name": "mnishiguchi",
+  "version": "1.0.0",
+  "description": "Masatoshi Nishiguchi's personal website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mnishiguchi/angular_experiments"
+  },
+  "author": "Masatoshi Nishiguchi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mnishiguchi/angular_experiments/issues"
+  },
+  "homepage": "https://github.com/mnishiguchi/angular_experiments",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}

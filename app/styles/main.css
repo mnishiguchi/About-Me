@@ -55,6 +55,11 @@ td {
   color: #FFFFFF;
 }
 
+dt, dd {
+  color: #FFFFFF;
+}
+
+
 a {
   color: #999999;
 }
@@ -193,7 +198,6 @@ label {
 }
 
 
-
 /*
   Footer
  */
@@ -211,6 +215,7 @@ footer {
 footer small {
   float: left;
 }
+
 
 /**
  * Styling for tablet.
@@ -255,6 +260,7 @@ footer small {
     margin-top: 24px;
   }
 }
+
 
 /**
  * Styling for smart phones.
