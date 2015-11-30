@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mnishiguchi/angular_experiments"
+    "url": "https://github.com/mnishiguchi/my_personal_website"
   },
   "author": "Masatoshi Nishiguchi",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mnishiguchi/angular_experiments/issues"
+    "url": "https://github.com/mnishiguchi/my_personal_website/issues"
   },
-  "homepage": "https://github.com/mnishiguchi/angular_experiments",
+  "homepage": "https://github.com/mnishiguchi/my_personal_website",
   "dependencies": {
     "express": "^4.13.3"
   }

@@ -1,4 +1,4 @@
-# AngularJS simple personal website
+# My personal website
 
 - This is a single page website of my personal profile, powered by AngularJS.
 - Demo: http://project-nishiguchi.bitballoon.com/
@@ -30,6 +30,7 @@ function gravatarUrl(email, size) {
 - reference: http://shawnsimondeveloper.com/nodeproxyangular/
 
 **1. install NodeJS**
+
 **2. make a project directory**
 ```
 npm init
@@ -64,7 +65,7 @@ server.listen(server.get('port'), function() {
 ```
 node index.js
 ```
-(NOTE: control + C to quit)
+(NOTE: control + C to stop the server)
 
 **7. View the app on a browser**
 ```
