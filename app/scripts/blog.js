@@ -21,7 +21,11 @@
       templateUrl: "/views/blog-posts.html",
 
       controllerAs: "vm",
-      controller: ['$scope', '$http', '$log', function( $scope, $http, $log ) {
+      controller: [
+      '$scope',
+      '$http',
+      '$log',
+      function( $scope, $http, $log ) {
 
         var vm    = this;
         var props = $scope.props = $scope;  // Alias for $scope
@@ -79,7 +83,8 @@
   // I decode paragraphs that include unicode and escape sequence.
   angular.module( "blogComponents" )
   .filter(
-    'html', function( $sce ) {
+  'html',
+  function( $sce ) {
 
     return function( input ) {
         return $sce.trustAsHtml( input );
@@ -103,7 +108,9 @@
       templateUrl: '/views/blog-post.html',
 
       controllerAs: "vm",
-      controller: ['$scope', '$sce', function( $scope, $sce ) {
+      controller: [
+      '$scope', '$sce',
+      function( $scope, $sce ) {
 
         var vm    = this;
         var props = $scope.props = $scope;  // Alias for $scope

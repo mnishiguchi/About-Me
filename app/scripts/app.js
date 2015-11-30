@@ -36,8 +36,11 @@
       restrict: "E",
       scope: {},
       templateUrl: '/views/site-header.html',
+
       controllerAs: "vm",
-      controller: ['$scope', function( $scope ) {
+      controller: [
+      '$scope',
+      function( $scope ) {
 
         var vm    = this;
         var props = $scope.props = $scope;  // Alias for $scope

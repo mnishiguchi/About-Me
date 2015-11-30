@@ -1,5 +1,12 @@
 /**
  * breakpointSetter
+ *
+ *  USAGE
+ *  <div
+ *    breakpoint-setter
+ *    ng-show="isLarge">
+ *    ...
+ *  </div>
  */
 (function() {
 

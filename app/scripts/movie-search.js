@@ -24,7 +24,11 @@
       templateUrl: "/views/movie-search.html",
 
       controllerAs: "vm",
-      controller: ['$scope', '$http', '$log', function( $scope, $http, $log ) {
+      controller: [
+      '$scope',
+      '$http',
+      '$log',
+      function( $scope, $http, $log ) {
 
         var vm    = this;
         var props = $scope.props = $scope;  // Alias for $scope
@@ -33,7 +37,7 @@
         var OMDB_BASE_URL = "http://www.omdbapi.com/";
 
         // Initial state.
-        vm.searchKey = "Trading places";
+        vm.searchKey = "";
         vm.movieInfo = {};
         vm.loading   = false;
 
@@ -97,7 +101,9 @@
       templateUrl: "/views/movie-info.html",
 
       controllerAs: "vm",
-      controller: ['$scope', '$http', '$log', function( $scope, $http, $log ) {
+      controller: [
+      '$scope', '$http', '$log',
+      function( $scope, $http, $log ) {
 
         var vm    = this;
         var props = $scope.props = $scope;  // Alias for $scope

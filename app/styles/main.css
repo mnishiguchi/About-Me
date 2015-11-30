@@ -1,10 +1,10 @@
 /**
- * Filename: main.css
+ * main.css
  */
 
 
-/**
- * Universal
+/*
+  Universal
  */
 
 
@@ -16,7 +16,7 @@
 body {
   font-family: georgia, 'Times New Roman', times, serif;
   background-image: url(http://i.imgur.com/kVJs7Pb.jpg);
-  background-repeat: repeat-y;
+  background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
 
@@ -50,9 +50,18 @@ p {
   color: #FFFFFF;
 }
 
-td {
-  font-size: 1.3em;
+table td > b {
+  font-size: 1.2em;
   color: #FFFFFF;
+}
+
+table td {
+  font-size: 1.1em;
+  color: #FFFFFF;
+}
+
+table tr:last-child {
+  border-bottom: 1px solid #FFFFFF;
 }
 
 dt, dd {
@@ -197,6 +206,12 @@ label {
   padding: 20px 0;
 }
 
+.no-info {
+  font-size: 1.0em;
+  padding: 5px 0;
+  color: #DDDDDD;
+}
+
 
 /*
   Footer
@@ -226,7 +241,7 @@ footer small {
   body {
     background-image: none;
     background: #333333;  /* graceful degration */
-    background: linear-gradient(to top, rgba(0,0,50,1) , rgba(0,0,50,.4));
+    background: linear-gradient(to top, rgba(0,0,50,1) , rgba(0,0,50,.4), rgba(0,0,50,1));
   }
 
   .logo {

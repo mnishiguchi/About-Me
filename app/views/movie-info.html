@@ -1,4 +1,10 @@
 <!-- Movie info -->
+<p
+  ng-if="props.info.Response !== 'True'"
+  class="no-info">
+  No information to display.
+</p>
+
 <div ng-if="props.info.Response === 'True'">
 
   <a

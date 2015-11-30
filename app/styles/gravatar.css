@@ -1,8 +1,7 @@
-/*
-  Gravatar form
-  - Display as table-cell
+/**
+ * gravatar.css
+ *  - Display the form as table-cell in order to place elements inline.
  */
-
 
 .gravatar-form {
   display: table;
@@ -13,20 +12,10 @@
   padding-left: 5px;
 }
 
-.gravatarLink,
 .gravatarLink img {
   display: inline-block;
   width: 36px;
   height: 36px;
   border-radius: 4px;
-}
-
-.gravatarLink:before {
-  display: inline-block;
-  content:'';
-  position: absolute;
-  width: 36px;
-  height: 36px;
-  border-radius: 4px;
-  box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.2);
+  border: 1px solid #999999;
 }
