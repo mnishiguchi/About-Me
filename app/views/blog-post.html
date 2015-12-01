@@ -1,22 +1,33 @@
 <!--
   Filename: blog-post.html
-  - Toggle post-body by clicking post-title.
 -->
 
+<!-- Post title
+  I toggle post-body when clicked.
+-->
 <a
-  ng-click="vm.toggleVisibility()">
-  <h2
-    class="post-title">
+  ng-click="vm.toggleVisibility()"
+  class="post-title">
+  <h4>
     {{ props.post.title }}
-  </h2>
+  </h4>
 </a>
 
-<p class="post-meta text-muted">
+
+<!-- Post meta
+  When author_url exists, I link displayName to that URL.
+-->
+<p class="post-meta">
   Posted by
   <a
+    ng-if="props.post.author_url.length > 0"
     ng-href="{{ props.post.author_url }}">
     {{ props.post.author.displayName }}
   </a>
+  <span
+    ng-if="! props.post.author_url" >
+    {{ props.post.author.displayName }}
+  </span>
   <!-- https://docs.angularjs.org/api/ng/filter/date -->
   on {{ props.post.published | date:'short' }}
 
@@ -31,6 +42,11 @@
   </a>
 </p>
 
+
+<!-- Post body
+  Since the Blogger's format includes Unicode and escape sequence, I convert it
+  into appropriate HTML format, using custom html filter.
+-->
 <p
   class="post-body"
   ng-show="vm.isVisible"
