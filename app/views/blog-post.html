@@ -12,9 +12,9 @@
 <a
   ng-click="vm.toggleVisibility()"
   class="post-title">
-  <h4>
+  <h2>
     {{ props.post.title }}
-  </h4>
+  </h2>
 </a>
 
 
@@ -61,5 +61,12 @@
 <a
   ng-show="vm.isVisible"
   ng-click="vm.scrollTo(vm.topId)">
-  Top
+  [Top]
+</a>
+
+<!-- Toggle visibility -->
+<a
+  ng-show="vm.isVisible"
+  ng-click="vm.toggleVisibility()">
+  [close]
 </a>

@@ -2,15 +2,41 @@
  * blog.css
  */
 
+#blog-posts h1,
+#blog-posts h2,
+#blog-posts h3,
+#blog-posts h4,
+#blog-posts h5,
+#blog-posts h6 {
+    text-transform: uppercase;
+    font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #00aced;
+}
+
 #blog-posts img {
   margin: 0 10px;
 }
 
-#blog-posts .post-title h4 {
-  font-family: Lora,'Times New Roman',serif;
-  font-weight: 300;
+#blog-posts .post-title h2 {
   font-size: 32px;
 }
+
+#blog-posts a.post-title h2 {
+    color: #00aced;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+#blog-posts a.post-title h2:hover,
+#blog-posts a.post-title h2:focus,
+#blog-posts a.post-title h2:active {
+    text-decoration: none;
+    color: #0084b4;
+}
+
 
 #blog-posts .post-meta {
   font-size: 1.0em;

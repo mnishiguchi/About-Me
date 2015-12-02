@@ -30,11 +30,12 @@ h1, h2, h3, h4, h5, h6, .logo {
   font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
   letter-spacing: 1px;
+  color: #FFFFFF;
 }
 
 h1 {
   font-size: 3.0em;
-  color: #FFFFFF;
+
 }
 
 h2 {
