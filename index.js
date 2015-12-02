@@ -1,7 +1,5 @@
 /**
  * I am a simple NodeJS server.
- * --
- * HOW TO RUN: `node server index.js`
  */
 
 (function () {

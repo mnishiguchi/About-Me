@@ -109,19 +109,44 @@
 
       controllerAs: "vm",
       controller: [
-      '$scope', '$sce',
-      function( $scope, $sce ) {
+      '$scope',
+      "$location",
+      "$anchorScroll",
+      function( $scope, $location, $anchorScroll ) {
 
         var vm    = this;
         var props = $scope.props = $scope;  // Alias for $scope
 
         // State
         vm.isVisible = false;  // visibility initially false;
+        vm.topId     = 'post-' + props.post.id;
 
-        // Set visibility
-        vm.toggleVisibility = function() {
+        // Expose the public functions.
+        vm.toggleVisibility = toggleVisibility;
+        vm.scrollTo         = scrollTo;
+
+
+        // ---
+        // PUBLIC METHODS.
+        // ---
+
+
+        // I set visibility
+        function toggleVisibility() {
+
           vm.isVisible = !vm.isVisible;
         };
+
+
+        // I scroll to the element with the specified id.
+        function scrollTo(id) {
+
+          var old = $location.hash();
+          $location.hash(id);
+          $anchorScroll();
+          // Reset to old to keep any additional routing logic from kicking in
+          $location.hash(old);
+        }
 
       }] // end controller
     }; // end return

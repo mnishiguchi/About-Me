@@ -2,6 +2,10 @@
   Filename: blog-post.html
 -->
 
+<div
+  ng-attr-id="{{ vm.topId }}">
+</div>
+
 <!-- Post title
   I toggle post-body when clicked.
 -->
@@ -53,3 +57,9 @@
   ng-bind-html="props.post.content | html">
 </p>
 
+<!-- Link to top of this article -->
+<a
+  ng-show="vm.isVisible"
+  ng-click="vm.scrollTo(vm.topId)">
+  Top
+</a>
