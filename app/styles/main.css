@@ -68,14 +68,18 @@ dt, dd {
   color: #FFFFFF;
 }
 
-
 a {
-  color: #999999;
+    color: #00aced;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
 }
 
 a:hover,
-a.active {
-  color: #0085a1;
+a:focus,
+a:active {
+    text-decoration: none;
+    color: #0084b4;
 }
 
 p > a {
@@ -160,7 +164,7 @@ label {
 .container.page {
   padding-top: 20px;
   padding-bottom: 80px;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 0 0 5px 5px;
 }
 

@@ -1,10 +1,26 @@
-var express = require("express");
+/**
+ * I am a simple NodeJS server.
+ * --
+ * HOW TO RUN: `node server index.js`
+ */
 
-// I am a node server.
-// HOW TO RUN: `node server index.js`
-var server = express();
-server.set("port", 3000);
-server.use(express.static(__dirname + "/app"));
-server.listen(server.get('port'), function() {
-  console.log('Express server listening on port ' + server.get('port'));
-});
+(function () {
+
+  var path    = require('path');
+  var express = require("express");
+
+  var server = express();
+
+  var config = {
+    port: 3000,
+  }
+
+  var angularAppStatic = path.join(__dirname, 'app');
+
+  server.use(express.static(angularAppStatic));
+
+  server.listen(config.port, function() {
+    console.log('Express server listening on port ' + config.port);
+  });
+
+})();

@@ -2,24 +2,14 @@
  * blog.css
  */
 
-#blog-posts a {
-  color: #FFFFFF;
-}
-
 #blog-posts img {
   margin: 0 10px;
-}
-
-#blog-posts a:hover,
-#blog-posts a:focus {
-  text-decoration: none;
-  color: #CCCCCC
 }
 
 #blog-posts .post-title h4 {
   font-family: Lora,'Times New Roman',serif;
   font-weight: 300;
-  font-size: 1.3em;
+  font-size: 32px;
 }
 
 #blog-posts .post-meta {
@@ -52,6 +42,17 @@
   border-radius: 5px;
   margin: 20px auto;
 }
+
+#blog-posts .post-body a {
+  text-decoration: none;
+  color: #CCCCCC;
+}
+
+#blog-posts .post-body a:hover,
+#blog-posts .post-body a:focus {
+  color: #0084b4;
+}
+
 
 #blog-posts hr {
   max-width: 720px;
