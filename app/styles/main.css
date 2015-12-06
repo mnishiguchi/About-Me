@@ -244,9 +244,16 @@ footer small {
 @media (max-width: 62em) {
 
   body {
-    background-image: none;
-    background: #333333;  /* graceful degration */
-    background: linear-gradient(to top, rgba(0,0,50,1) , rgba(0,0,50,.4), rgba(0,0,50,1));
+    font-family: georgia, 'Times New Roman', times, serif;
+    background-image: url(http://i.imgur.com/kVJs7Pb.jpg);
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    background-position: center;
+
+    -webkit-background-size: contain;
+       -moz-background-size: contain;
+            background-size: contain;
+         -o-background-size: contain;
   }
 
   .logo {
@@ -285,6 +292,6 @@ footer small {
 /**
  * Styling for smart phones.
  */
-@media (max-width: 34em) {
+/*@media (max-width: 34em) {
 
-}
+}*/
