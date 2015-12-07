@@ -86,8 +86,14 @@
   margin-top: 40px;
 }
 
-@media only screen and (min-width:768px) {
-  #blog-posts .post-title {
-    font-size:36px;
+
+/**
+ * Styling for smart phones.
+ */
+@media (max-width: 34em) {
+
+  #blog-posts .post-title h2 {
+    font-size: 24px;
   }
+
 }
