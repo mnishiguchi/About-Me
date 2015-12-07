@@ -38,7 +38,7 @@
 
   <!--  Input fields for stars -->
   <fieldset class="form-group">
-    <label for="stars">Stars</label>
+    <label for="stars">Rate this website</label>
     <select required
       ng-model="vm.stars"
       ng-required="vm.stars !== 0"
@@ -51,7 +51,7 @@
       <option
         selected="selected"
         value=""><!-- NOTE: Empty value is required for showing the default text. -->
-        Rate this website
+        Stars
       </option>
     </select>
 
@@ -70,7 +70,7 @@
     <textarea required
       ng-model="vm.message"
       ng-minlength="10"
-      placeholder="Write a short message to Masa..."
+      placeholder="Write a message to me..."
       class="form-control"
       id="message"
       name="message"

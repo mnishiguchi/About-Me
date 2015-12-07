@@ -48,7 +48,7 @@ h2 {
 p {
   font-size: 1.3em;
   line-height: 1.6;
-  color: #FFFFFF;
+  color: #999999;
 }
 
 table td > b {
@@ -199,6 +199,10 @@ label {
 
 #index-tools table {
   margin-top: 20px;
+}
+
+#index-tools td {
+  color: #999999;
 }
 
 
