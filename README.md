@@ -127,5 +127,27 @@ function scrollTo(id) {
 - http://www.w3schools.com/tags/att_global_title.asp
 - For AngularJS, use `ng-attr-title`
 ```js
-ng-attr-title="{{ vm.css.backgroundColor }}
+ng-attr-title="{{ vm.css.backgroundColor }}"
+```
+
+==
+
+## Dynamically changing page titles
+- http://stackoverflow.com/questions/12506329/how-to-dynamically-change-header-based-on-angularjs-partial-view
+
+```js
+// Set the tab position
+vm.setTab = function(tab) {
+  vm.tab = tab;
+
+  // Set the page title via $window.
+  $window.document.title = vm.tabNames[ tab ];
+};
+```
+
+```html
+<head>
+  <title>Masatoshi Nishiguchi</title>
+  ...
+</head>
 ```
