@@ -33,9 +33,10 @@
 
 ==
 
-## How to
+## How to run
 
 ### A. Just type this URL into your browser.
+- http://mnishiguchi.bitballoon.com/
 
 ### B. Running a local server.
 
