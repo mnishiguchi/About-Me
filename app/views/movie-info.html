@@ -7,15 +7,19 @@
 
 <div ng-if="props.info.Response === 'True'">
 
-  <a
+<!--
+   <a
     href="http://imdb.com/title/{{ props.info.imdbID }}"
     target="_blank">
     <img
       ng-src="{{ vm.getMoviePosterUrl() }}"
       class="movie-poster">
   </a>
+-->
 
-  <h2 class="movie-title">
+  <h2
+    class="movie-title"
+    style="margin-top: 20px;">
     {{ props.info.Title }}
     <small>({{ props.info.Year }})</small>
   </h2>

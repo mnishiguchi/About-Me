@@ -109,7 +109,7 @@
         var props = $scope.props = $scope;  // Alias for $scope
 
         // Constants.
-        var POSTER_BASE_URL  = "http://imdb.wemakesites.net/api/1.0/img/";
+        // var POSTER_BASE_URL  = "http://imdb.wemakesites.net/api/1.0/img/";
         var PLACEHOLDER_URL  = "http://placehold.it/150x220&text=N/A";
         var AMAZON_BASE_URL  = "http://www.amazon.in/s/ref=nb_sb_noss_1/";
         var YOUTUBE_BASE_URL = "https://www.youtube.com/results/";
@@ -118,7 +118,7 @@
         // None
 
         // Expose the public methods.
-        vm.getMoviePosterUrl = getMoviePosterUrl;
+        // vm.getMoviePosterUrl = getMoviePosterUrl;
         vm.getYouTubeUrl     = getYouTubeUrl;
         vm.getAmazonUrl      = getAmazonUrl;
 
@@ -130,12 +130,12 @@
 
         // I provide an URL for a poster based on the current info.
         // If the current info is empty, I provide a placeholder.
-        function getMoviePosterUrl() {
+        // function getMoviePosterUrl() {
 
-            return (props.info.Poster == 'N/A')
-                    ? PLACEHOLDER_URL
-                    : POSTER_BASE_URL + '?url=' + props.info.Poster;
-        }
+        //     return (props.info.Poster == 'N/A')
+        //             ? PLACEHOLDER_URL
+        //             : POSTER_BASE_URL + '?url=' + props.info.Poster;
+        // }
 
         // I provide an URL for a amazon based on the current info.
         function getAmazonUrl() {

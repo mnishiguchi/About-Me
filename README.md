@@ -58,14 +58,7 @@ http://localhost:3000/
 
 ==
 
-## Items to add 
-
-    - Bookmarks (chapter 2)
-    - External / internal CSS
-    - Meta tags
-
-==
-
 ## Known issues
 - [Google chrome cast sender error if chrome cast extension is not installed or using incognito](http://stackoverflow.com/questions/24490323/google-chrome-cast-sender-error-if-chrome-cast-extension-is-not-installed-or-usi)
+- [AngularJS app not passing official W3C HTML5 validation](http://stackoverflow.com/questions/18607437/should-i-care-about-w3c-validation)
 
