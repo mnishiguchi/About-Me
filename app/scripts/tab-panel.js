@@ -52,6 +52,7 @@
         vm.setTab = setTab;
         vm.isSet  = isSet;
 
+
         // ---
         // PUBLIC METHODS.
         // ---

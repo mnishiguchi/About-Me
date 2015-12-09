@@ -210,6 +210,7 @@ label {
   Projects
  */
 
+
 .card-subtitle {
   font-size: 1.1em;
   color: #CCCCCC;
@@ -244,10 +245,21 @@ footer small {
   float: left;
 }
 
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer li {
+  float: left;
+  margin-left: 15px;
+}
+
 
 /**
  * Styling for tablet.
  */
+
 
 @media (max-width: 62em) {
 
@@ -300,6 +312,8 @@ footer small {
 /**
  * Styling for smart phones.
  */
+
+
 /*@media (max-width: 34em) {
 
 }*/

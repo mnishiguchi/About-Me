@@ -10,9 +10,9 @@
 #blog-posts h6 {
     text-transform: uppercase;
     font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
+    font-weight: 300;
     letter-spacing: 1px;
-    color: #00aced;
+    color: #0084b4;
 }
 
 #blog-posts img {
@@ -25,6 +25,7 @@
 
 #blog-posts a.post-title h2 {
     color: #00aced;
+    font-weight: 700;
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
@@ -93,7 +94,7 @@
 @media (max-width: 34em) {
 
   #blog-posts .post-title h2 {
-    font-size: 24px;
+    font-size: 28px;
   }
 
 }
