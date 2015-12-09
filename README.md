@@ -15,16 +15,21 @@
 
 ## Dependencies
 - AngularJS v1.4.8
+    + https://angularjs.org/
 - Bootstrap v4
     + http://v4-alpha.getbootstrap.com/
-    + http://v4-alpha.getbootstrap.com/components/buttons/
 - md5.js
 
 ==
 
-## sitemaps
+## Background image
+- Taken from: http://i.imgur.com/kVJs7Pb.jpg
 
-http://www.sitemaps.org/protocol.html
+==
+
+## Sitemaps
+- I follow the protocol that is defined here.
+    + http://www.sitemaps.org/protocol.html
 
 ==
 
