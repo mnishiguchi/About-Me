@@ -29,14 +29,17 @@ http://www.sitemaps.org/protocol.html
 ==
 
 ## How to run
-**1. install NodeJS**
-**2. Run the following command to run the server**
+
+### 1. install NodeJS
+
+### 2. Run the following command to run the server
+
 ```
 node index.js
 ```
 (NOTE: control + C to stop the server)
 
-**3. Visit localhost:3000 to view the app on a browser**
+### 3. Visit localhost:3000 to view the app on a browser
 ```
 http://localhost:3000/
 ```
