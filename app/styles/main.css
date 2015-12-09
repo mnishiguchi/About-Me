@@ -12,7 +12,7 @@
   padding-top: 30px;
 }
 
-/*https://developer.mozilla.org/en-US/docs/Web/CSS/background-position*/
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/background-position */
 body {
   font-family: georgia, 'Times New Roman', times, serif;
   background-image: url(http://i.imgur.com/kVJs7Pb.jpg);
@@ -51,29 +51,11 @@ p {
   color: #CCCCCC;
 }
 
-table td > b {
-  font-size: 1.2em;
-  color: #FFFFFF;
-}
-
-table td {
-  font-size: 1.1em;
-  color: #FFFFFF;
-}
-
-table tr:last-child {
-  border-bottom: 1px solid #FFFFFF;
-}
-
-dt, dd {
-  color: #FFFFFF;
-}
-
 a {
-    color: #00aced;
-    -webkit-transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
+  color: #00aced;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
 }
 
 a:hover,
@@ -97,6 +79,36 @@ label {
 
 .divider:before {
   content: "|";
+}
+
+
+/*
+  Tables
+ */
+
+
+table th {
+  border-top: none !important;
+  color: #FFFFFF;
+  font-size: 1.7em;
+}
+
+table td > b {
+  font-size: 1.2em;
+  color: #FFFFFF;
+}
+
+table td {
+  font-size: 1.1em;
+  color: #FFFFFF;
+}
+
+table tr:last-child {
+  border-bottom: 1px solid #FFFFFF;
+}
+
+dt, dd {
+  color: #FFFFFF;
 }
 
 

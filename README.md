@@ -1,4 +1,4 @@
-# My personal website
+# Masatoshi Nishiguchi's personal website
 
 - This is a single page website of my personal profile, powered by AngularJS.
 - Demo: http://mnishiguchi.bitballoon.com/
@@ -6,7 +6,7 @@
 ==
 
 ## Features
-- Client-side only (no server code)
+- Client-side only, powered by AngularJS
 - Simple tab interface for site navigation (no routes)
 - Gravatar
 - Fetches data from public APIs
@@ -60,10 +60,12 @@ http://localhost:3000/
 
 ## Items to add 
 
-    - Table (chapter 5)
     - Bookmarks (chapter 2)
     - External / internal CSS
     - Meta tags
-    
 
+==
+
+## Known issues
+- [Google chrome cast sender error if chrome cast extension is not installed or using incognito](http://stackoverflow.com/questions/24490323/google-chrome-cast-sender-error-if-chrome-cast-extension-is-not-installed-or-usi)
 

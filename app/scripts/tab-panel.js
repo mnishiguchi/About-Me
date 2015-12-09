@@ -34,9 +34,9 @@
         vm.tabNames = [
           'Home',
           'About',
-          'Tools',
+          "Things I've Learned",
+          "Projects",
           'Blog',
-          'Projects',
           'Contact'
         ];
         vm.contentUrls = [
