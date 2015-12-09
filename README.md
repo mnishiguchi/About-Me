@@ -33,18 +33,38 @@
 
 ==
 
-## How to run
+## How to
 
-### 1. install NodeJS
+### A. Just type this URL into your browser.
 
-### 2. Run the following command to run the server
+### B. Running a local server.
 
+#### 1. Install [NodeJS](https://nodejs.org/en/)
+- NodeJS comes with [NPM](https://www.npmjs.com/)
+
+#### 2. Install [ExpressJS](http://expressjs.com/en/) via NPM
+
+#### 3. Run the following command in the project's directory
+- This command starts the server.
 ```
 node index.js
 ```
 (NOTE: control + C to stop the server)
 
-### 3. Visit localhost:3000 to view the app on a browser
+#### 4. Visit localhost:3000 to view the app on a browser
 ```
 http://localhost:3000/
 ```
+
+==
+
+## Items to add 
+
+    - Table (chapter 5),
+    - Imagemap (chapter 2),
+    - Bookmarks (chapter 2),
+    - Forms (chapter 6),
+    - Multimedia  (chapter 7).
+    - External / internal CSS
+
+
