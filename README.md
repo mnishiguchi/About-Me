@@ -60,11 +60,10 @@ http://localhost:3000/
 
 ## Items to add 
 
-    - Table (chapter 5),
-    - Imagemap (chapter 2),
-    - Bookmarks (chapter 2),
-    - Forms (chapter 6),
-    - Multimedia  (chapter 7).
+    - Table (chapter 5)
+    - Bookmarks (chapter 2)
     - External / internal CSS
+    - Meta tags
+    
 
 
