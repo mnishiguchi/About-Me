@@ -187,7 +187,7 @@ dt, dd {
   text-align: center;
 }
 
-#index-author img {
+#index-author img.masatoshi {
   height: 200px;
   width: 200px;
   margin: 40px 0 0 0;
@@ -265,6 +265,26 @@ footer li {
 
 
 /**
+ * Image filters
+ * http://stackoverflow.com/questions/7415872/change-color-of-png-image-via-css
+ */
+img.qiita {
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+
+  -webkit-filter: hue-rotate(75deg); filter: hue-rotate(75deg);
+}
+
+img.qiita:hover,
+img.qiita:focus,
+img.qiita:active {
+  -webkit-filter: hue-rotate(110deg); filter: hue-rotate(110deg);
+}
+
+
+
+/**
  * Styling for tablet.
  */
 
@@ -302,9 +322,7 @@ footer li {
     padding-bottom: 40px;
   }
 
-  #index-author img {
-    height: 200px;
-    width: 200px;
+  #index-author img.masatoshi {
     margin: 20px 0 0 0;
     border: 4px solid white;
     border-radius: 10px;

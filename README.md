@@ -1,6 +1,6 @@
 # Masatoshi Nishiguchi's personal website
 
-- This is a single page website of my personal profile, powered by AngularJS.
+- This is a simple single-page app of my personal profile.
 - Demo: http://mnishiguchi.bitballoon.com/
 
 ==
@@ -8,16 +8,19 @@
 ## Features
 - Client-side only, powered by AngularJS
 - Simple tab interface for site navigation (no routes)
-- Gravatar
 - Fetches data from public APIs
-    + [The Open Movie Database](http://www.omdbapi.com/)
+    + [Open Movie Database](http://www.omdbapi.com/)
+    + [Blogger API](https://developers.google.com/blogger/?hl=en)
 
 ==
 
 ## Dependencies
+This app is built with these open-source projects. Thank you so much.
 - [AngularJS v1.4.8](https://angularjs.org/)
 - [Bootstrap v4](http://v4-alpha.getbootstrap.com/)
-- md5.js
+- [Font Awesome](https://fortawesome.github.io/Font-Awesome/)
+- [Gravatar](http://en.gravatar.com/)
+- [md5.js](https://github.com/blueimp/JavaScript-MD5)
 
 ==
 
@@ -34,12 +37,12 @@ Since Bing, Yahoo, Ask, and Google use the same protocol, having a Sitemap lets 
 
 ==
 
-## How to run this app
+## Usage
 
 ### A. Use this URL
 - http://mnishiguchi.bitballoon.com/
 
-### B. Running a local server (optional)
+### B. Run a local server (optional)
 
 #### 1. Install [NodeJS](https://nodejs.org/en/)
 - NodeJS comes with [NPM](https://www.npmjs.com/)
