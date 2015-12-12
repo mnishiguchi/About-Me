@@ -1,20 +1,19 @@
 /**
  * Defines movie-search related components.
  * Fetches movie information based on the search term that is a full movie name.
- *
- * Example API URL: http://www.omdbapi.com/?t=ninja&tomatoes=true&plot=full
+ * http://www.omdbapi.com/
  */
 (function() {
 
   // Module declaration.
-  angular.module( "movieSearchComponents", [] );
+  var module = angular.module( "movieSearchComponents", [] );
 
 
   // --------------------------------------------------------------------------- //
   // --------------------------------------------------------------------------- //
 
 
-  angular.module( "movieSearchComponents" )
+  module
   .directive(
   'movieSearch', function () {
 
@@ -28,13 +27,11 @@
       '$scope',
       '$http',
       '$log',
-      function( $scope, $http, $log ) {
+      'movieDataService',
+      function( $scope, $http, $log, movieDataService ) {
 
         var vm    = this;
         var props = $scope.props = $scope;  // Alias for $scope
-
-        // Constants.
-        var OMDB_BASE_URL = "http://www.omdbapi.com/";
 
         // Initial state.
         vm.searchKey = "";
@@ -44,41 +41,28 @@
         // Expose the public methods.
         vm.fetchData = fetchData;
 
-        // Fetch the initial data.
-        fetchData();
-
 
         // ---
         // PUBLIC METHODS.
         // ---
 
 
-        // I fetch movie info from a public API.
         function fetchData() {
 
-          // Clear the info if there is no search key.
-          if (vm.searchKey === "") {
-            vm.movieInfo = {};
-            return;
-          }
-
-          // GET request for the info.
-          // https://docs.angularjs.org/api/ng/service/$http
           vm.loading = true;
-          var url = OMDB_BASE_URL + "?t=" + vm.searchKey + "&tomatoes=true&plot=full"
-          $http.get(url)
+          movieDataService.fetchData( vm.searchKey )
           .then(
             function successCallback(response) {
-              vm.loading   = false;
-              vm.movieInfo = response.data;
-              $log.info( response.data );
-            },
-            function errorCallback(response) {
               vm.loading = false;
-              $log.error( response.statusText );
+              vm.movieInfo = response;
+            },
+            // https://docs.angularjs.org/api/ng/service/$log
+            function errorCallback(reason) {
+              vm.loading = false;
+              $log.error(reason);
             }
           ); // end then
-        } // end fetchData
+        };
 
       }] // end controller
     }; // end return
@@ -89,7 +73,7 @@
   // --------------------------------------------------------------------------- //
 
 
-  angular.module( "movieSearchComponents" )
+  module
   .directive(
   'movieInfo', function () {
 
@@ -140,18 +124,90 @@
         // I provide an URL for a amazon based on the current info.
         function getAmazonUrl() {
 
-            return AMAZON_BASE_URL + "?url=search-alias%3Ddvd&field-keywords="
+          return AMAZON_BASE_URL + "?url=search-alias%3Ddvd&field-keywords="
                                    + props.info.Title;
         }
 
         // I provide an URL for a YouTube based on the current info.
         function getYouTubeUrl() {
 
-            return YOUTUBE_BASE_URL + "?search_query=" + props.info.Title;
+          return YOUTUBE_BASE_URL + "?search_query=" + props.info.Title;
         }
 
       }] // end controller
     }; // end return
   }); // end directive
+
+
+  // --------------------------------------------------------------------------- //
+  // --------------------------------------------------------------------------- //
+
+
+  module
+  .factory(
+  'movieDataService',
+  function($http, $q) {
+
+    // The service object.
+    var service = {};
+
+    // Add properties to the service.
+    service.fetchData = fetchData;
+
+
+    // ---
+    // PUBLIC METHODS.
+    // ---
+
+
+    /**
+     * I make a GET request to the Open Movie Database for a movie data.
+     * @param  title  A search key.
+     * @return A promise of this GET request.
+     */
+    function fetchData(title) {
+
+      // Creates a Deferred object which represents a task which will finish in the future.
+      // https://docs.angularjs.org/api/ng/service/$q
+      var deferred = $q.defer();
+      var url      = makeUrl( title );
+
+      $http.get( url )
+      .then(
+        function successCallback(response) {
+          deferred.resolve( response.data );
+        },
+        function errorCallback(reason) {
+          deferred.reject( "Error fetching movie data: " + reason);
+        }
+      ); // end then
+
+      return deferred.promise;
+
+    };
+
+
+    // ---
+    // PRIVATE METHODS.
+    // ---
+
+
+    /**
+     * I make a URL for requesting movie data of the specified movie title.
+     * @param title
+     * @return A url for requesting data of the movie specified by title.
+     */
+    function makeUrl(title) {
+
+      var OMDB_BASE_URL = "http://www.omdbapi.com/?plot=full&t=";
+      return OMDB_BASE_URL + title;
+
+    };
+
+
+    // Finally return the service object.
+    return service;
+
+  }); // end factory
 
 })();
