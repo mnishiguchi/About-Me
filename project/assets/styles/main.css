@@ -265,7 +265,7 @@ footer li {
 
 
 /**
- * Image filters
+ * Image filters for Qiita icon.
  * http://stackoverflow.com/questions/7415872/change-color-of-png-image-via-css
  */
 img.qiita {
@@ -274,12 +274,13 @@ img.qiita {
   transition: all .2s ease-in-out;
 
   -webkit-filter: hue-rotate(75deg); filter: hue-rotate(75deg);
+  border-radius: 50%;
 }
 
 img.qiita:hover,
 img.qiita:focus,
 img.qiita:active {
-  -webkit-filter: hue-rotate(110deg); filter: hue-rotate(110deg);
+  -webkit-filter: opacity(80%); filter: opacity(80%);
 }
 
 
@@ -326,6 +327,7 @@ img.qiita:active {
     margin: 20px 0 0 0;
     border: 4px solid white;
     border-radius: 10px;
+
   }
 
   #index-author h4 {
