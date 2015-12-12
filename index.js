@@ -13,7 +13,7 @@
     port: 3000,
   }
 
-  var angularAppStatic = path.join(__dirname, 'app');
+  var angularAppStatic = path.join(__dirname, 'project');
 
   server.use(express.static(angularAppStatic));
 

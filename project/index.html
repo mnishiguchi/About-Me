@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="mnApp">
+
+<!--
+  Masatoshi Nishiguchi's personal web site
+  Filename: index.html
+  Author:   Masatoshi Nishiguchi
+  Date:     November 16, 2015
+-->
+
+<head>
+
+  <!--
+    The page title will be updated dynamically when a tab is clicked.
+    -->
+  <title>Masatoshi Nishiguchi</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Masatoshi Nishiguchi specializes in web development with Ruby on Rails,
+    Javascript, HTML5 and CSS3">
+  <meta name="keywords" content="HTML,CSS,JavaScript,AngularJS,Ruby on Rails">
+  <meta name="author" content="Masatoshi Nishiguchi">
+
+  <!-- Load font awesome -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" >
+
+  <!-- Load fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,900' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Load bootstrap -->
+  <link href="assets/styles/vendor/bootstrap.min.css" rel="stylesheet" type='text/css'>
+
+  <!-- Load app styles -->
+  <link rel="stylesheet" type='text/css' href="assets/styles/main.css" />
+  <link rel="stylesheet" type='text/css' href="assets/styles/blog.css" />
+  <link rel="stylesheet" type='text/css' href="assets/styles/contact.css" />
+  <link rel="stylesheet" type='text/css' href="assets/styles/gravatar.css" />
+
+  <!-- Internal stylesheet -->
+  <style>
+
+    #main-container {
+      padding-top: 30px;
+    }
+
+  </style>
+
+</head>
+
+<body ng-controller="AppController">
+
+  <!-- This is the page content. -->
+  <site-header></site-header>
+  <div
+    class="container"
+    id="main-container">
+    <tab-panel></tab-panel>
+    <site-footer></site-footer>
+  </div>
+
+  <!-- This is displayed when JavaScript is not available. -->
+  <noscript>
+    <div class="nojs">
+      Javascript is either disabled or not supported in your browser.
+      Please enable it or use a Javascript enabled browser.
+    </div>
+  </noscript>
+
+  <!--Load AngularJS-->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
+
+  <!--Load vendor scripts-->
+  <script type="text/javascript" src="assets/scripts/vendor/md5.js"></script>
+
+  <!--Load app scripts-->
+  <script type="text/javascript" src="app/app.module.js"></script>
+  <script type="text/javascript" src="app/shared/siteHeader/siteHeader.directive.js"></script>
+  <script type="text/javascript" src="app/shared/siteFooter/siteFooter.directive.js"></script>
+  <script type="text/javascript" src="app/shared/breakpointSetter.directive.js"></script>
+  <script type="text/javascript" src="app/components/gravatar/gravatar.directive.js"></script>
+  <script type="text/javascript" src="app/components/tabPanel/tabPanel.directive.js"></script>
+  <script type="text/javascript" src="app/components/contactForm/contactForm.directive.js"></script>
+  <script type="text/javascript" src="app/components/movieSearch/movieSearch.directive.js"></script>
+  <script type="text/javascript" src="app/components/blog/blog.directive.js"></script>
+
+</body>
+</html>

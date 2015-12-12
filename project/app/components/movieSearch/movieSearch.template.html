@@ -1,0 +1,33 @@
+<!--
+  MovieSearch
+  - View template for the movieSearch directive.
+-->
+
+<!-- Search bar -->
+<form class="form-inline">
+  <div class="form-group">
+    <div class="input-group">
+      <input type="text"
+        ng-model="vm.searchKey"
+        ng-model-options="{ updateOn: 'blur' }"
+        ng-change="vm.fetchData()"
+        class="form-control"
+        placeholder="Enter movie name">
+      <div class="input-group-addon">
+        <a href=""><i class="fa fa-search"></i></a>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- Loading indicator -->
+<p
+  ng-if="vm.loading">
+  <i class="fa fa-spinner fa-spin"></i>
+  Loading results...
+</p>
+
+<!-- Movie info -->
+<movie-info
+  info="vm.movieInfo">
+</movie-info>

@@ -1,0 +1,13 @@
+<!--
+  gravatar
+  - View template for the gravatar directive.
+  - Required props:
+    + email: An email address.
+      * NOTE: Pass a varible that store an email rather than a string literal.
+    + size: The image size.
+-->
+
+<img
+  ng-src="{{ vm.url }}"
+  class="gravatar">
+</img>

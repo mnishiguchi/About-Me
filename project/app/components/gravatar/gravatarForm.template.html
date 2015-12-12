@@ -1,0 +1,24 @@
+<!--
+  gravatarForm
+  - View template for the gravatarForm directive.
+-->
+
+<form novalidate
+  class="form-inline navbar-form pull-right gravatar-form">
+
+  <input type="email"
+    ng-model="email"
+    class="form-control"
+    placeholder="Enter your email">
+
+  <a
+    href="http://www.gravatar.com"
+    class="gravatarLink">
+
+    <gravatar
+      email="email"
+      size="36">
+    </gravatar>
+  </a>
+
+</form>

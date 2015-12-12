@@ -1,0 +1,72 @@
+<!--
+  blogPost
+-->
+
+<div
+  ng-attr-id="{{ vm.topId }}">
+</div>
+
+<!-- Post title
+  I toggle post-body when clicked.
+-->
+<a
+  ng-click="vm.toggleVisibility()"
+  class="post-title">
+  <h2>
+    {{ props.post.title }}
+  </h2>
+</a>
+
+
+<!-- Post meta
+  When author_url exists, I link displayName to that URL.
+-->
+<p class="post-meta">
+  Posted by
+  <a
+    ng-if="props.post.author_url.length > 0"
+    ng-href="{{ props.post.author_url }}">
+    {{ props.post.author.displayName }}
+  </a>
+  <span
+    ng-if="! props.post.author_url" >
+    {{ props.post.author.displayName }}
+  </span>
+  <!-- https://docs.angularjs.org/api/ng/filter/date -->
+  on {{ props.post.published | date:'short' }}
+
+  <a
+    ng-href="{{ props.post.url }}">
+    <img
+      src="https://cdn2.iconfinder.com/data/icons/aquaticus/48%20X%2048/blogger.png"
+      alt="ic-blogger"
+      class="ic-blogger"
+      height="36px"
+      width="36px">
+  </a>
+</p>
+
+
+<!-- Post body
+  Since the Blogger's format includes Unicode and escape sequence, I convert it
+  into appropriate HTML format, using custom html filter.
+-->
+<p
+  class="post-body"
+  ng-show="vm.isVisible"
+  ng-bind-html="props.post.content | html">
+</p>
+
+<!-- Link to top of this article -->
+<a
+  ng-show="vm.isVisible"
+  ng-click="vm.scrollTo(vm.topId)">
+  [Top]
+</a>
+
+<!-- Toggle visibility -->
+<a
+  ng-show="vm.isVisible"
+  ng-click="vm.toggleVisibility()">
+  [close]
+</a>
