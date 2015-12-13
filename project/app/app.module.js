@@ -28,6 +28,8 @@
   "AppController",
   function( $scope ) {
 
+    $scope.title = "Masatoshi Nishiguchi";
+
   }); // end controller
 
 })();

@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en-us" ng-app="mnApp">
+<html
+  lang="en-us"
+  ng-app="mnApp"
+  ng-controller="AppController as appCtrl">
 
 <!--
   Masatoshi Nishiguchi's personal web site
@@ -10,11 +13,6 @@
 
 <head>
 
-  <!--
-    The page title will be updated dynamically when a tab is clicked.
-    -->
-  <title>Masatoshi Nishiguchi</title>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Masatoshi Nishiguchi specializes in web development with Ruby on Rails, Javascript, HTML5 and CSS3">
@@ -23,27 +21,6 @@
 
   <!-- Load favicon -->
   <link rel="icon" type="image/png" href="assets/images/favicon-32x32.png" sizes="32x32" />
-
-  <!--Load AngularJS-->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
-
-  <!--Load vendor scripts-->
-  <script type="text/javascript" src="assets/scripts/vendor/md5.js"></script>
-
-  <!--Load app scripts-->
-  <script type="text/javascript" src="app/app.module.js"></script>
-  <script type="text/javascript" src="app/shared/siteHeader/siteHeader.directive.js"></script>
-  <script type="text/javascript" src="app/shared/siteFooter/siteFooter.directive.js"></script>
-  <script type="text/javascript" src="app/shared/breakpointSetter.directive.js"></script>
-  <script type="text/javascript" src="app/shared/anchorHashLink.directive.js"></script>
-  <script type="text/javascript" src="app/components/gravatar/gravatar.directive.js"></script>
-  <script type="text/javascript" src="app/components/tabPanel/tabPanel.directive.js"></script>
-  <script type="text/javascript" src="app/components/contactForm/contactForm.directive.js"></script>
-  <script type="text/javascript" src="app/components/movieSearch/movieSearch.directive.js"></script>
-  <script type="text/javascript" src="app/components/blog/blog.directive.js"></script>
-  <script type="text/javascript" src="app/services/movieData.service.js"></script>
-  <script type="text/javascript" src="app/services/blogData.service.js"></script>
-  <script type="text/javascript" src="app/filters/customFilters.js"></script>
 
   <!-- Load font awesome -->
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" >
@@ -72,9 +49,35 @@
 
   </style>
 
+  <!--Load AngularJS-->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
+
+  <!--Load vendor scripts-->
+  <script type="text/javascript" src="assets/scripts/vendor/md5.js"></script>
+
+  <!--Load app scripts-->
+  <script type="text/javascript" src="app/app.module.js"></script>
+  <script type="text/javascript" src="app/shared/siteHeader/siteHeader.directive.js"></script>
+  <script type="text/javascript" src="app/shared/siteFooter/siteFooter.directive.js"></script>
+  <script type="text/javascript" src="app/shared/breakpointSetter.directive.js"></script>
+  <script type="text/javascript" src="app/shared/anchorHashLink.directive.js"></script>
+  <script type="text/javascript" src="app/components/gravatar/gravatar.directive.js"></script>
+  <script type="text/javascript" src="app/components/tabPanel/tabPanel.directive.js"></script>
+  <script type="text/javascript" src="app/components/contactForm/contactForm.directive.js"></script>
+  <script type="text/javascript" src="app/components/movieSearch/movieSearch.directive.js"></script>
+  <script type="text/javascript" src="app/components/blog/blog.directive.js"></script>
+  <script type="text/javascript" src="app/services/movieData.service.js"></script>
+  <script type="text/javascript" src="app/services/blogData.service.js"></script>
+  <script type="text/javascript" src="app/filters/customFilters.js"></script>
+
+  <!--
+    The page title will be updated dynamically when a tab is clicked.
+    -->
+  <title ng-bind="title"></title>
+
 </head>
 
-<body ng-controller="AppController">
+<body>
 
   <!-- This is the page content. -->
   <site-header></site-header>
@@ -92,7 +95,6 @@
       Please enable it or use a Javascript enabled browser.
     </div>
   </noscript>
-
 
 </body>
 </html>

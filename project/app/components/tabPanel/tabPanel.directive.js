@@ -27,7 +27,7 @@
       [
         '$scope',
         "$window",
-        function( $scope, $window ) {
+        function( $scope ) {
 
           var vm    = this;
           var props = $scope.props = $scope;  // Alias for $scope
@@ -68,9 +68,8 @@
           function setTab(tab) {
             vm.tab = tab;
 
-            // Set the page title via $window.
-            $window.document.title = vm.tabNames[ tab ] + " | Masatoshi Nishiguchi";
-
+            // Set the page title.
+            $scope.$parent.title = vm.tabNames[ tab ] + " | Masatoshi Nishiguchi";
           };
 
 
