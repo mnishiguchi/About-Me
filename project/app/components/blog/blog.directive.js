@@ -7,7 +7,7 @@
   var module = angular.module(
   "blogComponents",
   [
-    "blogDataService",
+    "blogDataService"
   ]);
 
 
@@ -56,8 +56,6 @@
            * I fetch blog posts from a public API.
            */
           function loadBlogPosts() {
-
-
 
             vm.loading = true;
             blogDataService.loadBlogPosts()
@@ -113,7 +111,7 @@
 
           // Expose the public functions.
           vm.toggleVisibility = toggleVisibility;
-          vm.scrollTo         = scrollTo;
+          // vm.scrollTo         = scrollTo;
 
 
           // ---
@@ -128,15 +126,15 @@
           };
 
 
-          // I scroll to the element with the specified id.
-          function scrollTo(id) {
+          // // I scroll to the element with the specified id.
+          // function scrollTo(id) {
 
-            var old = $location.hash();
-            $location.hash(id);
-            $anchorScroll();
-            // Reset to old to keep any additional routing logic from kicking in
-            $location.hash(old);
-          }
+          //   var old = $location.hash();
+          //   $location.hash(id);
+          //   $anchorScroll();
+          //   // Reset to old to keep any additional routing logic from kicking in
+          //   $location.hash(old);
+          // }
 
         } // end function
       ] // end controller

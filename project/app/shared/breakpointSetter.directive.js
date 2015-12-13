@@ -2,6 +2,9 @@
  * breakpointSetter
  *
  *  USAGE
+ *  1. Inject this to the app module.
+ *
+ *  2.
  *  <div
  *    breakpoint-setter
  *    ng-show="isLarge">
@@ -11,7 +14,9 @@
 (function() {
 
   // Module declaration.
-  var module = angular.module( "breakpointSetter", []);
+  var module = angular.module(
+  "breakpointSetter",
+  []);
 
 
   // --------------------------------------------------------------------------- //

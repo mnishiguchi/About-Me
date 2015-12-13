@@ -4,7 +4,9 @@
 (function() {
 
   // Module declaration.
-  var module = angular.module( "siteHeader", []);
+  var module = angular.module(
+  "siteHeader",
+  []);
 
 
   // --------------------------------------------------------------------------- //
@@ -13,7 +15,8 @@
 
 
   module.directive(
-  'siteHeader', function () {
+  'siteHeader',
+  function () {
 
     return {
       restrict: "E",

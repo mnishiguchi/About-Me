@@ -47,6 +47,10 @@ p {
   color: #CCCCCC;
 }
 
+.btn {
+  min-width: 100px;
+}
+
 a {
   color: #00aced;
   -webkit-transition: all .2s ease-in-out;
