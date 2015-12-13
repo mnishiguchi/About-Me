@@ -70,10 +70,9 @@
                 $log.error(reason);
               }
             ); // end then
-          };
+          }; // end function
 
         } // end function
-
       ] // end controller
     }; // end return
   }); // end directive
@@ -111,7 +110,6 @@
 
           // Expose the public functions.
           vm.toggleVisibility = toggleVisibility;
-          // vm.scrollTo         = scrollTo;
 
 
           // ---
@@ -123,18 +121,8 @@
           function toggleVisibility() {
 
             vm.isVisible = !vm.isVisible;
-          };
 
-
-          // // I scroll to the element with the specified id.
-          // function scrollTo(id) {
-
-          //   var old = $location.hash();
-          //   $location.hash(id);
-          //   $anchorScroll();
-          //   // Reset to old to keep any additional routing logic from kicking in
-          //   $location.hash(old);
-          // }
+          }; // end function
 
         } // end function
       ] // end controller
