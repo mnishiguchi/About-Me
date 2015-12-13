@@ -4,7 +4,9 @@
 (function() {
 
   // Module declaration.
-  var module = angular.module( "blogComponents", [] );
+  var module = angular.module(
+  "blogComponents",
+  []);
 
 
   // --------------------------------------------------------------------------- //
@@ -21,57 +23,59 @@
       templateUrl: "app/components/blog/blogPosts.template.html",
 
       controllerAs: "vm",
-      controller: [
-      '$scope',
-      '$http',
-      '$log',
-      function( $scope, $http, $log ) {
+      controller:
+      [
+        '$scope',
+        '$http',
+        '$log',
+        function( $scope, $http, $log ) {
 
-        var vm    = this;
-        var props = $scope.props = $scope;  // Alias for $scope
+          var vm    = this;
+          var props = $scope.props = $scope;  // Alias for $scope
 
-        // Constants.
-        var POSTS_URL = "https://www.googleapis.com/blogger/v3/blogs/" +
-          "1351147858586990175/posts?key=AIzaSyAjac0SRkV6lY2-P1syIZ_oI74bCQyFcZU";
+          // Constants.
+          var POSTS_URL = "https://www.googleapis.com/blogger/v3/blogs/" +
+            "1351147858586990175/posts?key=AIzaSyAjac0SRkV6lY2-P1syIZ_oI74bCQyFcZU";
 
-        // Initial state.
-        vm.posts    = {}; // Bound to the fields.
-        vm.loading  = false;
+          // Initial state.
+          vm.posts    = {}; // Bound to the fields.
+          vm.loading  = false;
 
-        // Expose the public methods.
-        vm.loadBlogPosts = loadBlogPosts;
+          // Expose the public methods.
+          vm.loadBlogPosts = loadBlogPosts;
 
-        // Load posts preview data.
-        vm.loadBlogPosts();
-
-
-        // ---
-        // PUBLIC METHODS.
-        // ---
+          // Load posts preview data.
+          vm.loadBlogPosts();
 
 
-        // I fetch blog posts from a public API.
-        function loadBlogPosts() {
+          // ---
+          // PUBLIC METHODS.
+          // ---
 
-          // GET request for the info.
-          // https://docs.angularjs.org/api/ng/service/$http
-          vm.loading = true;
 
-          $http.get(POSTS_URL)
-          .then(
-            function successCallback(response) {
-              vm.loading = false;
-              vm.posts   = response.data.items;
-              $log.info( vm.posts );
-            },
-            function errorCallback(response) {
-              vm.loading = false;
-              $log.error( response.statusText );
-            }
-          ); // end then
-        } // end loadBlogPosts
+          // I fetch blog posts from a public API.
+          function loadBlogPosts() {
 
-      }] // end controller
+            // GET request for the info.
+            // https://docs.angularjs.org/api/ng/service/$http
+            vm.loading = true;
+
+            $http.get(POSTS_URL)
+            .then(
+              function successCallback(response) {
+                vm.loading = false;
+                vm.posts   = response.data.items;
+                $log.info( vm.posts );
+              },
+              function errorCallback(response) {
+                vm.loading = false;
+                $log.error( response.statusText );
+              }
+            ); // end then
+          } // end loadBlogPosts
+
+        } // end function
+      ] // end controller
     }; // end return
   }); // end directive
 

@@ -4,7 +4,9 @@
 (function() {
 
   // Module declaration.
-  var module = angular.module( "gravatarComponents", [] );
+  var module = angular.module(
+  "gravatarComponents",
+  []);
 
 
   // --------------------------------------------------------------------------- //
@@ -21,16 +23,18 @@
       templateUrl: "app/components/gravatar/gravatarForm.template.html",
 
       controllerAs: "vm",
-      controller: [
-      '$scope',
-      function( $scope ) {
+      controller:
+      [
+        '$scope',
+        function( $scope ) {
 
-        var vm    = this;
-        var props = $scope.props = $scope;  // Alias for $scope
+          var vm    = this;
+          var props = $scope.props = $scope;  // Alias for $scope
 
-        // State : none
+          // State : none
 
-      }] // end controller
+        } // end function
+      ] // end controller
     }; // end return
   }); // end directive
 
@@ -48,48 +52,52 @@
       templateUrl: "app/components/gravatar/gravatar.template.html",
 
       controllerAs: "vm",
-      controller: ['$scope', function( $scope ) {
+      controller:
+      [
+        '$scope',
+        function( $scope ) {
 
-        var vm    = this;
-        var props = $scope.props = $scope;  // Alias for $scope
+          var vm    = this;
+          var props = $scope.props = $scope;  // Alias for $scope
 
-        // State
-        vm.url = "";
+          // State
+          vm.url = "";
 
-        // Expose the public functions.
-        vm.gravatarUrl = gravatarUrl;
+          // Expose the public functions.
+          vm.gravatarUrl = gravatarUrl;
 
-        // Get the initial image.
-        vm.url = vm.gravatarUrl(props.email, props.size);
+          // Get the initial image.
+          vm.url = vm.gravatarUrl(props.email, props.size);
 
-        // Keep watch for changes.
-        $scope.$watch(
-          'props.email',
-          function(newVal, oldVal) {
+          // Keep watch for changes.
+          $scope.$watch(
+            'props.email',
+            function(newVal, oldVal) {
 
-            if (newVal !== oldVal) {
-              vm.url = vm.gravatarUrl(newVal, props.size);
+              if (newVal !== oldVal) {
+                vm.url = vm.gravatarUrl(newVal, props.size);
+              }
+
             }
+          );
 
+
+          // ---
+          // PUBLIC METHODS.
+          // ---
+
+
+          // I generate a garavater url for the specified email and size.
+          function gravatarUrl(email, size) {
+
+            // Standadize on the lowercase email.
+            email = angular.isString(email) ? angular.lowercase(email) : "";
+
+            return 'https://secure.gravatar.com/avatar/' + md5(email) + "?s=" + size;
           }
-        );
 
-
-        // ---
-        // PUBLIC METHODS.
-        // ---
-
-
-        // I generate a garavater url for the specified email and size.
-        function gravatarUrl(email, size) {
-
-          // Standadize on the lowercase email.
-          email = angular.isString(email) ? angular.lowercase(email) : "";
-
-          return 'https://secure.gravatar.com/avatar/' + md5(email) + "?s=" + size;
-        }
-
-      }] // end controller
+        } // end function
+      ] // end controller
     }; // end return
   }); // end directive
 

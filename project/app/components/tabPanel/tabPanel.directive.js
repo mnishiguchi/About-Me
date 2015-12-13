@@ -4,7 +4,9 @@
 (function() {
 
   // Module declaration.
-  var module = angular.module( "tabPanelComponents", [] );
+  var module = angular.module(
+  "tabPanelComponents",
+  []);
 
 
   // --------------------------------------------------------------------------- //
@@ -13,7 +15,7 @@
 
   module.directive(
   'tabPanel',
-  function () {
+  function() {
 
     return {
       restrict: "E",
@@ -21,68 +23,70 @@
       templateUrl: 'app/components/tabPanel/tabPanel.template.html',
 
       controllerAs: "vm",
-      controller: [
-      '$scope',
-      "$window",
-      function( $scope, $window ) {
+      controller:
+      [
+        '$scope',
+        "$window",
+        function( $scope, $window ) {
 
-        var vm    = this;
-        var props = $scope.props = $scope;  // Alias for $scope
+          var vm    = this;
+          var props = $scope.props = $scope;  // Alias for $scope
 
-        // State
-        vm.tab = 0;  // Tab position initially 0;
-        vm.tabNames = [
-          'Home',
-          'About',
-          "Things I've Learned",
-          "Projects",
-          'Blog',
-          'Contact'
-        ];
-        vm.contentUrls = [
-          "app/components/tabPanel/panel_1.template.html",
-          "app/components/tabPanel/panel_2.template.html",
-          "app/components/tabPanel/panel_3.template.html",
-          "app/components/tabPanel/panel_4.template.html",
-          "app/components/tabPanel/panel_5.template.html",
-          "app/components/tabPanel/panel_6.template.html",
-        ];
+          // State
+          vm.tab = 0;  // Tab position initially 0;
+          vm.tabNames = [
+            'Home',
+            'About',
+            "Things I've Learned",
+            "Projects",
+            'Blog',
+            'Contact'
+          ];
+          vm.contentUrls = [
+            "app/components/tabPanel/panel_1.template.html",
+            "app/components/tabPanel/panel_2.template.html",
+            "app/components/tabPanel/panel_3.template.html",
+            "app/components/tabPanel/panel_4.template.html",
+            "app/components/tabPanel/panel_5.template.html",
+            "app/components/tabPanel/panel_6.template.html",
+          ];
 
-        // Expose the public methods.
-        vm.setTab = setTab;
-        vm.isSet  = isSet;
-
-
-        // ---
-        // PUBLIC METHODS.
-        // ---
+          // Expose the public methods.
+          vm.setTab = setTab;
+          vm.isSet  = isSet;
 
 
-        /**
-         * Set the tab position and the page title.
-         * @param tab  A tab index.
-         */
-        function setTab(tab) {
-          vm.tab = tab;
-
-          // Set the page title via $window.
-          $window.document.title = vm.tabNames[ tab ] + " | Masatoshi Nishiguchi";
-
-        };
+          // ---
+          // PUBLIC METHODS.
+          // ---
 
 
-        /**
-         * Check if a tab is active
-         * @param  tab  A tab index.
-         * @return true if the specify tab index is currently set, else false.
-         */
-        function isSet(tab) {
+          /**
+           * Set the tab position and the page title.
+           * @param tab  A tab index.
+           */
+          function setTab(tab) {
+            vm.tab = tab;
 
-          return (vm.tab === tab);
+            // Set the page title via $window.
+            $window.document.title = vm.tabNames[ tab ] + " | Masatoshi Nishiguchi";
 
-        };
+          };
 
-      }] // end controller
+
+          /**
+           * Check if a tab is active
+           * @param  tab  A tab index.
+           * @return true if the specify tab index is currently set, else false.
+           */
+          function isSet(tab) {
+
+            return (vm.tab === tab);
+
+          };
+
+        } // end function
+      ] // end controller
     }; // end return
   }); // end directive
 
