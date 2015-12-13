@@ -6,7 +6,9 @@
   // Module declaration.
   var module = angular.module(
   "blogComponents",
-  []);
+  [
+    "blogDataService",
+  ]);
 
 
   // --------------------------------------------------------------------------- //
@@ -28,23 +30,20 @@
         '$scope',
         '$http',
         '$log',
-        function( $scope, $http, $log ) {
+        "blogDataService",
+        function( $scope, $http, $log, blogDataService ) {
 
           var vm    = this;
           var props = $scope.props = $scope;  // Alias for $scope
 
-          // Constants.
-          var POSTS_URL = "https://www.googleapis.com/blogger/v3/blogs/" +
-            "1351147858586990175/posts?key=AIzaSyAjac0SRkV6lY2-P1syIZ_oI74bCQyFcZU";
-
           // Initial state.
-          vm.posts    = {}; // Bound to the fields.
-          vm.loading  = false;
+          vm.posts   = {}; // Bound to the fields.
+          vm.loading = false;
 
           // Expose the public methods.
           vm.loadBlogPosts = loadBlogPosts;
 
-          // Load posts preview data.
+          // Load the blog posts data.
           vm.loadBlogPosts();
 
 
@@ -53,46 +52,33 @@
           // ---
 
 
-          // I fetch blog posts from a public API.
+          /**
+           * I fetch blog posts from a public API.
+           */
           function loadBlogPosts() {
 
-            // GET request for the info.
-            // https://docs.angularjs.org/api/ng/service/$http
-            vm.loading = true;
 
-            $http.get(POSTS_URL)
+
+            vm.loading = true;
+            blogDataService.loadBlogPosts()
             .then(
-              function successCallback(response) {
+              function successCallback(blogPosts) {
                 vm.loading = false;
-                vm.posts   = response.data.items;
-                $log.info( vm.posts );
+                vm.posts   = blogPosts;
               },
-              function errorCallback(response) {
+              // https://docs.angularjs.org/api/ng/service/$log
+              function errorCallback(reason) {
                 vm.loading = false;
-                $log.error( response.statusText );
+                $log.error(reason);
               }
             ); // end then
-          } // end loadBlogPosts
+          };
 
         } // end function
+
       ] // end controller
     }; // end return
   }); // end directive
-
-
-  // --------------------------------------------------------------------------- //
-  // --------------------------------------------------------------------------- //
-
-
-  // I decode paragraphs that include unicode and escape sequence.
-  module.filter(
-  'html',
-  function( $sce ) {
-
-    return function( input ) {
-        return $sce.trustAsHtml( input );
-    }; // end return
-  }); // end filter
 
 
   // --------------------------------------------------------------------------- //
@@ -111,47 +97,49 @@
       templateUrl: 'app/components/blog/blogPost.template.html',
 
       controllerAs: "vm",
-      controller: [
-      '$scope',
-      "$location",
-      "$anchorScroll",
-      function( $scope, $location, $anchorScroll ) {
+      controller:
+      [
+        '$scope',
+        "$location",
+        "$anchorScroll",
+        function( $scope, $location, $anchorScroll ) {
 
-        var vm    = this;
-        var props = $scope.props = $scope;  // Alias for $scope
+          var vm    = this;
+          var props = $scope.props = $scope;  // Alias for $scope
 
-        // State
-        vm.isVisible = false;  // visibility initially false;
-        vm.topId     = 'post-' + props.post.id;
+          // State
+          vm.isVisible = false;  // visibility initially false;
+          vm.topId     = 'post-' + props.post.id;
 
-        // Expose the public functions.
-        vm.toggleVisibility = toggleVisibility;
-        vm.scrollTo         = scrollTo;
-
-
-        // ---
-        // PUBLIC METHODS.
-        // ---
+          // Expose the public functions.
+          vm.toggleVisibility = toggleVisibility;
+          vm.scrollTo         = scrollTo;
 
 
-        // I set visibility
-        function toggleVisibility() {
-
-          vm.isVisible = !vm.isVisible;
-        };
+          // ---
+          // PUBLIC METHODS.
+          // ---
 
 
-        // I scroll to the element with the specified id.
-        function scrollTo(id) {
+          // I set visibility
+          function toggleVisibility() {
 
-          var old = $location.hash();
-          $location.hash(id);
-          $anchorScroll();
-          // Reset to old to keep any additional routing logic from kicking in
-          $location.hash(old);
-        }
+            vm.isVisible = !vm.isVisible;
+          };
 
-      }] // end controller
+
+          // I scroll to the element with the specified id.
+          function scrollTo(id) {
+
+            var old = $location.hash();
+            $location.hash(id);
+            $anchorScroll();
+            // Reset to old to keep any additional routing logic from kicking in
+            $location.hash(old);
+          }
+
+        } // end function
+      ] // end controller
     }; // end return
   }); // end directive
 

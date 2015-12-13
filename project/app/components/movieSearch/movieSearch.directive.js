@@ -61,9 +61,9 @@
             vm.loading = true;
             movieDataService.fetchData( vm.searchKey )
             .then(
-              function successCallback(response) {
-                vm.loading = false;
-                vm.movieInfo = response;
+              function successCallback(movieInfo) {
+                vm.loading   = false;
+                vm.movieInfo = movieInfo;
               },
               // https://docs.angularjs.org/api/ng/service/$log
               function errorCallback(reason) {

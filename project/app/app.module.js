@@ -15,6 +15,7 @@
     "movieSearchComponents",
     "breakpointSetter",
     "blogComponents",
+    "customFilters"
   ]);
 
 
