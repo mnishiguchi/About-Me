@@ -17,7 +17,8 @@ module.exports = function(config) {
     files: [
       'node_modules/angular/angular.js',
       'node_modules/angular-*/angular-*.js',
-      'project/app/*.js',
+      'project/app/**/*.html',
+      'project/app/**/*.js',
       'project/tests/*.test.js'
     ],
 
@@ -30,13 +31,29 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'src/**/*.html': ['ng-html2js'],
+      'src/**/!(*.mock|*.spec).js': ['coverage']
+    },
+
+
+    ngHtml2JsPreprocessor: {
+      // strip this from the file path
+      stripPrefix: 'src/',
+      // create a single module that contains templates from all the files
+      moduleName: 'templates'
     },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
+
+    coverageReporter: {
+      type : 'html',
+      // output coverage reports
+      dir : 'coverage/'
+    },
 
 
     // web server port
@@ -58,7 +75,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
 
     // Continuous Integration mode
