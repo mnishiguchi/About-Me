@@ -1,17 +1,17 @@
 /**
  * AppController
  */
-describe('AppController', function() {
+describe('app.controller', function() {
 
   // Declare variables.
   var controller, $scope;
 
   // Load the module.
-  beforeEach(module('mnApp'));
+  beforeEach( angular.mock.module('mnApp'));
 
   // Inject the dependencies.
   beforeEach(function() {
-    inject(function( $rootScope, $controller ) {
+    angular.mock.inject( function( $rootScope, $controller ) {
 
       $scope = $rootScope.$new();
 
