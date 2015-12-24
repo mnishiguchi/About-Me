@@ -35,19 +35,19 @@
           // State
           vm.tab = 0;  // Tab position initially 0;
           vm.tabNames = [
-            'Home',
-            'About',
-            "Things I've Learned",
+            'About me',
+            'Background',
             "Projects",
             'Blog',
+            "Resources",
             'Contact'
           ];
           vm.contentUrls = [
             "app/components/tabPanel/panel_1.template.html",
             "app/components/tabPanel/panel_2.template.html",
-            "app/components/tabPanel/panel_3.template.html",
             "app/components/tabPanel/panel_4.template.html",
             "app/components/tabPanel/panel_5.template.html",
+            "app/components/tabPanel/panel_3.template.html",
             "app/components/tabPanel/panel_6.template.html",
           ];
 

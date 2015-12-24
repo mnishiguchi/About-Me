@@ -10,7 +10,7 @@
 
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/background-position */
 body {
-  font-family: georgia, 'Times New Roman', times, serif;
+  font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-image: url(http://i.imgur.com/kVJs7Pb.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -31,6 +31,7 @@ h1, h2, h3, h4, h5, h6, .logo {
 
 h1 {
   font-size: 3.0em;
+  color: #00aced;
 
 }
 
@@ -38,7 +39,7 @@ h2 {
   font-size: 2.5em;
   font-weight: 300;
   padding: 10px 0;
-  color: #FFFFFF;
+  color: #00aced;
 }
 
 p {
@@ -145,6 +146,35 @@ dt, dd {
 
 
 /*
+  Footer
+ */
+
+
+footer {
+  line-height: 3em;
+  margin-top: 40px;
+  padding-top: 5px;
+  border-top: 1px solid #CCCCCC;
+  color: #CCCCCC;
+  clear: both;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer li {
+  float: left;
+  margin-left: 15px;
+}
+
+
+/*
   Tabs
  */
 
@@ -192,8 +222,8 @@ dt, dd {
 }
 
 #index-author img.masatoshi {
-  height: 200px;
-  width: 200px;
+  height: 400px;
+  width: 400px;
   margin: 40px 0 0 0;
   border: 7px solid white;
   border-radius: 20px;
@@ -218,6 +248,26 @@ dt, dd {
 }
 
 
+/**
+ * Image filters for Qiita icon.
+ * http://stackoverflow.com/questions/7415872/change-color-of-png-image-via-css
+ */
+img.qiita {
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+
+  -webkit-filter: hue-rotate(75deg); filter: hue-rotate(75deg);
+  border-radius: 50%;
+}
+
+img.qiita:hover,
+img.qiita:focus,
+img.qiita:active {
+  -webkit-filter: opacity(80%); filter: opacity(80%);
+}
+
+
 /*
   Projects
  */
@@ -238,55 +288,159 @@ dt, dd {
   color: #DDDDDD;
 }
 
-
-/*
-  Footer
+/**
+ * blog.css
  */
 
+#blog-posts h1,
+#blog-posts h2,
+#blog-posts h3,
+#blog-posts h4,
+#blog-posts h5,
+#blog-posts h6 {
+    text-transform: uppercase;
+    font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #0084b4;
+}
 
-footer {
-  line-height: 3em;
-  margin-top: 40px;
-  padding-top: 5px;
-  border-top: 1px solid #CCCCCC;
+#blog-posts img {
+  margin: 0 10px;
+}
+
+#blog-posts .post-title h2 {
+  font-size: 32px;
+}
+
+#blog-posts a.post-title h2 {
+    color: #00aced;
+    font-weight: 700;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+#blog-posts a.post-title h2:hover,
+#blog-posts a.post-title h2:focus,
+#blog-posts a.post-title h2:active {
+    text-decoration: none;
+    color: #0084b4;
+}
+
+
+#blog-posts .post-meta {
+  font-size: 1.0em;
+  font-style: italic;
+  margin-top: 0;
+  margin-bottom: 40px;
   color: #CCCCCC;
-  clear: both;
 }
 
-footer small {
-  float: left;
+#blog-posts .post-meta a {
+  text-decoration: none;
+  color: #FFFFFF;
 }
 
-footer ul {
-  float: right;
-  list-style: none;
+#blog-posts .post-meta a:hover,
+#blog-posts .post-meta a:focus {
+  color:#CCCCCC;
+  text-decoration:underline;
 }
 
-footer li {
-  float: left;
-  margin-left: 15px;
+#blog-posts .post-body {
+
+}
+
+#blog-posts .post-body img {
+  height: 128px;
+  width: 128px;
+  border: 2px solid white;
+  border-radius: 5px;
+  margin: 20px auto;
+}
+
+#blog-posts .post-body a {
+  text-decoration: none;
+  color: #CCCCCC;
+}
+
+#blog-posts .post-body a:hover,
+#blog-posts .post-body a:focus {
+  color: #0084b4;
+}
+
+
+#blog-posts hr {
+  max-width: 720px;
+  border-color: #CCCCCC;
+  margin-top: 40px;
 }
 
 
 /**
- * Image filters for Qiita icon.
- * http://stackoverflow.com/questions/7415872/change-color-of-png-image-via-css
+ * contact.css
  */
-img.qiita {
-  -webkit-transition: all .2s ease-in-out;
-  -moz-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
 
-  -webkit-filter: hue-rotate(75deg); filter: hue-rotate(75deg);
-  border-radius: 50%;
+.preview {
+  background-color: #333333;
+  border-color: #FFFFFF;
 }
 
-img.qiita:hover,
-img.qiita:focus,
-img.qiita:active {
-  -webkit-filter: opacity(80%); filter: opacity(80%);
+.messageForm label {
+  color: #CCCCCC;
 }
 
+.stars {
+  display: inline-block;
+}
+
+.stars > i.fa-star {
+  color: yellow;
+}
+
+.messageForm select.ng-invalid.ng-dirty,
+.messageForm textarea.ng-invalid.ng-dirty {
+  box-shadow: 0 0 5px #FA787E;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 2px solid #FA787E;
+}
+
+.messageForm select.ng-valid.ng-dirty,
+.messageForm textarea.ng-valid.ng-dirty {
+  box-shadow: 0 0 5px #78FA89;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 2px solid #78FA89;
+}
+
+.messageForm .form-help {
+  color: #FA787E;
+}
+
+
+/**
+ * gravatar.css
+ *  - Display the form as table-cell in order to place elements inline.
+ */
+
+.gravatar-form {
+  display: table;
+}
+
+.gravatar-form > a {
+  display: table-cell;
+  padding-left: 5px;
+}
+
+.gravatarLink img {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  border: 1px solid #999999;
+}
 
 
 /**
@@ -328,6 +482,8 @@ img.qiita:active {
   }
 
   #index-author img.masatoshi {
+    height: 300px;
+     width: 300px;
     margin: 20px 0 0 0;
     border: 4px solid white;
     border-radius: 10px;
@@ -344,8 +500,11 @@ img.qiita:active {
 /**
  * Styling for smart phones.
  */
+@media (max-width: 34em) {
 
+  #blog-posts .post-title h2 {
+    font-size: 28px;
+  }
 
-/*@media (max-width: 34em) {
+}
 
-}*/

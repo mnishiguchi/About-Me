@@ -25,7 +25,7 @@ This app is built with these open-source projects. Thank you so much.
 ==
 
 ## Background image
-- Taken from: http://i.imgur.com/kVJs7Pb.jpg
+- Picture of Mt. Fuji taken from: http://i.imgur.com/kVJs7Pb.jpg
 
 ==
 
