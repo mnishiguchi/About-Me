@@ -9,13 +9,12 @@
 <!-- Post title
   I toggle post-body when clicked.
 -->
-<a
-  ng-click="vm.toggleVisibility()"
-  class="post-title">
-  <h2>
+<h2 class="post-title">
+  <a
+    ng-click="vm.toggleVisibility()">
     {{ props.post.title }}
-  </h2>
-</a>
+  </a>
+</h2>
 
 
 <!-- Post meta
@@ -41,8 +40,8 @@
       src="https://cdn2.iconfinder.com/data/icons/aquaticus/48%20X%2048/blogger.png"
       alt="ic-blogger"
       class="ic-blogger"
-      height="36px"
-      width="36px">
+      height="24px"
+      width="24px">
   </a>
 </p>
 

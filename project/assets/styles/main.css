@@ -1,8 +1,3 @@
-/**
- * main.css
- */
-
-
 /*
   Universal
  */
@@ -11,6 +6,7 @@
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/background-position */
 body {
   font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #000000;
   background-image: url(http://i.imgur.com/kVJs7Pb.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -22,10 +18,9 @@ body {
        -o-background-size: cover;
 }
 
-h1, h2, h3, h4, h5, h6, .logo {
-  font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 4px;
   color: #FFFFFF;
 }
 
@@ -43,9 +38,9 @@ h2 {
 }
 
 p {
-  font-size: 1.3em;
+  font-size: 1.4em;
   line-height: 1.6;
-  color: #CCCCCC;
+  color: #DDDDDD;
 }
 
 .btn {
@@ -67,6 +62,7 @@ a:active {
 }
 
 p > a {
+  color: #AAAAAA;
   font-style: italic;
 }
 
@@ -154,8 +150,8 @@ footer {
   line-height: 3em;
   margin-top: 40px;
   padding-top: 5px;
-  border-top: 1px solid #CCCCCC;
-  color: #CCCCCC;
+  border-top: 1px solid #DDDDDD;
+  color: #DDDDDD;
   clear: both;
 }
 
@@ -173,6 +169,12 @@ footer li {
   margin-left: 15px;
 }
 
+footer small,
+footer a {
+  color: #BBBBBB;
+  font-size: 0.9em;
+}
+
 
 /*
   Tabs
@@ -180,7 +182,7 @@ footer li {
 
 
 .nav-tabs {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-size: 0.8em;
 }
@@ -200,7 +202,7 @@ footer li {
 
 
 /*
-  Page-content
+  Page contents
  */
 
 
@@ -216,12 +218,23 @@ footer li {
   padding-bottom: 20px;
 }
 
-#index-author header {
+.card-title {
+  font-size: 1.5em;
+  font-weight: 300;
+  padding: 0 0 10px 0;
+}
+
+.card-subtitle {
+  font-size: 1.1em;
+  color: #DDDDDD;
+}
+
+.page.about_me header {
   padding-bottom: 40px;
   text-align: center;
 }
 
-#index-author img.masatoshi {
+.page.about_me header img.masatoshi {
   height: 400px;
   width: 400px;
   margin: 40px 0 0 0;
@@ -229,22 +242,22 @@ footer li {
   border-radius: 20px;
 }
 
-#index-author h3 {
+.page.about_me header h3 {
   text-transform: uppercase;
   margin-top: 30px;
   color: #FFFFFF;
 }
 
-#index-author .icon_link {
+.page.about_me header .icon_link {
   margin-top: 10px;
 }
 
-#index-tools table {
+.page.about_me table {
   margin-top: 20px;
 }
 
-#index-tools td {
-  color: #CCCCCC;
+.page.about_me td {
+  color: #DDDDDD;
 }
 
 
@@ -252,7 +265,7 @@ footer li {
  * Image filters for Qiita icon.
  * http://stackoverflow.com/questions/7415872/change-color-of-png-image-via-css
  */
-img.qiita {
+.page.about_me img.qiita {
   -webkit-transition: all .2s ease-in-out;
   -moz-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
@@ -261,98 +274,77 @@ img.qiita {
   border-radius: 50%;
 }
 
-img.qiita:hover,
-img.qiita:focus,
-img.qiita:active {
+.page.about_me img.qiita:hover,
+.page.about_me img.qiita:focus,
+.page.about_me img.qiita:active {
   -webkit-filter: opacity(80%); filter: opacity(80%);
 }
 
-
-/*
-  Projects
- */
-
-
-.card-subtitle {
-  font-size: 1.1em;
-  color: #CCCCCC;
-}
-
-.movie-poster {
+.page.projects .movie-poster {
   padding: 20px 0;
 }
 
-.no-info {
+.page.projects .no-info {
   font-size: 1.0em;
   padding: 5px 0;
   color: #DDDDDD;
 }
 
-/**
- * blog.css
- */
-
-#blog-posts h1,
-#blog-posts h2,
-#blog-posts h3,
-#blog-posts h4,
-#blog-posts h5,
-#blog-posts h6 {
-    text-transform: uppercase;
-    font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 300;
-    letter-spacing: 1px;
-    color: #0084b4;
+.blog-posts h1,
+.blog-posts h2,
+.blog-posts h3,
+.blog-posts h4,
+.blog-posts h5,
+.blog-posts h6 {
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: #00aced;
 }
 
-#blog-posts img {
+.blog-posts img {
   margin: 0 10px;
 }
 
-#blog-posts .post-title h2 {
-  font-size: 32px;
+.blog-posts h2.post-title a {
+  color: #FFFFFF;
+  font-weight: 700;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
 }
 
-#blog-posts a.post-title h2 {
-    color: #00aced;
-    font-weight: 700;
-    -webkit-transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
+.blog-posts h2.post-title a:hover,
+.blog-posts h2.post-title a:focus,
+.blog-posts h2.post-title a:active {
+  text-decoration: none;
+  color: #0084b4;
 }
 
-#blog-posts a.post-title h2:hover,
-#blog-posts a.post-title h2:focus,
-#blog-posts a.post-title h2:active {
-    text-decoration: none;
-    color: #0084b4;
-}
-
-
-#blog-posts .post-meta {
+.blog-posts .post-meta {
   font-size: 1.0em;
   font-style: italic;
   margin-top: 0;
   margin-bottom: 40px;
-  color: #CCCCCC;
+  color: #DDDDDD;
 }
 
-#blog-posts .post-meta a {
+.blog-posts .post-meta a {
   text-decoration: none;
   color: #FFFFFF;
 }
 
-#blog-posts .post-meta a:hover,
-#blog-posts .post-meta a:focus {
-  color:#CCCCCC;
+.blog-posts .post-meta a:hover,
+.blog-posts .post-meta a:focus {
+  color:#DDDDDD;
   text-decoration:underline;
 }
 
-#blog-posts .post-body {
+.blog-posts .post-body {
 
 }
 
-#blog-posts .post-body img {
+.blog-posts .post-body img {
   height: 128px;
   width: 128px;
   border: 2px solid white;
@@ -360,99 +352,76 @@ img.qiita:active {
   margin: 20px auto;
 }
 
-#blog-posts .post-body a {
+.blog-posts .post-body a {
   text-decoration: none;
-  color: #CCCCCC;
+  color: #DDDDDD;
 }
 
-#blog-posts .post-body a:hover,
-#blog-posts .post-body a:focus {
+.blog-posts .post-body a:hover,
+.blog-posts .post-body a:focus {
   color: #0084b4;
 }
 
-
-#blog-posts hr {
+.blog-posts hr {
   max-width: 720px;
-  border-color: #CCCCCC;
+  border-color: #DDDDDD;
   margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 
-/**
- * contact.css
- */
-
-.preview {
+.page.contact .preview {
   background-color: #333333;
   border-color: #FFFFFF;
 }
 
-.messageForm label {
-  color: #CCCCCC;
+.page.contact .messageForm label {
+  color: #DDDDDD;
 }
 
-.stars {
+.page.contact .stars {
   display: inline-block;
 }
 
-.stars > i.fa-star {
+.page.contact .stars > i.fa-star {
   color: yellow;
 }
 
-.messageForm select.ng-invalid.ng-dirty,
-.messageForm textarea.ng-invalid.ng-dirty {
+.page.contact .messageForm select.ng-invalid.ng-dirty,
+.page.contact .messageForm textarea.ng-invalid.ng-dirty {
   box-shadow: 0 0 5px #FA787E;
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
   border: 2px solid #FA787E;
 }
 
-.messageForm select.ng-valid.ng-dirty,
-.messageForm textarea.ng-valid.ng-dirty {
+.page.contact .messageForm select.ng-valid.ng-dirty,
+.page.contact .messageForm textarea.ng-valid.ng-dirty {
   box-shadow: 0 0 5px #78FA89;
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
   border: 2px solid #78FA89;
 }
 
-.messageForm .form-help {
+.page.contact .messageForm .form-help {
   color: #FA787E;
 }
 
-
-/**
- * gravatar.css
- *  - Display the form as table-cell in order to place elements inline.
- */
-
-.gravatar-form {
-  display: table;
-}
-
-.gravatar-form > a {
-  display: table-cell;
-  padding-left: 5px;
-}
-
-.gravatarLink img {
-  display: inline-block;
-  width: 36px;
-  height: 36px;
-  border-radius: 4px;
-  border: 1px solid #999999;
+.page.resources img {
+  width: 600px;
+  margin: 0 auto;
+  display: block;
 }
 
 
-/**
- * Styling for tablet.
+/*
+   For tablet.
  */
 
 
 @media (max-width: 62em) {
 
   body {
-    font-family: georgia, 'Times New Roman', times, serif;
-    background-image: url(http://i.imgur.com/kVJs7Pb.jpg);
     background-repeat: repeat-y;
     background-attachment: fixed;
     background-position: center;
@@ -477,34 +446,48 @@ img.qiita:active {
     padding-bottom: 10px;
   }
 
-  #index-author header {
+  .container.page h2 {
+    font-size: 1.8em;
+  }
+
+  .container.page h3 {
+    font-size: 1.6em;
+  }
+  .container.page h4 {
+    font-size: 1.4em;
+  }
+
+  .page.about_me header {
     padding-bottom: 40px;
   }
 
-  #index-author img.masatoshi {
+  .page.about_me header img.masatoshi {
     height: 300px;
      width: 300px;
     margin: 20px 0 0 0;
     border: 4px solid white;
     border-radius: 10px;
-
   }
 
-  #index-author h4 {
+  .page.about_me header h4 {
     font-size: 1.5em;
     margin-top: 24px;
   }
-}
 
-
-/**
- * Styling for smart phones.
- */
-@media (max-width: 34em) {
-
-  #blog-posts .post-title h2 {
-    font-size: 28px;
+  .blog-posts .post-title a {
+    font-size: 1.2em;
   }
 
+  .page.resources img {
+    width: 300px;
+  }
 }
 
+
+/*
+   For smart phones.
+ */
+
+
+@media (max-width: 34em) {
+}
