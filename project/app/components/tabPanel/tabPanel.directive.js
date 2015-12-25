@@ -25,8 +25,9 @@
       controllerAs: "vm",
       controller:
       [
-        '$scope',
-        function( $scope ) {
+        "$scope",
+        "$window",
+        function( $scope, $window ) {
 
           var vm    = this;
           var props = $scope.props = $scope;  // Alias for $scope
@@ -67,10 +68,13 @@
           function setTab(tabIndex) {
             vm.tabIndex = tabIndex;
 
+            // Set the page title via $window.
+            $window.document.title = vm.tabNames[ tabIndex ];
+
             // Set the page title.
-            var appCtrlElement = document.querySelector('html');
-            var appCtrlScope   = angular.element(appCtrlElement).scope();
-            appCtrlScope.title = vm.tabNames[ tabIndex ] + " | Masatoshi Nishiguchi";
+            // var appCtrlElement = document.querySelector('html');
+            // var appCtrlScope   = angular.element(appCtrlElement).scope();
+            // appCtrlScope.title = vm.tabNames[ tabIndex ] + " | Masatoshi Nishiguchi";
           };
 
 

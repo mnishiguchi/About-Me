@@ -4,105 +4,128 @@
 (function() {
 
   // Module declaration.
-  var app = angular.module(
-  "app",
-  [
-    "tabPanelComponents",
-    "contactFormComponents",
-    "movieSearchComponents",
-    "blogComponents",
-    "customFilters",
-    "anchorHashLink",
-  ]);
+  angular
+    .module( "app", [
+      "tabPanelComponents",
+      "contactFormComponents",
+      "movieSearchComponents",
+      "blogComponents",
+      "customFilters",
+      "anchorHashLink",
+    ]);
 
 
   // --------------------------------------------------------------------------- //
   // --------------------------------------------------------------------------- //
 
 
-  app.controller(
-  "AppController",
-  function( $scope ) {
+  angular
+    .module( "app" )
+    .controller( "AppController", AppController );
 
-    $scope.title = "Masatoshi Nishiguchi";
+  AppController.$inject = [ "$scope" ];
 
-  }); // end controller
+  function AppController( $scope ) {
+
+    // Currently empty.
+
+  }
 
 
   // --------------------------------------------------------------------------- //
   // --------------------------------------------------------------------------- //
 
 
-  app.directive(
-  'appHeader',
-  function () {
+  angular.module( "app" )
+  .directive( "appHeader", appHeaderDirective );
+
+  function appHeaderDirective() {
 
     return {
       restrict: "E",
       scope: {},
-      templateUrl: 'app/app.header.template.html',
+      templateUrl: "app/app.header.template.html",
+      controller: appHeaderController,
+      controllerAs: "vm"
+    };
 
-      controllerAs: "vm",
-      controller: [
-      '$scope',
-      function( $scope ) {
-
-        var vm    = this;
-        var props = $scope.props = $scope;  // Alias for $scope
-
-        // Initial state.
-        vm.css   = {};
-
-        // Expose the public methods.
-        vm.changeBackgroundColor = changeBackgroundColor;
-
-        // Set the initial header color.
-        vm.changeBackgroundColor();
+  } // end appHeaderDirective
 
 
-        // ---
-        // PUBLIC METHODS.
-        // ---
+  /**
+   * appHeaderController
+   */
+  appHeaderController.$inject = [ "$scope" ];
+
+  function appHeaderController( $scope ) {
+
+    var vm    = this;
+    var props = $scope.props = $scope;  // Alias for $scope
+
+    // Initial state.
+    vm.css   = {};
+
+    // Expose the public methods.
+    vm.changeBackgroundColor = changeBackgroundColor;
+
+    // Set the initial header color.
+    vm.changeBackgroundColor();
 
 
-        // I change a navbar's background color with a random color.
-        function changeBackgroundColor() {
-          vm.css["backgroundColor"] = getRandomRGBA();
-        }
+    // ---
+    // PUBLIC METHODS.
+    // ---
 
 
-        // ---
-        // PUBLIC METHODS.
-        // ---
+    /**
+     * Change a navbar's background color with a random color.
+     */
+    function changeBackgroundColor() {
+
+      vm.css[ "backgroundColor" ] = getRandomRGBA();
+
+    }
 
 
-        // I generate a random RGBA string. e.g., rgba(100, 50, 25, 0.5)
-        function getRandomRGBA() {
+    // ---
+    // PRIVATE METHODS.
+    // ---
 
-          var red   = Math.floor(Math.random() * 255);
-          var green = Math.floor(Math.random() * 255);
-          var blue  = Math.floor(Math.random() * 255);
 
-          return 'rgba(' + red + ',' + green + ',' + blue + ',0.5)';
-        }
+    /**
+     * Generate an random RGBA string.
+     * @return an RGBA string. e.g., rgba(100, 50, 25, 0.5)
+     */
+    function getRandomRGBA() {
 
-      }] // end controller
-    }; // end return
-  }); // end directive
+      var red   = Math.floor(Math.random() * 255);
+      var green = Math.floor(Math.random() * 255);
+      var blue  = Math.floor(Math.random() * 255);
+
+      return 'rgba(' + red + ',' + green + ',' + blue + ',0.5)';
+
+    }
+
+  } // end appHeaderController
 
 
   // --------------------------------------------------------------------------- //
   // --------------------------------------------------------------------------- //
 
 
-  app.directive(
-  'appFooter', function () {
+  angular
+    .module( "app" )
+    .directive(
+    "appFooter", appFooterDirective);
+
+  function appFooterDirective() {
 
     return {
       restrict: "E",
-      templateUrl: 'app/app.footer.template.html',
-    }; // end return
-  }); // end directive
+      templateUrl: "app/app.footer.template.html",
+    };
+
+  } // end appFooterDirective
 
 
 })();
