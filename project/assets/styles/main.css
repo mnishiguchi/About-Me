@@ -18,23 +18,32 @@ body {
        -o-background-size: cover;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+  color: #00aced;
+}
+
+h1 { font-size: 2.0em; }
+h2 { font-size: 1.8em; }
+h3 { font-size: 1.6em; }
+h4 { font-size: 1.4em; }
+h5 { font-size: 1.2em; }
+h6 { font-size: 1.0em; }
+
+h1.page_header {
+  font-size: 3.0em;
   font-weight: 700;
   letter-spacing: 4px;
-  color: #FFFFFF;
 }
 
-h1 {
-  font-size: 3.0em;
-  color: #00aced;
-
-}
-
-h2 {
-  font-size: 2.5em;
+h2.page_header {
   font-weight: 300;
   padding: 10px 0;
-  color: #00aced;
 }
 
 p {
@@ -48,7 +57,6 @@ p {
 }
 
 a {
-  color: #00aced;
   -webkit-transition: all .2s ease-in-out;
   -moz-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
@@ -217,7 +225,7 @@ footer a {
 
 .container.page {
   padding-top: 20px;
-  padding-bottom: 80px;
+  padding-bottom: 20px;
   background: rgba(0, 0, 0, 0.6);
   border-radius: 0 0 5px 5px;
 }
@@ -241,6 +249,11 @@ footer a {
 .page.about_me header {
   padding-bottom: 40px;
   text-align: center;
+}
+
+.page.about_me header h3 {
+  font-weight: 700;
+  letter-spacing: 4px;
 }
 
 .page.about_me header img.masatoshi {
@@ -305,18 +318,23 @@ footer a {
 .blog-posts h4,
 .blog-posts h5,
 .blog-posts h6 {
-  text-transform: uppercase;
   font-weight: 300;
   letter-spacing: 1px;
-  color: #00aced;
 }
+
+.blog-posts h1 { font-size: 1.9em; }
+.blog-posts h2 { font-size: 1.7em; }
+.blog-posts h3 { font-size: 1.5em; }
+.blog-posts h4 { font-size: 1.3em; }
+.blog-posts h5 { font-size: 1.1em; }
+.blog-posts h6 { font-size: 0.9em; }
 
 .blog-posts img {
   margin: 0 10px;
 }
 
 .blog-posts h2.post-title a {
-  color: #FFFFFF;
+  color: #DDDDDD;
   font-weight: 700;
   -webkit-transition: all .2s ease-in-out;
   -moz-transition: all .2s ease-in-out;
@@ -331,11 +349,11 @@ footer a {
 }
 
 .blog-posts .post-meta {
-  font-size: 1.0em;
+  font-size: 1.1em;
   font-style: italic;
   margin-top: 0;
   margin-bottom: 40px;
-  color: #DDDDDD;
+  color: #999999;
 }
 
 .blog-posts .post-meta a {
@@ -378,41 +396,47 @@ footer a {
   margin-bottom: 40px;
 }
 
-
-.page.contact .preview {
-  background-color: #333333;
-  border-color: #FFFFFF;
-}
-
-.page.contact .messageForm label {
+.page.contact .messageField label {
   color: #DDDDDD;
 }
 
-.page.contact .stars {
+.page.contact .stars,
+.page.contact .plus_minus,
+.page.contact .star_count {
   display: inline-block;
+  color: #FFFFFF;
+}
+
+
+.page.contact i.fa {
+  font-size: 1.5em;
 }
 
 .page.contact .stars > i.fa-star {
   color: yellow;
 }
 
-.page.contact .messageForm select.ng-invalid.ng-dirty,
-.page.contact .messageForm textarea.ng-invalid.ng-dirty {
+.page.contact .stars > i.fa-star-o {
+  color: white;
+}
+
+.page.contact .messageField select.ng-invalid.ng-dirty,
+.page.contact .messageField textarea.ng-invalid.ng-dirty {
   box-shadow: 0 0 5px #FA787E;
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
   border: 2px solid #FA787E;
 }
 
-.page.contact .messageForm select.ng-valid.ng-dirty,
-.page.contact .messageForm textarea.ng-valid.ng-dirty {
+.page.contact .messageField select.ng-valid.ng-dirty,
+.page.contact .messageField textarea.ng-valid.ng-dirty {
   box-shadow: 0 0 5px #78FA89;
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
   border: 2px solid #78FA89;
 }
 
-.page.contact .messageForm .form-help {
+.page.contact .messageField .form-help {
   color: #FA787E;
 }
 
@@ -445,25 +469,10 @@ footer a {
     font-size: 1.5em;
   }
 
-  .nav-tabs {
-    font-size: 0.8em;
-  }
-
   .container.page h1 {
     font-size: 2.0em;
     padding-top: 10px;
     padding-bottom: 10px;
-  }
-
-  .container.page h2 {
-    font-size: 1.8em;
-  }
-
-  .container.page h3 {
-    font-size: 1.6em;
-  }
-  .container.page h4 {
-    font-size: 1.4em;
   }
 
   .page.about_me header {
@@ -472,19 +481,10 @@ footer a {
 
   .page.about_me header img.masatoshi {
     height: 300px;
-     width: 300px;
+    width: 300px;
     margin: 20px 0 0 0;
     border: 4px solid white;
     border-radius: 10px;
-  }
-
-  .page.about_me header h4 {
-    font-size: 1.5em;
-    margin-top: 24px;
-  }
-
-  .blog-posts .post-title a {
-    font-size: 1.2em;
   }
 
   .page.resources img {
@@ -499,4 +499,28 @@ footer a {
 
 
 @media (max-width: 34em) {
+  .logo {
+    font-size: 1.1em;
+  }
+
+  footer{
+    font-size: 0.8em;
+  }
+
+  .nav-link {
+    font-size: 0.9em;
+  }
+
+  .page {
+    padding: 10px 10px;
+  }
+
+  .page.about_me header img.masatoshi {
+    height: 200px;
+    width:  200px;
+  }
+
+  .page.resources img {
+    width: 200px;
+  }
 }

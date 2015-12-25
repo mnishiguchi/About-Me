@@ -1,21 +1,21 @@
 <!--
-  MovieInfo
+  Movie
   - View template for the movieSearch directive.
   - Show movie info if data is available.
 -->
 
 
-<p ng-hide="vm.isDataAvailable" class="no-info">
+<p ng-hide="movie.isDataAvailable" class="no-info">
   No information to display.
 </p>
 
-<div ng-show="vm.isDataAvailable">
+<div ng-show="movie.isDataAvailable">
 
   <a
-    href="http://imdb.com/title/{{ props.info.imdbID }}"
+    href="http://imdb.com/title/{{ movie.info.imdbID }}"
     target="_blank">
     <img
-      ng-src="{{ vm.getMoviePosterUrl() }}"
+      ng-src="{{ movie.getPosterUrl() }}"
       class="movie-poster"
       style="width: 200px;">
   </a>
@@ -23,18 +23,21 @@
   <h2
     class="movie-title"
     style="margin-top: 20px;" >
-    {{ props.info.Title }}
-    <small>({{ props.info.Year }})</small>
+    {{ movie.info.Title }}
+
+    <small>
+      ({{ movie.info.Year }})
+    </small>
 
     <!-- Link buttons -->
     <a
-      ng-href="{{ vm.getYouTubeUrl() }}"
+      ng-href="{{ movie.getYouTubeUrl() }}"
       target="_blank" >
       <i class="fa fa-youtube"></i>
     </a>
 
     <a
-      ng-href="{{ vm.getAmazonUrl() }}"
+      ng-href="{{ movie.getAmazonUrl() }}"
       target="_blank" >
       <i class="fa fa-amazon"></i>
     </a>
@@ -42,11 +45,11 @@
 
   <p>
     <strong>Released on:</strong>
-    {{ props.info.Released }} ({{ props.info.Runtime }})
+    {{ movie.info.Released }} ({{ movie.info.Runtime }})
   </p>
 
   <p>
-    {{ props.info.Plot }}
+    {{ movie.info.Plot }}
   </p>
 
   <!-- Description list -->
@@ -56,21 +59,21 @@
         <span class="label label-primary">Directors</span>
       </dt>
       <dd class="col-sm-9">
-        {{ props.info.Director }}
+        {{ movie.info.Director }}
       </dd>
 
       <dt class="col-sm-3">
         <span class="label label-primary">Actors</span>
       </dt>
       <dd class="col-sm-9">
-        {{ props.info.Actors }}
+        {{ movie.info.Actors }}
       </dd>
 
       <dt class="col-sm-3">
         <span class="label label-primary">Genre</span>
       </dt>
       <dd class="col-sm-9">
-        {{ props.info.Genre }}
+        {{ movie.info.Genre }}
       </dd>
     </dl>
   </div>

@@ -4,14 +4,14 @@
 
 <!-- Loading indicator -->
 <div
-  ng-if="vm.loading">
+  ng-if="blogPosts.loading">
   <i class="fa fa-spinner fa-spin"></i>
   Loading data...
 </div>
 
 <!-- Blog list -->
 <div
-  ng-repeat="post in vm.posts"
+  ng-repeat="post in blogPosts.posts"
   class="blog-posts">
 
   <blog-post

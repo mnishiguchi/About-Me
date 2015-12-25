@@ -14,9 +14,9 @@
     <div class="input-group">
 
       <input type="text"
-        ng-model="vm.searchKey"
+        ng-model="movieSearch.searchKey"
         ng-model-options="{ updateOn: 'blur' }"
-        ng-change="vm.fetchData()"
+        ng-change="movieSearch.fetchData()"
         class="form-control"
         placeholder="Enter movie name">
 
@@ -30,27 +30,25 @@
 
 <!-- Loading indicator -->
 <p
-  ng-show="vm.loading">
+  ng-show="movieSearch.loading">
   <i class="fa fa-spinner fa-spin"></i>
   Loading results...
 </p>
 
 <!--
-  Movie info
-  - Pass into the info attribute a vm.movieInfo object to be displayed.
+  Movie
+  - Pass into the info attribute a movieSearch.movieInfo object to be displayed.
 -->
-<movie-info
-  info="vm.movieInfo">
-</movie-info>
+<movie info="movieSearch.movieInfo"></movie>
 
 <!--
   Clear button
   - Displayed when search key exists.
-  - Call vm.clearData() when clicked.
+  - Call movieSearch.clearData() when clicked.
 -->
 <a
-  ng-show="vm.searchKey !== ''"
-  ng-click="vm.clearData() ; scrollTo( vm.topId );"
+  ng-show="movieSearch.searchKey !== ''"
+  ng-click="movieSearch.clearData() ; scrollTo( movieSearch.topId );"
   anchor-hash-link>
 
   <span class="fa-stack fa-lg">

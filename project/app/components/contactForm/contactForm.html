@@ -1,0 +1,53 @@
+<!--
+  contactForm
+  - View template for the contactForm directive.
+  - This is a form to send the site owner feedback via email.
+  - Contains two forms: one for rating, one for message.
+ -->
+
+<form novalidate
+  name="messageField"
+  class="messageField"
+  ng-submit="messageField.$valid && contactForm.handleMessageSubmit()">
+
+  <!-- Input field for message -->
+  <fieldset class="form-group">
+    <label for="messages">Message</label>
+    <textarea required
+      ng-model="contactForm.message"
+      ng-minlength="10"
+      placeholder="Place questions or comments here"
+      class="form-control"
+      id="message"
+      name="message"
+      title="Message">
+    </textarea>
+
+    <!-- Alert box -->
+    <p
+      ng-show="messageField.message.$invalid && !messageField.message.$pristine"
+      class="form-help">
+      <em>*required</em>
+    </p>
+  </fieldset>
+
+
+  <!-- Rating -->
+  <section class="rating">
+    <label>Rate this site</label>
+    <br />
+    <stars></stars>
+  </section>
+
+
+  <!--  Submit -->
+  <fieldset class="form-group">
+    <button type="submit"
+      ng-class="messageField.$invalid ? 'btn-secondary-outline' : 'btn-success'"
+      ng-disabled="messageField.$invalid"
+      class="btn pull-right">
+      Send
+    </button>
+  </fieldset>
+
+</form>
