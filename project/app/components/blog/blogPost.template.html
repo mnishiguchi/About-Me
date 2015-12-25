@@ -71,7 +71,8 @@
 <!-- Toggle visibility -->
 <a
   ng-show="vm.isVisible"
-  ng-click="vm.toggleVisibility()">
+  ng-click="vm.toggleVisibility() ; scrollTo( vm.topId )"
+  anchor-hash-link>
 
   <span class="fa-stack fa-lg">
     <i class="fa fa-square-o fa-stack-2x"></i>

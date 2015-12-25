@@ -50,7 +50,8 @@
 -->
 <a
   ng-show="vm.searchKey !== ''"
-  ng-click="vm.clearData()">
+  ng-click="vm.clearData() ; scrollTo( vm.topId );"
+  anchor-hash-link>
 
   <span class="fa-stack fa-lg">
     <i class="fa fa-square-o fa-stack-2x"></i>

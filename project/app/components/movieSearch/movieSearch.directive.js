@@ -9,7 +9,8 @@
   var module = angular.module(
   "movieSearchComponents",
   [
-    "movieDataService"
+    "movieDataService",
+    "anchorHashLink"
   ]);
 
 
@@ -40,6 +41,7 @@
           vm.searchKey = "";
           vm.movieInfo = {};
           vm.loading   = false;
+          vm.topID     = "main-container";  // For anchorHashLink
 
           // Expose the public methods.
           vm.fetchData = fetchData;
@@ -69,6 +71,7 @@
               }
             ); // end then
           } // end function
+
 
           /**
            * I clear movie data and search key.

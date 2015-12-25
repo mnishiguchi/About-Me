@@ -1,13 +1,11 @@
 <!--
   MovieInfo
   - View template for the movieSearch directive.
+  - Show movie info if data is available.
 -->
 
 
-<!--
-
--->
-<p ng-show="! vm.isDataAvailable" class="no-info">
+<p ng-hide="vm.isDataAvailable" class="no-info">
   No information to display.
 </p>
 
