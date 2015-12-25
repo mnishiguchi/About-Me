@@ -3,31 +3,57 @@
   - View template for the movieSearch directive.
 -->
 
-<!-- Search bar -->
+<!--
+  Search bar
+  - Accept a search key.
+  - Trigger searching by the blur event, rather than by button click.
+  - The search button is merely a decorator.
+-->
 <form class="form-inline">
   <div class="form-group">
     <div class="input-group">
+
       <input type="text"
         ng-model="vm.searchKey"
         ng-model-options="{ updateOn: 'blur' }"
         ng-change="vm.fetchData()"
         class="form-control"
         placeholder="Enter movie name">
+
       <div class="input-group-addon">
         <a href=""><i class="fa fa-search"></i></a>
       </div>
+
     </div>
   </div>
 </form>
 
 <!-- Loading indicator -->
 <p
-  ng-if="vm.loading">
+  ng-show="vm.loading">
   <i class="fa fa-spinner fa-spin"></i>
   Loading results...
 </p>
 
-<!-- Movie info -->
+<!--
+  Movie info
+  - Pass into the info attribute a vm.movieInfo object to be displayed.
+-->
 <movie-info
   info="vm.movieInfo">
 </movie-info>
+
+<!--
+  Clear button
+  - Displayed when search key exists.
+  - Call vm.clearData() when clicked.
+-->
+<a
+  ng-show="vm.searchKey !== ''"
+  ng-click="vm.clearData()">
+
+  <span class="fa-stack fa-lg">
+    <i class="fa fa-square-o fa-stack-2x"></i>
+    <i class="fa fa-times fa-stack-1x"></i>
+  </span>
+</a>

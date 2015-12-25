@@ -3,30 +3,43 @@
   - View template for the movieSearch directive.
 -->
 
-<p
-  ng-if="props.info.Response !== 'True'"
-  class="no-info">
+
+<!--
+
+-->
+<p ng-show="! vm.isDataAvailable" class="no-info">
   No information to display.
 </p>
 
-<div ng-if="props.info.Response === 'True'">
+<div ng-show="vm.isDataAvailable">
 
-<!--
   <a
     href="http://imdb.com/title/{{ props.info.imdbID }}"
     target="_blank">
     <img
       ng-src="{{ vm.getMoviePosterUrl() }}"
       class="movie-poster"
-      style="width: 150px;">
+      style="width: 200px;">
   </a>
- -->
 
   <h2
     class="movie-title"
-    style="margin-top: 20px;">
+    style="margin-top: 20px;" >
     {{ props.info.Title }}
     <small>({{ props.info.Year }})</small>
+
+    <!-- Link buttons -->
+    <a
+      ng-href="{{ vm.getYouTubeUrl() }}"
+      target="_blank" >
+      <i class="fa fa-youtube"></i>
+    </a>
+
+    <a
+      ng-href="{{ vm.getAmazonUrl() }}"
+      target="_blank" >
+      <i class="fa fa-amazon"></i>
+    </a>
   </h2>
 
   <p>
@@ -63,24 +76,5 @@
       </dd>
     </dl>
   </div>
-
-  <!-- Link buttons -->
-  <p>
-    <a
-      ng-href="{{ vm.getYouTubeUrl() }}"
-      target="_blank"
-      class="btn btn-secondary btn-sm">
-      <i class="fa fa-youtube fa-2x"></i>
-    </a>
-
-    <span class="divider"></span>
-
-    <a
-      ng-href="{{ vm.getAmazonUrl() }}"
-      target="_blank"
-      class="btn btn-secondary btn-sm">
-      <i class="fa fa-amazon fa-2x"></i>
-    </a>
-  </p>
 
 </div>

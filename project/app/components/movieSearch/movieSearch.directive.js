@@ -30,10 +30,8 @@
       controller:
       [
         '$scope',
-        '$http',
-        '$log',
         'movieDataService',
-        function( $scope, $http, $log, movieDataService ) {
+        function( $scope, movieDataService ) {
 
           var vm    = this;
           var props = $scope.props = $scope;  // Alias for $scope
@@ -45,6 +43,7 @@
 
           // Expose the public methods.
           vm.fetchData = fetchData;
+          vm.clearData = clearData;
 
 
           // ---
@@ -65,13 +64,21 @@
                 vm.loading   = false;
                 vm.movieInfo = movieInfo;
               },
-              // https://docs.angularjs.org/api/ng/service/$log
               function errorCallback(reason) {
                 vm.loading = false;
-                $log.error(reason);
               }
             ); // end then
-          };
+          } // end function
+
+          /**
+           * I clear movie data and search key.
+           */
+          function clearData() {
+
+            vm.searchKey = "";
+            vm.movieInfo = {};
+
+          } // end function
 
         } // end function
       ] // end controller
@@ -98,36 +105,48 @@
       controller:
       [
         '$scope',
-        '$http',
-        '$log',
-        function( $scope, $http, $log ) {
+        function( $scope ) {
 
           var vm    = this;
           var props = $scope.props = $scope;  // Alias for $scope
 
           // Initial state.
-          // None
+          vm.isDataAvailable = false;
 
           // Expose the public methods.
           vm.getMoviePosterUrl = getMoviePosterUrl;
           vm.getYouTubeUrl     = getYouTubeUrl;
           vm.getAmazonUrl      = getAmazonUrl;
 
+          // Keep watch on props.info.Response then update vm.isDataAvailable.
+          // https://docs.angularjs.org/api/ng/type/$rootScope.Scope
+          $scope.$watch(
+            function() {
+              return props.info.Response;
+            },
+            function(newVal, oldVal) {
+              if ( newVal !== oldVal ) {
+                vm.isDataAvailable = (props.info.Response === 'True');
+              }
+            }
+          ); // end $scope.$watch
+
 
           // ---
           // PUBLIC METHODS.
           // ---
 
+
           /**
            * @return An URL for a poster based on the current info,
            *         a placeholder URL if the current info is empty.
            */
-          // function getMoviePosterUrl() {
-          //     var PLACEHOLDER_URL  = "http://placehold.it/150x220&text=N/A";
-          //     return (props.info.Poster == 'N/A')
-          //             ? PLACEHOLDER_URL
-          //             : props.info.Poster;
-          // }
+          function getMoviePosterUrl() {
+              var PLACEHOLDER_URL  = "http://placehold.it/200x200&text=N/A";
+              return (props.info.Poster == 'N/A')
+                      ? PLACEHOLDER_URL
+                      : props.info.Poster;
+          }
 
 
           /**
