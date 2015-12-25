@@ -140,6 +140,14 @@ dt, dd {
   text-decoration: none;
 }
 
+.gravatarLink img {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  border: 2px solid #DDDDDD;
+}
+
 
 /*
   Footer

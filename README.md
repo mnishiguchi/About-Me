@@ -37,12 +37,12 @@ Since Bing, Yahoo, Ask, and Google use the same protocol, having a Sitemap lets 
 
 ==
 
-## Usage
+## How to run
 
-### A. Use this URL
+### A. Visiting this site's URL
 - http://mnishiguchi.bitballoon.com/
 
-### B. Run a local server (optional)
+### B. Running on a local server
 
 #### 1. Install [NodeJS](https://nodejs.org/en/)
 - NodeJS comes with [NPM](https://www.npmjs.com/)
