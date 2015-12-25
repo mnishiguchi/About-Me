@@ -15,11 +15,13 @@
 ==
 
 ## Dependencies
-This app is built with these open-source projects. Thank you so much.
+This app is built with these open-source / free projects. Thank you so much.
 - [AngularJS v1.4.8](https://angularjs.org/)
 - [Bootstrap v4](http://v4-alpha.getbootstrap.com/)
 - [Font Awesome](https://fortawesome.github.io/Font-Awesome/)
 - [Gravatar](http://en.gravatar.com/)
+- [Open Movie Database](http://www.omdbapi.com/)
+- [Blogger API](https://developers.google.com/blogger/?hl=en)
 
 ==
 

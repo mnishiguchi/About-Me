@@ -109,7 +109,7 @@
           // None
 
           // Expose the public methods.
-          // vm.getMoviePosterUrl = getMoviePosterUrl;
+          vm.getMoviePosterUrl = getMoviePosterUrl;
           vm.getYouTubeUrl     = getYouTubeUrl;
           vm.getAmazonUrl      = getAmazonUrl;
 
@@ -118,17 +118,15 @@
           // PUBLIC METHODS.
           // ---
 
-
-          // I provide an URL for a poster based on the current info.
-          // If the current info is empty, I provide a placeholder.
+          /**
+           * @return An URL for a poster based on the current info,
+           *         a placeholder URL if the current info is empty.
+           */
           // function getMoviePosterUrl() {
-
           //     var PLACEHOLDER_URL  = "http://placehold.it/150x220&text=N/A";
-          //     var POSTER_BASE_URL  = "http://imdb.wemakesites.net/api/1.0/img/";
-
           //     return (props.info.Poster == 'N/A')
           //             ? PLACEHOLDER_URL
-          //             : POSTER_BASE_URL + '?url=' + props.info.Poster;
+          //             : props.info.Poster;
           // }
 
 
@@ -136,9 +134,7 @@
            * @return An URL for Amazon based on the current info.
            */
           function getAmazonUrl() {
-
-            var AMAZON_BASE_URL  = "http://www.amazon.com/s/ref=nb_sb_noss_1/?url=search-alias%3Ddvd&field-keywords=";
-            return AMAZON_BASE_URL + props.info.Title;
+            return "http://www.amazon.com/s/ref=nb_sb_noss_1/?url=search-alias%3Ddvd&field-keywords=" + props.info.Title;
           }
 
 
@@ -146,9 +142,7 @@
            * @return An URL for YouTube based on the current info.
            */
           function getYouTubeUrl() {
-
-            var YOUTUBE_BASE_URL = "https://www.youtube.com/results/?search_query=";
-            return YOUTUBE_BASE_URL + props.info.Title;
+            return "https://www.youtube.com/results/?search_query=" + props.info.Title;
           }
 
         } // end function
