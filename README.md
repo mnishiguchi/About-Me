@@ -20,7 +20,6 @@ This app is built with these open-source projects. Thank you so much.
 - [Bootstrap v4](http://v4-alpha.getbootstrap.com/)
 - [Font Awesome](https://fortawesome.github.io/Font-Awesome/)
 - [Gravatar](http://en.gravatar.com/)
-- [md5.js](https://github.com/blueimp/JavaScript-MD5)
 
 ==
 
@@ -48,7 +47,7 @@ Since Bing, Yahoo, Ask, and Google use the same protocol, having a Sitemap lets 
 - NodeJS comes with [NPM](https://www.npmjs.com/)
 
 #### 2. Install a package
-- Run the [npm install](https://docs.npmjs.com/cli/install) command in the project's directory.
+- Run the [npm install](https://docs.npmjs.com/cli/install) command in the root directory where index.js resides.
 - The dependencies are described in the [package.json file](https://docs.npmjs.com/files/package.json)
 
 ```
@@ -56,7 +55,7 @@ npm install
 ```
 
 #### 3. Start the server
-- Run the following node command in the project's directory.
+- Run the following node command in the root directory where index.js resides.
 ```
 node index.js
 ```

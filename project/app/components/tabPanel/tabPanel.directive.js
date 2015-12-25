@@ -26,14 +26,13 @@
       controller:
       [
         '$scope',
-        "$window",
         function( $scope ) {
 
           var vm    = this;
           var props = $scope.props = $scope;  // Alias for $scope
 
           // State
-          vm.tab = 0;  // Tab position initially 0;
+          vm.tabIndex = 0;  // Tab position initially 0;
           vm.tabNames = [
             'About me',
             'Background',
@@ -43,12 +42,12 @@
             'Contact'
           ];
           vm.contentUrls = [
-            "app/components/tabPanel/panel_1.template.html",
-            "app/components/tabPanel/panel_2.template.html",
-            "app/components/tabPanel/panel_4.template.html",
-            "app/components/tabPanel/panel_5.template.html",
-            "app/components/tabPanel/panel_3.template.html",
-            "app/components/tabPanel/panel_6.template.html",
+            "app/components/tabPanel/_about_me.template.html",
+            "app/components/tabPanel/_background.template.html",
+            "app/components/tabPanel/_projects.template.html",
+            "app/components/tabPanel/_blog.template.html",
+            "app/components/tabPanel/_resources.template.html",
+            "app/components/tabPanel/_contact.template.html",
           ];
 
           // Expose the public methods.
@@ -63,13 +62,15 @@
 
           /**
            * Set the tab position and the page title.
-           * @param tab  A tab index.
+           * @param tabIndex  A tab index.
            */
-          function setTab(tab) {
-            vm.tab = tab;
+          function setTab(tabIndex) {
+            vm.tabIndex = tabIndex;
 
             // Set the page title.
-            $scope.$parent.title = vm.tabNames[ tab ] + " | Masatoshi Nishiguchi";
+            var appCtrlElement = document.querySelector('html');
+            var appCtrlScope   = angular.element(appCtrlElement).scope();
+            appCtrlScope.title = vm.tabNames[ tabIndex ] + " | Masatoshi Nishiguchi";
           };
 
 
@@ -78,9 +79,9 @@
            * @param  tab  A tab index.
            * @return true if the specify tab index is currently set, else false.
            */
-          function isSet(tab) {
+          function isSet(tabIndex) {
 
-            return (vm.tab === tab);
+            return (vm.tabIndex === tabIndex);
 
           };
 

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html
   lang="en-us"
-  ng-app="mnApp"
-  ng-controller="AppController as appCtrl">
+  ng-app="app"
+  ng-controller="AppController">
 
 <!--
   Masatoshi Nishiguchi's personal web site
@@ -55,12 +55,10 @@
 <body>
 
   <!-- This is the page content. -->
-  <site-header></site-header>
-  <div
-    class="container"
-    id="main-container">
+  <app-header></app-header>
+  <div class="container" id="main-container">
     <tab-panel></tab-panel>
-    <site-footer></site-footer>
+    <app-footer></app-footer>
   </div>
 
   <!-- This is displayed when JavaScript is not available. -->
@@ -74,21 +72,16 @@
   <!--Load AngularJS-->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
 
-  <!--Load vendor scripts-->
-  <script type="text/javascript" src="assets/scripts/vendor/md5.js"></script>
-
   <!--Load app scripts-->
   <script type="text/javascript" src="app/app.module.js"></script>
-  <script type="text/javascript" src="app/shared/siteHeader/siteHeader.directive.js"></script>
-  <script type="text/javascript" src="app/shared/siteFooter/siteFooter.directive.js"></script>
-  <script type="text/javascript" src="app/shared/anchorHashLink.directive.js"></script>
   <script type="text/javascript" src="app/components/tabPanel/tabPanel.directive.js"></script>
   <script type="text/javascript" src="app/components/contactForm/contactForm.directive.js"></script>
   <script type="text/javascript" src="app/components/movieSearch/movieSearch.directive.js"></script>
   <script type="text/javascript" src="app/components/blog/blog.directive.js"></script>
   <script type="text/javascript" src="app/services/movieData.service.js"></script>
   <script type="text/javascript" src="app/services/blogData.service.js"></script>
-  <script type="text/javascript" src="app/filters/customFilters.js"></script>
+  <script type="text/javascript" src="app/shared/customFilters.js"></script>
+  <script type="text/javascript" src="app/shared/anchorHashLink.directive.js"></script>
 
 </body>
 </html>
