@@ -13,7 +13,7 @@
       class="nav-item">
       <a
         href=""
-        ng-click="vm.setTab(n)"
+        ng-click="vm.setTab(n) ; vm.setTitle(n)"
         ng-class="{ active:vm.isSet(n) }"
         class="nav-link">
         {{ vm.tabNames[ n ] }}
