@@ -55,8 +55,9 @@
   /**
    * appHeaderController
    */
-  appHeaderController.$inject = [ "$scope" ];
-
+  appHeaderController.$inject = [
+    "$scope"
+  ];
   function appHeaderController( $scope ) {
 
     var vm    = this;
