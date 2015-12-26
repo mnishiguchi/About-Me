@@ -4,10 +4,7 @@
 (function() {
 
   // Module declaration.
-  angular
-    .module( "blogComponents", [
-      "blogDataService"
-    ]);
+  // none
 
 
   // --------------------------------------------------------------------------- //
@@ -15,19 +12,22 @@
 
 
   angular
-    .module( "blogComponents" )
+    .module( "app" )
     .directive( 'blogPosts', blogPostsDirective );
 
   function blogPostsDirective() {
 
-    return {
+    var directive = {
       restrict: "E",
       scope: {},
       templateUrl: "app/components/blog/blogPosts.template.html",
       controller: blogPostsController,
       controllerAs: "vm"
     };
-  }
+
+    return directive;
+
+  } // end blogPostsDirective
 
 
   blogPostsController.$inject = [
@@ -63,15 +63,8 @@
       vm.loading = true;
 
       blogDataService.loadBlogPosts()
-      .then(
-        function successCallback(blogPosts) {
-          vm.loading = false;
-          vm.posts   = blogPosts;
-        },
-        function errorCallback(reason) {
-          vm.loading = false;
-        }
-      ); // end then
+      .then   ( function(blogPosts) { vm.posts   = blogPosts; } )
+      .finally( function()          { vm.loading = false; } );
 
     }; // end function
 
@@ -83,12 +76,12 @@
 
 
   angular
-    .module( "blogComponents" )
+    .module( "app" )
     .directive( 'blogPost', blogPostDirective );
 
   function blogPostDirective() {
 
-    return {
+    var directive = {
       restrict: "E",
       scope: {
         post: "="
@@ -97,6 +90,8 @@
       controller: blogPostController,
       controllerAs: "vm"
     };
+
+    return directive;
 
   } // end blogPostDirective
 

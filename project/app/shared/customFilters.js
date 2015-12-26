@@ -1,12 +1,10 @@
 /**
- * I define custom filters.
+ * customFilters
  */
 (function() {
 
   // Module declaration.
-  var module = angular.module(
-  "customFilters",
-  []);
+  // none
 
 
   // --------------------------------------------------------------------------- //
@@ -15,17 +13,22 @@
 
   // I decode paragraphs that include unicode and escape sequence.
   // https://docs.angularjs.org/api/ng/service/$sce
-  module.filter(
-  'htmlFilter',
-  [
-    "$sce",
-    function( $sce ) {
+  angular
+    .module( "app" )
+    .filter( "htmlFilter", htmlFilter );
 
-      return function( input ) {
-          return $sce.trustAsHtml( input );
+  htmlFilter.$inject = [
+    "$sce"
+  ]
+  function htmlFilter( $sce ) {
 
-      }; // end return
-    } // end function
-  ]); // end filter
+    var filter = function( input ) {
+        return $sce.trustAsHtml( input );
+    };
+
+    return filter;
+
+  } // end htmlFilter
+
 
 })();

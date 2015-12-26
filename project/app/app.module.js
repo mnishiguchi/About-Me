@@ -5,14 +5,7 @@
 
   // Module declaration.
   angular
-    .module( "app", [
-      "tabPanelComponents",
-      "contactFormComponents",
-      "movieSearchComponents",
-      "blogComponents",
-      "customFilters",
-      "anchorHashLink",
-    ]);
+    .module( "app", [ ]);
 
 
   // --------------------------------------------------------------------------- //
@@ -41,13 +34,15 @@
 
   function appHeaderDirective() {
 
-    return {
+    var directive = {
       restrict: "E",
       scope: {},
       templateUrl: "app/app.header.template.html",
       controller: appHeaderController,
       controllerAs: "vm"
     };
+
+    return directive;
 
   } // end appHeaderDirective
 
@@ -121,10 +116,12 @@
 
   function appFooterDirective() {
 
-    return {
+    var directive = {
       restrict: "E",
       templateUrl: "app/app.footer.template.html",
     };
+
+    return directive;
 
   } // end appFooterDirective
 

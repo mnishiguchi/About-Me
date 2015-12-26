@@ -6,11 +6,7 @@
 (function() {
 
   // Module declaration.
-  angular
-    .module( "movieSearchComponents", [
-      "movieDataService",
-      "anchorHashLink"
-    ]);
+  // none
 
 
   // --------------------------------------------------------------------------- //
@@ -18,19 +14,21 @@
 
 
   angular
-    .module( "movieSearchComponents" )
+    .module( "app" )
     .directive( "movieSearch", movieSearchDirective );
 
   function movieSearchDirective() {
 
-    return {
+    var directive = {
       restrict: "E",
       scope: {},
       templateUrl: "app/components/movieSearch/movieSearch.template.html",
 
       controllerAs: "vm",
       controller: movieSearchController,
-    }; // end return
+    };
+
+    return directive;
 
   } // end movieSearchDirective
 
@@ -94,17 +92,18 @@
 
   } // end movieSearchController
 
+
   // --------------------------------------------------------------------------- //
   // --------------------------------------------------------------------------- //
 
 
   angular
-    .module( "movieSearchComponents" )
+    .module( "app" )
     .directive( "movieInfo", movieInfoDirective );
 
   function movieInfoDirective() {
 
-    return {
+    var directive = {
       restrict: "E",
       scope: {
         info: "="
@@ -112,7 +111,9 @@
       templateUrl: "app/components/movieSearch/movieInfo.template.html",
       controller: movieInfoController,
       controllerAs: "vm"
-    }; // end return
+    };
+
+    return directive;
 
   } // end movieInfoDirective
 
@@ -136,13 +137,13 @@
     // Keep watch on props.info.Response then update vm.isDataAvailable.
     // https://docs.angularjs.org/api/ng/type/$rootScope.Scope
     $scope.$watch(
-      function() {
-        return props.info.Response;
-      },
+      "props.info.Response",
       function(newVal, oldVal) {
+
         if ( newVal !== oldVal ) {
           vm.isDataAvailable = (props.info.Response === 'True');
         }
+
       }
     ); // end $scope.$watch
 

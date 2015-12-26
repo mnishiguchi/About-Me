@@ -5,84 +5,82 @@
 (function() {
 
   // Module declaration.
-  var module = angular.module(
-  "movieDataService",
-  []);
+  // none
 
 
   // --------------------------------------------------------------------------- //
   // --------------------------------------------------------------------------- //
 
 
-  module.factory(
-  'movieDataService',
-  [
+  angular
+    .module( "app" )
+    .factory( "movieDataService", movieDataService );
+
+  movieDataService.$inject = [
     "$http",
-    "$q",
-    function( $http, $q ) {
+    "$q"
+  ]
+  function movieDataService( $http, $q ) {
 
-      // The service object.
-      var service = {};
+    var service = {
 
-      // Add properties to the service.
-      service.fetchData = fetchData;
+      fetchData: fetchData
 
+    };
 
-      // ---
-      // PUBLIC METHODS.
-      // ---
+    return service;
 
 
-      /**
-       * I make a GET request to the Open Movie Database for a movie data.
-       * @param  title  A search key.
-       * @return A promise of this GET request.
-       */
-      function fetchData(title) {
-
-        // Creates a Deferred object which represents a task which will finish in the future.
-        // https://docs.angularjs.org/api/ng/service/$q
-        var deferred = $q.defer();
-        var url      = makeUrl( title );
-
-        $http.get( url )
-        .then(
-          function successCallback(response) {
-            // NOTE: response.data is an object of movie data.
-            deferred.resolve( response.data );
-          },
-          function errorCallback(reason) {
-            deferred.reject( "Error fetching movie data: " + reason);
-          }
-        ); // end then
-
-        return deferred.promise;
-
-      };
+    // ---
+    // PUBLIC METHODS.
+    // ---
 
 
-      // ---
-      // PRIVATE METHODS.
-      // ---
+    /**
+     * Make a GET request to the Open Movie Database for a movie data.
+     * @param  title  A search key.
+     * @return A promise of this GET request.
+     */
+    function fetchData(title) {
+
+      // Creates a Deferred object which represents a task which will finish in the future.
+      // https://docs.angularjs.org/api/ng/service/$q
+      var deferred = $q.defer();
+      var url      = makeUrl( title );
+
+      $http.get( url )
+      .then(
+        function successCallback(response) {
+          // NOTE: response.data is an object of movie data.
+          deferred.resolve( response.data );
+        },
+        function errorCallback(reason) {
+          deferred.reject( "Error fetching movie data: " + reason);
+        }
+      ); // end then
+
+      return deferred.promise;
+
+    };
 
 
-      /**
-       * I make a URL for requesting movie data of the specified movie title.
-       * @param title
-       * @return A url for requesting data of the movie specified by title.
-       */
-      function makeUrl(title) {
-
-        var OMDB_BASE_URL = "http://www.omdbapi.com/?plot=full&t=";
-        return OMDB_BASE_URL + title;
-
-      };
+    // ---
+    // PRIVATE METHODS.
+    // ---
 
 
-      // Finally return the service object.
-      return service;
+    /**
+     * Make a URL for requesting movie data of the specified movie title.
+     * @param title
+     * @return A url for requesting data of the movie specified by title.
+     */
+    function makeUrl(title) {
 
-    } // end function
-  ]); // end factory
+      return "http://www.omdbapi.com/?plot=full&t=" + title;
+
+    };
+
+  } // end movieDataService
+
 
 })();

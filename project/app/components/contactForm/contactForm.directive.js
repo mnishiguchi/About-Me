@@ -4,8 +4,7 @@
 (function() {
 
   // Module declaration.
-  angular
-    .module( "contactFormComponents", [ ]);
+  // none
 
 
   // --------------------------------------------------------------------------- //
@@ -13,18 +12,20 @@
 
 
   angular
-    .module( "contactFormComponents")
+    .module( "app" )
     .directive( "contactForm", contactFormDirective );
 
   function contactFormDirective() {
 
-    return {
+    var directive = {
       restrict: "E",
       scope: {},
       templateUrl: "app/components/contactForm/contactForm.template.html",
       controller: contactFormController,
       controllerAs: "vm"
     };
+
+    return directive;
 
   }; // end contactFormDirective
 

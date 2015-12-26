@@ -4,8 +4,7 @@
 (function() {
 
   // Module declaration.
-  angular
-    .module( "tabPanelComponents", [ ]);
+  // none
 
 
   // --------------------------------------------------------------------------- //
@@ -13,20 +12,20 @@
 
 
   angular
-    .module( "tabPanelComponents")
+    .module( "app" )
     .directive( "tabPanel", tabPanelDirective );
 
   function tabPanelDirective() {
 
-    return {
+    var directive = {
       restrict: "E",
       scope: {},
       templateUrl: 'app/components/tabPanel/tabPanel.template.html',
-
-      controllerAs: "vm",
       controller: tabPanelController,
+      controllerAs: "vm",
+    };
 
-    }; // end return
+    return ;
 
   }; // end tabPanelDirective
 
@@ -72,7 +71,7 @@
 
     /**
      * Set the tab position.
-     * @param tabIndex  A tab index.
+     * @param tabIndex
      */
     function setTab(tabIndex) {
 
@@ -83,7 +82,7 @@
 
     /**
      * Check if a tab is active
-     * @param  tab  A tab index.
+     * @param tabIndex
      * @return true if the specify tab index is currently set, else false.
      */
     function isSet(tabIndex) {
@@ -95,7 +94,7 @@
 
     /**
      * Set the page title.
-     * @param tabIndex  A tab index.
+     * @param tabIndex
      */
     function setTitle(tabIndex) {
 

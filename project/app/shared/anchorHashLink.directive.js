@@ -16,46 +16,55 @@
 (function() {
 
   // Module declaration.
-  var module = angular.module(
-  "anchorHashLink",
-  []);
+  // none
 
 
   // --------------------------------------------------------------------------- //
   // --------------------------------------------------------------------------- //
 
 
-  module.directive(
-  'anchorHashLink',
-  function() {
+  angular
+    .module( "app" )
+    .directive( "anchorHashLink", anchorHashLinkDirective );
 
-    return {
+  function anchorHashLinkDirective() {
+
+    var directive = {
       restrict: "A",
+      controller: anchorHashLinkController,
+    };
 
-      controller:
-      [
-        '$scope',
-        '$location',
-        '$anchorScroll',
-        function( $scope, $location, $anchorScroll ) {
+    return directive;
 
-          /**
-           * I scroll to the element with the specified id.
-           * @param  id The id to which we want to link the element.
-           */
-          $scope.scrollTo = function( id ) {
+  } // end anchorHashLinkDirective
 
-            var old = $location.hash();
-            $location.hash(id);
-            $anchorScroll();
 
-            // Reset to old to keep any additional routing logic from kicking in.
-            $location.hash(old);
-          }
-        }
+  anchorHashLinkController.$inject = [
+    "$scope",
+    "$location",
+    "$anchorScroll"
+  ]
+  function anchorHashLinkController( $scope, $location, $anchorScroll ) {
 
-      ] // end controller
-    }; // end return
-  }); // end directive
+    $scope.scrollTo = scrollTo;
+
+    /**
+     * Scroll to the element with the specified id.
+     * @param  id The id to which we want to link the element.
+     */
+    function scrollTo( id ) {
+
+      var old = $location.hash();
+
+      $location.hash(id);
+      $anchorScroll();
+
+      // Reset to old to keep any additional routing logic from kicking in.
+      $location.hash(old);
+
+    }
+
+  } // end anchorHashLinkController
+
 
 })();
