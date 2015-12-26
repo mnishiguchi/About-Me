@@ -65,8 +65,8 @@
       vm.loading = true;
 
       movieDataService.fetchData( vm.searchKey )
-      .then   ( function(movieInfo) {  vm.movieInfo = movieInfo; } )
-      .finally( function()          { vm.loading    = false; } );
+      .then   ( function(movieInfo) { vm.movieInfo = movieInfo; } )
+      .finally( function()          { vm.loading   = false; } );
 
     } // end function
 
@@ -110,7 +110,7 @@
 
   movieInfoController.$inject = [
     "$scope"
-  ]
+  ];
   function movieInfoController( $scope ) {
 
     var vm    = this;

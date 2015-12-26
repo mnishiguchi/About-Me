@@ -43,7 +43,7 @@
     "$scope",
     "$location",
     "$anchorScroll"
-  ]
+  ];
   function anchorHashLinkController( $scope, $location, $anchorScroll ) {
 
     $scope.scrollTo = scrollTo;

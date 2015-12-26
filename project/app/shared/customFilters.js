@@ -19,7 +19,7 @@
 
   htmlFilter.$inject = [
     "$sce"
-  ]
+  ];
   function htmlFilter( $sce ) {
 
     var filter = function( input ) {
