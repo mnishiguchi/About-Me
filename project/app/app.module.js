@@ -41,7 +41,6 @@
       controller: appHeaderController,
       controllerAs: "vm"
     };
-
     return directive;
 
   } // end appHeaderDirective
@@ -120,7 +119,6 @@
       restrict: "E",
       templateUrl: "app/app.footer.template.html",
     };
-
     return directive;
 
   } // end appFooterDirective

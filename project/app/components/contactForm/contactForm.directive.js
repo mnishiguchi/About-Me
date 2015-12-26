@@ -24,7 +24,6 @@
       controller: contactFormController,
       controllerAs: "vm"
     };
-
     return directive;
 
   }; // end contactFormDirective

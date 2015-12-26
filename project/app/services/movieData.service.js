@@ -27,7 +27,6 @@
       fetchData: fetchData
 
     };
-
     return service;
 
 

@@ -24,7 +24,6 @@
       controller: blogPostsController,
       controllerAs: "vm"
     };
-
     return directive;
 
   } // end blogPostsDirective
@@ -90,7 +89,6 @@
       controller: blogPostController,
       controllerAs: "vm"
     };
-
     return directive;
 
   } // end blogPostDirective

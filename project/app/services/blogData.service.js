@@ -26,7 +26,6 @@
       loadBlogPosts: loadBlogPosts
 
     };
-
     return service;
 
 

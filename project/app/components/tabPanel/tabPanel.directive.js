@@ -24,39 +24,25 @@
       controller: tabPanelController,
       controllerAs: "vm",
     };
-
-    return ;
+    return directive;
 
   }; // end tabPanelDirective
 
 
   tabPanelController.$inject = [
     "$scope",
-    "$window"
-  ]
-  function tabPanelController( $scope, $window ) {
+    "$window",
+    "appInfo"
+  ];
+  function tabPanelController( $scope, $window, appInfo ) {
 
     var vm    = this;
     var props = $scope.props = $scope;  // Alias for $scope
 
     // State
-    vm.tabIndex = 0;  // Tab position initially 0;
-    vm.tabNames = [
-      'About me',
-      'Background',
-      "Projects",
-      'Blog',
-      "Resources",
-      'Contact'
-    ];
-    vm.contentUrls = [
-      "app/components/tabPanel/_about_me.template.html",
-      "app/components/tabPanel/_background.template.html",
-      "app/components/tabPanel/_projects.template.html",
-      "app/components/tabPanel/_blog.template.html",
-      "app/components/tabPanel/_resources.template.html",
-      "app/components/tabPanel/_contact.template.html",
-    ];
+    vm.tabIndex    = 0;  // Tab position initially 0;
+    vm.tabNames    = appInfo.tabTitles;
+    vm.contentUrls = appInfo.tabUrls;
 
     // Expose the public methods.
     vm.isSet    = isSet;

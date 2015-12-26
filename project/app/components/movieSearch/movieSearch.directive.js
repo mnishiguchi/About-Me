@@ -23,11 +23,9 @@
       restrict: "E",
       scope: {},
       templateUrl: "app/components/movieSearch/movieSearch.template.html",
-
       controllerAs: "vm",
       controller: movieSearchController,
     };
-
     return directive;
 
   } // end movieSearchDirective
@@ -36,16 +34,16 @@
   movieSearchController.$inject = [
     "$scope",
     "movieDataService"
-  ]
+  ];
   function movieSearchController( $scope, movieDataService ) {
 
     var vm    = this;
     var props = $scope.props = $scope;  // Alias for $scope
 
     // Initial state.
-    vm.searchKey = "";
-    vm.movieInfo = {};
     vm.loading   = false;
+    vm.movieInfo = {};
+    vm.searchKey = "";
     vm.topID     = "main-container";  // For anchorHashLink
 
     // Expose the public methods.
@@ -67,15 +65,8 @@
       vm.loading = true;
 
       movieDataService.fetchData( vm.searchKey )
-      .then(
-        function successCallback(movieInfo) {
-          vm.loading   = false;
-          vm.movieInfo = movieInfo;
-        },
-        function errorCallback(reason) {
-          vm.loading = false;
-        }
-      ); // end then
+      .then   ( function(movieInfo) {  vm.movieInfo = movieInfo; } )
+      .finally( function()          { vm.loading    = false; } );
 
     } // end function
 
@@ -112,7 +103,6 @@
       controller: movieInfoController,
       controllerAs: "vm"
     };
-
     return directive;
 
   } // end movieInfoDirective
