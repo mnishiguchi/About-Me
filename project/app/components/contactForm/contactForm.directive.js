@@ -1,5 +1,5 @@
 /**
- * Defines contact-form related components.
+ * contactForm
  */
 (function() {
 
@@ -21,10 +21,10 @@
   function contactMeService( $window ) {
 
     var service = {
+      clearData: clearData,
       message: "",
-      stars: 0,
+      stars: 3,
       sendEmail: sendEmail,
-
     };
     return service;
 
@@ -39,13 +39,23 @@
      */
     function sendEmail(to, cc, bcc, subject, body) {
 
-      $window.location.href = "mailto:" + to
-        + "?cc="  + cc
-        + "&bcc=" + bcc
-        + "&subject=" + escape(subject)
-        + "&body="    + escape(body)
-        ; // end window.location.href
+      $window.location.href = [
+        "mailto:",   to,
+        "?cc=",      cc,
+        "&bcc=",     bcc,
+        "&subject=", escape(subject),
+        "&body=",    escape(body),
+      ].join("");
 
+    }
+
+
+    /**
+     * [clearData description]
+     */
+    function clearData() {
+      service.message = "";
+      service.stars   = 3;
     }
 
 
@@ -58,43 +68,35 @@
 
   angular
     .module( "app" )
-    .directive( "contactForm", contactFormDirective );
+    .component( "contactForm", {
 
-  function contactFormDirective() {
-
-    var directive = {
-      restrict: "E",
-      scope: {},
       templateUrl: "app/components/contactForm/contactForm.template.html",
       controller: contactFormController,
-      controllerAs: "vm"
-    };
-    return directive;
 
-  }; // end contactFormDirective
-
+    });
 
   contactFormController.$inject = [
-    "$scope",  // For $scope.$watch
+    "$scope",           // $scope.$watch and form validation.
     "contactMeService"
   ];
   function contactFormController( $scope, contactMeService ) {
 
-    var vm    = this;
+    var vm = this;
 
-    // State
-    vm.message = contactMeService.message; // Bound to the fields
+    // Initial state.
+    vm.message = contactMeService.message;
     vm.stars   = contactMeService.stars;
 
     // Expose the public methods.
     vm.handleMessageSubmit = handleMessageSubmit;
 
     // Keep watch on contactMeService.stars
+    // Ensure that vm.stars === contactMeService.stars
     $scope.$watch(
       function () { return contactMeService.stars; },
       function (newVal, oldVal) {
-        if (typeof newVal !== 'undefined') {
-          vm.stars   = contactMeService.stars;
+        if (newVal !== vm.stars) {
+          vm.stars = contactMeService.stars;
         }
     });
 
@@ -113,16 +115,29 @@
       to      = "masatoshi.nishiguchi@udc.edu";
       subject = "Hello Masa - " + vm.stars + " stars";
       body    = vm.message;
+
       contactMeService.sendEmail( to, "", "", subject, body )
 
       // Clear the fields
-      vm.message = "";
-      vm.stars   = 0;
+      clearFields();
+    }
+
+
+    /**
+     * [clearFields description]
+     */
+    function clearFields() {
+
+      // Clear the central data store.
+      contactMeService.clearData();
+
+      // Re-bind to contactMeService.
+      vm.message = contactMeService.message;
+      vm.stars   = contactMeService.stars;
 
       // Reset the form's state
-      $scope.messageForm.$setPristine();
-      $scope.messageForm.$setUntouched();
-
+      $scope.messageField.$setPristine();
+      $scope.messageField.$setUntouched();
     }
 
   } // end contactFormController
@@ -134,45 +149,41 @@
 
   angular
     .module( "app" )
-    .directive( "stars", starsDirective );
+    .component( "stars", {
 
-  function starsDirective() {
-
-    var directive = {
-      restrict: "E",
-      scope: {},
       templateUrl: "app/components/contactForm/stars.template.html",
       controller: starsController,
-      controllerAs: "vm"
-    };
-    return directive;
 
-  }; // end starsDirective
-
+    });
 
   starsController.$inject = [
+    "$scope",
     "contactMeService"
   ];
-  function starsController( contactMeService ) {
+  function starsController( $scope, contactMeService ) {
 
-    var vm    = this;
+    var vm = this;
 
-    // State
-    vm.stars   = contactMeService.stars;
+    // Initial state.
+    vm.count = contactMeService.stars;
 
     // Expose the public methods.
     vm.incrementStar = function() {
-      if (vm.stars < 5) {
-        contactMeService.stars += 1;
-        vm.stars   = contactMeService.stars;
-      }
-    }
+      if (vm.count < 5) { contactMeService.stars += 1; }
+    };
     vm.decrementStar = function() {
-      if (vm.stars > 0) {
-        contactMeService.stars -= 1;
-        vm.stars   = contactMeService.stars;
-      }
-    }
+      if (vm.count > 0) { contactMeService.stars -= 1; }
+    };
+
+    // Keep watch on contactMeService.stars
+    // Ensure that vm.count === contactMeService.stars
+    $scope.$watch(
+      function () { return contactMeService.stars; },
+      function (newVal, oldVal) {
+        if (newVal !== vm.count) {
+          vm.count = contactMeService.stars;
+        }
+    });
 
   } // end starsController
 

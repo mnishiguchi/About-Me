@@ -1,18 +1,18 @@
     <div ng-repeat="n in [ 1,2,3,4,5 ]" class="stars">
       &nbsp;
-      <i ng-if="n <= vm.stars"    class="fa fa-star"></i>
-      <i ng-if="!(n <= vm.stars)" class="fa fa-star-o"></i>
+      <i ng-class="(n <= stars.count) ? 'fa fa-star' : 'fa fa-star-o'"></i>
     </div>
 
     <div class="plus_minus">
       &nbsp;
       <a href="">
-        <i class="fa fa-minus fa-fw" ng-click="vm.decrementStar();"></i>
+        <i class="fa fa-minus fa-fw" ng-click="stars.decrementStar();"></i>
       </a>
       <a href="">
-        <i class="fa fa-plus fa-fw" ng-click="vm.incrementStar();"></i>
+        <i class="fa fa-plus fa-fw" ng-click="stars.incrementStar();"></i>
       </a>
     </div>
+
     <div class="star_count">
-      &nbsp;( {{ vm.stars }} )
+      &nbsp;( {{ stars.count }} )
     </div>

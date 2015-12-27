@@ -6,15 +6,15 @@
  -->
 
 <form novalidate
-  name="messageForm"
-  class="messageForm"
-  ng-submit="messageForm.$valid && vm.handleMessageSubmit()">
+  name="messageField"
+  class="messageField"
+  ng-submit="messageField.$valid && contactForm.handleMessageSubmit()">
 
   <!-- Input field for message -->
   <fieldset class="form-group">
     <label for="messages">Message</label>
     <textarea required
-      ng-model="vm.message"
+      ng-model="contactForm.message"
       ng-minlength="10"
       placeholder="Place questions or comments here"
       class="form-control"
@@ -25,7 +25,7 @@
 
     <!-- Alert box -->
     <p
-      ng-show="messageForm.message.$invalid && !messageForm.message.$pristine"
+      ng-show="messageField.message.$invalid && !messageField.message.$pristine"
       class="form-help">
       <em>*required</em>
     </p>
@@ -43,8 +43,8 @@
   <!--  Submit -->
   <fieldset class="form-group">
     <button type="submit"
-      ng-class="messageForm.$invalid ? 'btn-secondary-outline' : 'btn-success'"
-      ng-disabled="messageForm.$invalid"
+      ng-class="messageField.$invalid ? 'btn-secondary-outline' : 'btn-success'"
+      ng-disabled="messageField.$invalid"
       class="btn pull-right">
       Send
     </button>

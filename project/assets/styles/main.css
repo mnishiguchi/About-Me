@@ -396,7 +396,7 @@ footer a {
   margin-bottom: 40px;
 }
 
-.page.contact .messageForm label {
+.page.contact .messageField label {
   color: #DDDDDD;
 }
 
@@ -420,23 +420,23 @@ footer a {
   color: white;
 }
 
-.page.contact .messageForm select.ng-invalid.ng-dirty,
-.page.contact .messageForm textarea.ng-invalid.ng-dirty {
+.page.contact .messageField select.ng-invalid.ng-dirty,
+.page.contact .messageField textarea.ng-invalid.ng-dirty {
   box-shadow: 0 0 5px #FA787E;
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
   border: 2px solid #FA787E;
 }
 
-.page.contact .messageForm select.ng-valid.ng-dirty,
-.page.contact .messageForm textarea.ng-valid.ng-dirty {
+.page.contact .messageField select.ng-valid.ng-dirty,
+.page.contact .messageField textarea.ng-valid.ng-dirty {
   box-shadow: 0 0 5px #78FA89;
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
   border: 2px solid #78FA89;
 }
 
-.page.contact .messageForm .form-help {
+.page.contact .messageField .form-help {
   color: #FA787E;
 }
 
