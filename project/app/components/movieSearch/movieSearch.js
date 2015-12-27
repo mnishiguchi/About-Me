@@ -17,7 +17,7 @@
     .module( "app" )
     .component( "movieSearch", {
 
-      templateUrl: "app/components/movieSearch/movieSearch.template.html",
+      templateUrl: "app/components/movieSearch/movieSearch.html",
       controller: movieSearchController,
 
     });
@@ -85,7 +85,7 @@
       bindings: {
         info: "="
       },
-      templateUrl: "app/components/movieSearch/movie.template.html",
+      templateUrl: "app/components/movieSearch/movie.html",
       controller: movieController,
     });
 

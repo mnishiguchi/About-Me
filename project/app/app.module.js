@@ -32,8 +32,7 @@
     .module( "app" )
     .component( "appHeader", {
 
-      bindings: {},
-      templateUrl: "app/app.header.template.html",
+      templateUrl: "app/app.header.html",
       controller: appHeaderController
 
     });
@@ -47,7 +46,7 @@
 
     var vm = this;
 
-    // Expose the state.
+    // Initial state.
     vm.css = {};
 
     // Expose the public methods.
@@ -102,7 +101,7 @@
     .module( "app" )
     .component( "appFooter", {
 
-      templateUrl: "app/app.footer.template.html"
+      templateUrl: "app/app.footer.html"
 
     });
 

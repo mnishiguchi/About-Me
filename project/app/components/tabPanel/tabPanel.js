@@ -1,5 +1,5 @@
 /**
- * Defines tab-panel related components.
+ * tabPanel
  */
 (function() {
 
@@ -13,34 +13,26 @@
 
   angular
     .module( "app" )
-    .directive( "tabPanel", tabPanelDirective );
+    .component( "tabPanel", {
 
-  function tabPanelDirective() {
-
-    var directive = {
-      restrict: "E",
-      scope: {},
-      templateUrl: 'app/components/tabPanel/tabPanel.template.html',
+      templateUrl: 'app/components/tabPanel/tabPanel.html',
       controller: tabPanelController,
-      controllerAs: "vm",
-    };
-    return directive;
 
-  }; // end tabPanelDirective
+    });
 
 
   tabPanelController.$inject = [
-    "$window",  // For $window.document
-    "appInfo"
+    "$window",  // $window.document
+    "appContents"
   ];
-  function tabPanelController( $window, appInfo ) {
+  function tabPanelController( $window, appContents ) {
 
     var vm    = this;
 
-    // State
+    // Initial state.
     vm.tabIndex    = 0;  // Tab position initially 0;
-    vm.tabNames    = appInfo.tabTitles;
-    vm.contentUrls = appInfo.tabUrls;
+    vm.tabNames    = appContents.tabTitles;
+    vm.contentUrls = appContents.tabUrls;
 
     // Expose the public methods.
     vm.isSet    = isSet;
@@ -83,7 +75,7 @@
     function setTitle(tabIndex) {
 
       // Set the page title via $window.
-      $window.document.title = vm.tabNames[ tabIndex ];
+      $window.document.title = vm.tabNames[ tabIndex ] + " | Masatoshi Nishiguchi";
 
     };
 

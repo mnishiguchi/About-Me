@@ -13,9 +13,9 @@
 
   angular
     .module( "app" )
-    .component( 'blogPosts', {
+    .component( "blogPosts", {
 
-      templateUrl: "app/components/blog/blogPosts.template.html",
+      templateUrl: "app/components/blog/blogPosts.html",
       controller: blogPostsController,
 
     });
@@ -66,12 +66,12 @@
 
   angular
     .module( "app" )
-    .component( 'blogPost', {
+    .component( "blogPost", {
 
       bindings: {
         post: "="  // bindToController
       },
-      templateUrl: 'app/components/blog/blogPost.template.html',
+      templateUrl: 'app/components/blog/blogPost.html',
       controller: blogPostController,
 
     });

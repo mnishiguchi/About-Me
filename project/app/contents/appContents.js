@@ -1,5 +1,5 @@
 /**
- * appInfo
+ * appContents
  */
 (function() {
 
@@ -13,10 +13,10 @@
 
   angular
     .module( "app" )
-    .factory( "appInfo", appInfo );
+    .factory( "appContents", appContents );
 
-  appInfo.$inject = [ ];
-  function appInfo() {
+  appContents.$inject = [ ];
+  function appContents() {
 
     var service = {
 
@@ -29,18 +29,18 @@
         "Contact"
       ],
       tabUrls: [
-        "app/contents/_about_me.template.html",
-        "app/contents/_background.template.html",
-        "app/contents/_projects.template.html",
-        "app/contents/_blog.template.html",
-        "app/contents/_resources.template.html",
-        "app/contents/_contact.template.html",
+        "app/contents/_about_me.html",
+        "app/contents/_background.html",
+        "app/contents/_projects.html",
+        "app/contents/_blog.html",
+        "app/contents/_resources.html",
+        "app/contents/_contact.html",
       ]
 
     };
     return service;
 
-  } // end appInfo
+  } // end appContents
 
 
 })();

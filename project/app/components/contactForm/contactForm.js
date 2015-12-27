@@ -23,7 +23,7 @@
     var service = {
       clearData: clearData,
       message: "",
-      stars: 3,
+      stars: 0,
       sendEmail: sendEmail,
     };
     return service;
@@ -55,7 +55,7 @@
      */
     function clearData() {
       service.message = "";
-      service.stars   = 3;
+      service.stars   = 0;
     }
 
 
@@ -70,7 +70,7 @@
     .module( "app" )
     .component( "contactForm", {
 
-      templateUrl: "app/components/contactForm/contactForm.template.html",
+      templateUrl: "app/components/contactForm/contactForm.html",
       controller: contactFormController,
 
     });
@@ -151,7 +151,7 @@
     .module( "app" )
     .component( "stars", {
 
-      templateUrl: "app/components/contactForm/stars.template.html",
+      templateUrl: "app/components/contactForm/stars.html",
       controller: starsController,
 
     });
