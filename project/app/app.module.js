@@ -28,21 +28,15 @@
   // --------------------------------------------------------------------------- //
 
 
-  angular.module( "app" )
-  .directive( "appHeader", appHeaderDirective );
+  angular
+    .module( "app" )
+    .component( "appHeader", {
 
-  function appHeaderDirective() {
-
-    var directive = {
-      restrict: "E",
-      scope: {},
+      bindings: {},
       templateUrl: "app/app.header.template.html",
-      controller: appHeaderController,
-      controllerAs: "vm"
-    };
-    return directive;
+      controller: appHeaderController
 
-  } // end appHeaderDirective
+    });
 
 
   /**
@@ -51,16 +45,16 @@
   appHeaderController.$inject = [ ];
   function appHeaderController() {
 
-    var vm    = this;
+    var vm = this;
 
-    // Initial state.
-    vm.css   = {};
+    // Expose the state.
+    vm.css = {};
 
     // Expose the public methods.
-    vm.changeBackgroundColor = changeBackgroundColor;
+    vm.changeBackground = changeBackground;
 
     // Set the initial header color.
-    vm.changeBackgroundColor();
+    vm.changeBackground();
 
 
     // ---
@@ -71,7 +65,7 @@
     /**
      * Change a navbar's background color with a random color.
      */
-    function changeBackgroundColor() {
+    function changeBackground() {
 
       vm.css[ "backgroundColor" ] = getRandomRGBA();
 
@@ -106,17 +100,11 @@
 
   angular
     .module( "app" )
-    .directive( "appFooter", appFooterDirective );
+    .component( "appFooter", {
 
-  function appFooterDirective() {
+      templateUrl: "app/app.footer.template.html"
 
-    var directive = {
-      restrict: "E",
-      templateUrl: "app/app.footer.template.html",
-    };
-    return directive;
-
-  } // end appFooterDirective
+    });
 
 
 })();
