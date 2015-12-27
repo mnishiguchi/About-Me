@@ -13,20 +13,12 @@
 
   angular
     .module( "app" )
-    .directive( 'blogPosts', blogPostsDirective );
+    .component( 'blogPosts', {
 
-  function blogPostsDirective() {
-
-    var directive = {
-      restrict: "E",
-      scope: {},
       templateUrl: "app/components/blog/blogPosts.template.html",
       controller: blogPostsController,
-      controllerAs: "vm"
-    };
-    return directive;
 
-  } // end blogPostsDirective
+    });
 
 
   blogPostsController.$inject = [
@@ -36,7 +28,7 @@
 
     var vm    = this;
 
-    // Initial state.
+    // Expose the state.
     vm.posts   = {}; // Bound to the fields.
     vm.loading = false;
 
@@ -74,39 +66,30 @@
 
   angular
     .module( "app" )
-    .directive( 'blogPost', blogPostDirective );
+    .component( 'blogPost', {
 
-  function blogPostDirective() {
-
-    var directive = {
-      restrict: "E",
-      scope: {
-        post: "="
+      bindings: {
+        post: "="  // bindToController
       },
       templateUrl: 'app/components/blog/blogPost.template.html',
       controller: blogPostController,
-      controllerAs: "vm"
-    };
-    return directive;
 
-  } // end blogPostDirective
+    });
 
 
   blogPostController.$inject = [
-    "$scope",
     "$location",
     "$anchorScroll"
   ];
-  function blogPostController( $scope, $location, $anchorScroll ) {
+  function blogPostController( $location, $anchorScroll ) {
 
-    var vm    = this;
-    var props = $scope.props = $scope;  // Alias for $scope
+    var vm = this;
 
-    // State
+    // Expose the state.
     vm.isVisible = false;  // visibility initially false;
-    vm.topId     = 'post-' + props.post.id;
+    vm.topId     = 'post-' + vm.post.id;
 
-    // Expose the public functions.
+    // Expose the public methods.
     vm.toggleVisibility = function() { vm.isVisible = !vm.isVisible; };
 
   } // end blogPostController

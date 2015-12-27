@@ -2,64 +2,69 @@
   blogPost
 -->
 
-<div
-  ng-attr-id="{{ vm.topId }}">
-</div>
+<!--
+  topId
+  - Dynamically generate ID for this element based on post id.
+  - Used for anchorHashLink.
+-->
+<div ng-attr-id="{{ blogPost.topId }}"></div>
 
-<!-- Post title
-  I toggle post-body when clicked.
+<!--
+  Post title
+  - Toggle post-body when clicked.
 -->
 <h2 class="post-title">
   <a
-    ng-click="vm.toggleVisibility()">
-    {{ props.post.title }}
+    ng-click="blogPost.toggleVisibility()">
+    {{ blogPost.post.title }}
   </a>
 </h2>
 
 
-<!-- Post meta
-  When author_url exists, I link displayName to that URL.
+<!--
+  Post meta
+  - Link displayName to that URL when author_url exists.
 -->
 <p class="post-meta">
   Posted by
   <a
-    ng-if="props.post.author_url.length > 0"
-    ng-href="{{ props.post.author_url }}">
-    {{ props.post.author.displayName }}
+    ng-if="blogPost.post.author_url.length > 0"
+    ng-href="{{ blogPost.post.author_url }}">
+    {{ blogPost.post.author.displayName }}
   </a>
   <span
-    ng-if="! props.post.author_url" >
-    {{ props.post.author.displayName }}
+    ng-if="! blogPost.post.author_url" >
+    {{ blogPost.post.author.displayName }}
   </span>
   <!-- https://docs.angularjs.org/api/ng/filter/date -->
-  on {{ props.post.published | date:'short' }}
+  on {{ blogPost.post.published | date:'short' }}
 
   <a
-    ng-href="{{ props.post.url }}">
+    ng-href="{{ blogPost.post.url }}">
     <img
       src="https://cdn2.iconfinder.com/data/icons/aquaticus/48%20X%2048/blogger.png"
       alt="ic-blogger"
       class="ic-blogger"
-      height="24px"
-      width="24px">
+      height="24px" width="24px">
   </a>
 </p>
 
 
-<!-- Post body
-  Since the Blogger's format includes Unicode and escape sequence, I convert it
-  into appropriate HTML format, using custom html filter.
+<!--
+  Post body
+  - Convert it into appropriate HTML format, using custom html filter because
+    the Blogger's format includes Unicode and escape sequence,
 -->
 <p
   class="post-body"
-  ng-show="vm.isVisible"
-  ng-bind-html="props.post.content | htmlFilter">
+  ng-show="blogPost.isVisible"
+  ng-bind-html="blogPost.post.content | htmlFilter">
 </p>
 
 <!-- Link to top of this article -->
 <a
-  ng-show="vm.isVisible"
-  ng-click="scrollTo( vm.topId )"
+  ng-show="blogPost.isVisible"
+  ng-click="scrollTo( blogPost.topId )"
   anchor-hash-link>
 
   <span class="fa-stack fa-lg">
@@ -70,8 +75,8 @@
 
 <!-- Toggle visibility -->
 <a
-  ng-show="vm.isVisible"
-  ng-click="vm.toggleVisibility() ; scrollTo( vm.topId )"
+  ng-show="blogPost.isVisible"
+  ng-click="blogPost.toggleVisibility() ; scrollTo( blogPost.topId )"
   anchor-hash-link>
 
   <span class="fa-stack fa-lg">
