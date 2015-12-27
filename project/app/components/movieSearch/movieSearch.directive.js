@@ -15,21 +15,12 @@
 
   angular
     .module( "app" )
-    .directive( "movieSearch", movieSearchDirective );
+    .component( "movieSearch", {
 
-  function movieSearchDirective() {
-
-    var directive = {
-      restrict: "E",
-      scope: {},
       templateUrl: "app/components/movieSearch/movieSearch.template.html",
-      controllerAs: "vm",
       controller: movieSearchController,
-    };
-    return directive;
 
-  } // end movieSearchDirective
-
+    });
 
   movieSearchController.$inject = [
     "$scope",
@@ -38,7 +29,6 @@
   function movieSearchController( $scope, movieDataService ) {
 
     var vm    = this;
-    var props = $scope.props = $scope;  // Alias for $scope
 
     // Initial state.
     vm.loading   = false;
@@ -90,48 +80,38 @@
 
   angular
     .module( "app" )
-    .directive( "movieInfo", movieInfoDirective );
+    .component( "movie", {
 
-  function movieInfoDirective() {
-
-    var directive = {
-      restrict: "E",
-      scope: {
+      bindings: {
         info: "="
       },
-      templateUrl: "app/components/movieSearch/movieInfo.template.html",
-      controller: movieInfoController,
-      controllerAs: "vm"
-    };
-    return directive;
+      templateUrl: "app/components/movieSearch/movie.template.html",
+      controller: movieController,
+    });
 
-  } // end movieInfoDirective
-
-
-  movieInfoController.$inject = [
+  movieController.$inject = [
     "$scope"
   ];
-  function movieInfoController( $scope ) {
+  function movieController( $scope ) {
 
-    var vm    = this;
-    var props = $scope.props = $scope;  // Alias for $scope
+    var vm  = this;
 
     // Initial state.
     vm.isDataAvailable = false;
 
     // Expose the public methods.
-    vm.getAmazonUrl      = getAmazonUrl;
-    vm.getMoviePosterUrl = getMoviePosterUrl;
-    vm.getYouTubeUrl     = getYouTubeUrl;
+    vm.getAmazonUrl  = getAmazonUrl;
+    vm.getPosterUrl  = getPosterUrl;
+    vm.getYouTubeUrl = getYouTubeUrl;
 
-    // Keep watch on props.info.Response then update vm.isDataAvailable.
+    // Keep watch on vm.info.Response then update vm.isDataAvailable.
     // https://docs.angularjs.org/api/ng/type/$rootScope.Scope
     $scope.$watch(
-      "props.info.Response",
+      function() { return vm.info.Response; },
       function(newVal, oldVal) {
 
         if ( newVal !== oldVal ) {
-          vm.isDataAvailable = (props.info.Response === 'True');
+          vm.isDataAvailable = (vm.info.Response === 'True');
         }
 
       }
@@ -147,11 +127,11 @@
      * @return An URL for a poster based on the current info,
      *         a placeholder URL if the current info is empty.
      */
-    function getMoviePosterUrl() {
+    function getPosterUrl() {
 
-        return (props.info.Poster == 'N/A')
+        return (vm.info.Poster == 'N/A')
                 ? "http://placehold.it/200x200&text=N/A" // Placeholer.
-                : props.info.Poster;
+                : vm.info.Poster;
 
     }
 
@@ -161,7 +141,7 @@
      */
     function getAmazonUrl() {
 
-      return "http://www.amazon.com/s/ref=nb_sb_noss_1/?url=search-alias%3Ddvd&field-keywords=" + props.info.Title;
+      return "http://www.amazon.com/s/ref=nb_sb_noss_1/?url=search-alias%3Ddvd&field-keywords=" + vm.info.Title;
 
     }
 
@@ -171,11 +151,11 @@
      */
     function getYouTubeUrl() {
 
-      return "https://www.youtube.com/results/?search_query=" + props.info.Title;
+      return "https://www.youtube.com/results/?search_query=" + vm.info.Title;
 
     }
 
-  } // end movieInfoController
+  } // end movieController
 
 
 })();
