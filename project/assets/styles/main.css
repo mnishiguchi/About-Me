@@ -396,21 +396,28 @@ footer a {
   margin-bottom: 40px;
 }
 
-.page.contact .preview {
-  background-color: #333333;
-  border-color: #FFFFFF;
-}
-
 .page.contact .messageForm label {
   color: #DDDDDD;
 }
 
-.page.contact .stars {
+.page.contact .stars,
+.page.contact .plus_minus,
+.page.contact .star_count {
   display: inline-block;
+  color: #FFFFFF;
+}
+
+
+.page.contact i.fa {
+  font-size: 1.5em;
 }
 
 .page.contact .stars > i.fa-star {
   color: yellow;
+}
+
+.page.contact .stars > i.fa-star-o {
+  color: white;
 }
 
 .page.contact .messageForm select.ng-invalid.ng-dirty,

@@ -30,13 +30,11 @@
 
 
   blogPostsController.$inject = [
-    "$scope",
     "blogDataService"
   ];
-  function blogPostsController( $scope, blogDataService ) {
+  function blogPostsController( blogDataService ) {
 
     var vm    = this;
-    var props = $scope.props = $scope;  // Alias for $scope
 
     // Initial state.
     vm.posts   = {}; // Bound to the fields.

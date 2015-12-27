@@ -18,7 +18,7 @@
   blogDataService.$inject = [
     "$http",
     "$q"
-  ]
+  ];
   function blogDataService( $http, $q ) {
 
     var service = {

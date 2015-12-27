@@ -19,7 +19,7 @@
   movieDataService.$inject = [
     "$http",
     "$q"
-  ]
+  ];
   function movieDataService( $http, $q ) {
 
     var service = {

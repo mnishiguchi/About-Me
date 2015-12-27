@@ -30,14 +30,12 @@
 
 
   tabPanelController.$inject = [
-    "$scope",
-    "$window",
+    "$window",  // For $window.document
     "appInfo"
   ];
-  function tabPanelController( $scope, $window, appInfo ) {
+  function tabPanelController( $window, appInfo ) {
 
     var vm    = this;
-    var props = $scope.props = $scope;  // Alias for $scope
 
     // State
     vm.tabIndex    = 0;  // Tab position initially 0;

@@ -10,61 +10,7 @@
   class="messageForm"
   ng-submit="messageForm.$valid && vm.handleMessageSubmit()">
 
-
-  <!--  Live Preview -->
-  <div
-    class="card card-inverse preview"
-    ng-if="vm.stars > 0 || vm.message != ''">
-
-    <div class="card-block">
-      <!-- Stars -->
-      <h3 class="card-title">
-        <div
-          ng-repeat="n in [ 1,2,3,4,5 ]"
-          class="stars">
-          <i
-            ng-if="n <= vm.stars"
-            class="fa fa-star">
-          </i>
-        </div>
-      </h3>
-      <!-- Message -->
-      <p class="card-text">
-        {{ vm.message }}
-      </p>
-    </div>
-  </div>
-
-
-  <!--  Input fields for stars -->
-  <fieldset class="form-group">
-    <label for="stars">Rate this website</label>
-    <select required
-      ng-model="vm.stars"
-      ng-required="vm.stars !== 0"
-      ng-options="count for count in [ 5,4,3,2,1 ]"
-      class="form-control"
-      id="stars"
-      name="stars"
-      title="Stars" >
-
-      <option
-        selected="selected"
-        value=""><!-- NOTE: Empty value is required for showing the default text. -->
-        Stars
-      </option>
-    </select>
-
-    <!-- Alert box -->
-    <p
-      ng-show="messageForm.stars.$invalid && !messageForm.stars.$pristine"
-      class="form-help">
-      <em>*required</em>
-    </p>
-  </fieldset>
-
-
-  <!--  Input field for message -->
+  <!-- Input field for message -->
   <fieldset class="form-group">
     <label for="messages">Message</label>
     <textarea required
@@ -86,13 +32,21 @@
   </fieldset>
 
 
+  <!-- Rating -->
+  <section class="rating">
+    <label>Rate this site</label>
+    <br />
+    <stars></stars>
+  </section>
+
+
   <!--  Submit -->
   <fieldset class="form-group">
     <button type="submit"
       ng-class="messageForm.$invalid ? 'btn-secondary-outline' : 'btn-success'"
       ng-disabled="messageForm.$invalid"
       class="btn pull-right">
-      Send message
+      Send
     </button>
   </fieldset>
 

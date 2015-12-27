@@ -5,7 +5,7 @@
 
   // Module declaration.
   angular
-    .module( "app", [ ]);
+    .module( "app", [ ] );
 
 
   // --------------------------------------------------------------------------- //
@@ -16,9 +16,8 @@
     .module( "app" )
     .controller( "AppController", AppController );
 
-  AppController.$inject = [ "$scope" ];
-
-  function AppController( $scope ) {
+  AppController.$inject = [ ];
+  function AppController() {
 
     // Currently empty.
 
@@ -49,13 +48,10 @@
   /**
    * appHeaderController
    */
-  appHeaderController.$inject = [
-    "$scope"
-  ];
-  function appHeaderController( $scope ) {
+  appHeaderController.$inject = [ ];
+  function appHeaderController() {
 
     var vm    = this;
-    var props = $scope.props = $scope;  // Alias for $scope
 
     // Initial state.
     vm.css   = {};
@@ -110,8 +106,7 @@
 
   angular
     .module( "app" )
-    .directive(
-    "appFooter", appFooterDirective);
+    .directive( "appFooter", appFooterDirective );
 
   function appFooterDirective() {
 
