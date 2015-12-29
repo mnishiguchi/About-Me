@@ -9,7 +9,7 @@
 
     <li ng-repeat="index in [ 0, 1, 2, 3, 4, 5 ]" class="nav-item">
       <a
-        ng-href="#{{ tabs.getRoutes(index) }}"
+        ng-href="{{ tabs.getRoutes(index) }}"
         ng-click="tabs.setTab( index ) ; tabs.setTitle( index )"
         ng-class="{ active: tabs.isActive( index ) }"
         class="nav-link">
