@@ -1,0 +1,15 @@
+<!--
+  tabs
+-->
+
+<ul class="nav nav-tabs">
+  <li ng-repeat="index in [ 0, 1, 2, 3, 4, 5 ]" class="nav-item">
+    <a
+      ng-href="{{ tabs.getRoute( index ) }}"
+      ng-click="tabs.setTab( index )"
+      ng-class="{ active: tabs.isActive( index ) }"
+      class="nav-link">
+      {{ tabs.getTabName( index ) }}
+    </a>
+  </li>
+</ul>

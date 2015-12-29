@@ -3,14 +3,6 @@
  */
 (function() {
 
-  // Module declaration.
-  // none
-
-
-  // --------------------------------------------------------------------------- //
-  // --------------------------------------------------------------------------- //
-
-
   angular
     .module( "app" )
     .factory( "contactMeService", contactMeService );
@@ -29,11 +21,6 @@
     return service;
 
 
-    // ---
-    // PUBLIC METHODS.
-    // ---
-
-
     /**
      * Open the default email software with the specified data.
      */
@@ -47,16 +34,18 @@
         "&body=",    escape(body),
       ].join("");
 
-    }
+    } // end sendEmail
 
 
     /**
-     * [clearData description]
+     * Clear data.
      */
     function clearData() {
+
       service.message = "";
       service.stars   = 0;
-    }
+
+    } // clearData
 
 
   } // end contactMeService
@@ -98,7 +87,7 @@
         if (newVal !== vm.stars) {
           vm.stars = contactMeService.stars;
         }
-    });
+      }); // end $watch
 
 
     // ---
@@ -107,7 +96,7 @@
 
 
     /**
-     * Called when user submits the review
+     * Called when user submits the review.
      */
     function handleMessageSubmit() {
 
@@ -120,11 +109,12 @@
 
       // Clear the fields
       clearFields();
-    }
+
+    } // handleMessageSubmit
 
 
     /**
-     * [clearFields description]
+     * Clear form fields.
      */
     function clearFields() {
 
@@ -138,7 +128,8 @@
       // Reset the form's state
       $scope.messageField.$setPristine();
       $scope.messageField.$setUntouched();
-    }
+
+    } // end clearFields
 
   } // end contactFormController
 
@@ -169,21 +160,35 @@
 
     // Expose the public methods.
     vm.incrementStar = function() {
-      if (vm.count < 5) { contactMeService.stars += 1; }
+      if ( vm.count < 5 ) {
+        contactMeService.stars += 1;
+      }
     };
+
     vm.decrementStar = function() {
-      if (vm.count > 0) { contactMeService.stars -= 1; }
+      if ( vm.count > 0 ) {
+        contactMeService.stars -= 1;
+      }
     };
+
+    vm.getIconClass = function( index ) {
+      return ( index <= vm.count ) ? 'fa fa-star' : 'fa fa-star-o';
+    }
 
     // Keep watch on contactMeService.stars
     // Ensure that vm.count === contactMeService.stars
     $scope.$watch(
+
       function () { return contactMeService.stars; },
-      function (newVal, oldVal) {
-        if (newVal !== vm.count) {
+      function ( newVal, oldVal ) {
+        if ( newVal !== vm.count ) {
           vm.count = contactMeService.stars;
         }
-    });
+<<<<<<< HEAD
+
+=======
+>>>>>>> a671084... Improve stars
+      }); // end $watch
 
   } // end starsController
 

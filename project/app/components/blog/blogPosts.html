@@ -3,20 +3,17 @@
 -->
 
 <!-- Loading indicator -->
-<div
-  ng-if="blogPosts.loading">
+<div ng-if="! blogPosts.posts">
+
   <i class="fa fa-spinner fa-spin"></i>
   Loading data...
+
 </div>
 
 <!-- Blog list -->
-<div
-  ng-repeat="post in blogPosts.posts"
-  class="blog-posts">
+<div ng-repeat="post in blogPosts.posts" class="blog-posts">
 
-  <blog-post
-    post="post">
-  </blog-post>
+  <blog-post post="post"></blog-post>
 
   <hr>
 

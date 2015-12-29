@@ -2,7 +2,7 @@
 <html
   lang="en-us"
   ng-app="app"
-  ng-controller="AppController">
+  ng-controller="AppController as app">
 
 <!--
   Masatoshi Nishiguchi's personal web site
@@ -56,9 +56,13 @@
 
   <!-- This is the page content. -->
   <app-header></app-header>
+
   <div class="container" id="main-container">
-    <tab-panel></tab-panel>
+
+    <div ng-view class="page-content"></div>
+
     <app-footer></app-footer>
+
   </div>
 
   <!-- This is displayed when JavaScript is not available. -->
@@ -71,16 +75,17 @@
 
   <!--Load AngularJS-->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular-route.min.js"></script>
 
   <!--Load app scripts-->
   <script type="text/javascript" src="app/app.module.js"></script>
-  <script type="text/javascript" src="app/components/tabPanel/tabPanel.js"></script>
+  <script type="text/javascript" src="app/app.config.js"></script>
+  <script type="text/javascript" src="app/app.layout.js"></script>
   <script type="text/javascript" src="app/components/contactForm/contactForm.js"></script>
   <script type="text/javascript" src="app/components/movieSearch/movieSearch.js"></script>
-  <script type="text/javascript" src="app/components/movieSearch/movieData.js"></script>
+  <script type="text/javascript" src="app/components/movieSearch/movieService.js"></script>
   <script type="text/javascript" src="app/components/blog/blog.js"></script>
-  <script type="text/javascript" src="app/components/blog/blogData.js"></script>
-  <script type="text/javascript" src="app/contents/appContents.js"></script>
+  <script type="text/javascript" src="app/components/blog/blogService.js"></script>
   <script type="text/javascript" src="app/shared/customFilters.js"></script>
   <script type="text/javascript" src="app/shared/anchorHashLink.js"></script>
 
