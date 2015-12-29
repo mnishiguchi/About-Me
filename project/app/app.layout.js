@@ -1,5 +1,5 @@
 /**
- * The main Augular module for this website.
+ * The main Augular module for vm website.
  */
 (function() {
 
@@ -27,19 +27,16 @@
   appHeaderController.$inject = [ ];
   function appHeaderController() {
 
+    var vm  = this;
+
     // Initial state.
-    this.css = {};
+    vm.css = {};
 
     // Expose the public methods.
-    this.changeBackground = changeBackground;
+    vm.changeBackground = changeBackground;
 
     // Set the initial header color.
-    this.changeBackground();
-
-
-    // ---
-    // PUBLIC METHODS.
-    // ---
+    vm.changeBackground();
 
 
     /**
@@ -47,14 +44,9 @@
      */
     function changeBackground() {
 
-      this.css[ "backgroundColor" ] = getRandomRGBA();
+      vm.css[ "backgroundColor" ] = getRandomRGBA();
 
     }
-
-
-    // ---
-    // PRIVATE METHODS.
-    // ---
 
 
     /**
@@ -63,9 +55,9 @@
      */
     function getRandomRGBA() {
 
-      var red   = Math.floor(Math.random() * 255);
-      var green = Math.floor(Math.random() * 255);
-      var blue  = Math.floor(Math.random() * 255);
+      var red   = Math.floor( Math.random() * 255 );
+      var green = Math.floor( Math.random() * 255 );
+      var blue  = Math.floor( Math.random() * 255 );
 
       return 'rgba(' + red + ',' + green + ',' + blue + ',0.5)';
 
@@ -95,18 +87,24 @@
     .module( "app" )
     .component( "tabs", {
 
+      bindings: {
+        index: "="
+      },
       templateUrl: 'app/layout/tabs.html',
-      controller: tabsController,
+      controller:  tabsController,
 
     });
 
 
-  tabsController.$inject = [ ];
+  tabsController.$inject = [  ];
   function tabsController() {
 
+    var vm  = this;
+
     // Initial state.
-    this.tabIndex = 0;
-    this.tabNames = [
+    // none.
+
+    var tabNames = [
       "About me",
       "Background",
       "Projects",
@@ -125,9 +123,10 @@
     ]
 
     // Expose the public methods.
-    this.isActive  = function(index) { return (this.tabIndex === index); };
-    this.getRoutes = function(index) { return routes[ index ]; }
-    this.setTab    = function(index) { this.tabIndex = index; };
+    vm.isActive   = function(index) { return (vm.index === index); };
+    vm.getTabName = function(index) { return tabNames[ index ]; }
+    vm.getRoute   = function(index) { return routes[ index ]; }
+    vm.setTab     = function(index) { vm.index = index; };
 
   } // end tabsController
 

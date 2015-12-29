@@ -56,9 +56,13 @@
 
   <!-- This is the page content. -->
   <app-header></app-header>
+
   <div class="container" id="main-container">
-    <tabs></tabs>
+
+    <div ng-view class="page-content"></div>
+
     <app-footer></app-footer>
+
   </div>
 
   <!-- This is displayed when JavaScript is not available. -->

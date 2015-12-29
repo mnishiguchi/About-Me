@@ -15,49 +15,11 @@
     .module( "app" )
     .component( "blogPosts", {
 
+      bindings: {
+        posts: "="  // bindToController
+      },
       templateUrl: "app/components/blog/blogPosts.html",
-      controller: blogPostsController,
-
     });
-
-
-  blogPostsController.$inject = [
-    "blogDataService"
-  ];
-  function blogPostsController( blogDataService ) {
-
-    var vm    = this;
-
-    // Expose the state.
-    vm.posts   = {}; // Bound to the fields.
-    vm.loading = false;
-
-    // Expose the public methods.
-    vm.loadBlogPosts = loadBlogPosts;
-
-    // Load the blog posts data.
-    vm.loadBlogPosts();
-
-
-    // ---
-    // PUBLIC METHODS.
-    // ---
-
-
-    /**
-     * Fetch blog posts from a public API.
-     */
-    function loadBlogPosts() {
-
-      vm.loading = true;
-
-      blogDataService.loadBlogPosts()
-      .then   ( function(blogPosts) { vm.posts   = blogPosts; } )
-      .finally( function()          { vm.loading = false; } );
-
-    }; // end function
-
-  } // end blogPostsController
 
 
   // --------------------------------------------------------------------------- //

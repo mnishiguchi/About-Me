@@ -27,45 +27,128 @@
   ];
   function config( $routeProvider ) {
 
-    var baseTitle   = " | Masatoshi Nishiguchi";
     var templateDir = "app/contents/";
 
-    $routeProvider.
+    $routeProvider
 
-      when("/", {
-        title :      "About me" + baseTitle,
-        templateUrl: templateDir + "_about_me.html",
+      .when("/", {
+        tabIndex: 0,
+        title:       "About me",
+        templateUrl: templateDir + "about_me.html",
         controller:  function() {}
       })
       .when("/background", {
-        title :      "Background" + baseTitle,
-        templateUrl: templateDir + "_background.html",
-        controller: function() {}
+
+        tabIndex: 1,
+        title:       "Background",
+        templateUrl: templateDir + "background.html",
+        controller:  function() {}
       })
       .when("/project", {
-        title :      "Projects" + baseTitle,
-        templateUrl: templateDir + "_projects.html",
-        controller: function() {}
+
+        tabIndex: 2,
+        title:       "Projects",
+        templateUrl: templateDir + "projects.html",
+        controller:  function() {}
       })
       .when("/blog", {
-        title :      "Blog" + baseTitle,
-        templateUrl: templateDir + "_blog.html",
-        controller: function() {}
+
+        tabIndex: 3,
+        title:       "Blog",
+        templateUrl: templateDir + "blog.html",
+        controller:  "blogController as blog",
+        resolve: {
+          blogPosts: function( blogService ) {
+
+            return blogService.load();
+
+          }
+        }
       })
       .when("/resources", {
-        title :      "Resources" + baseTitle,
-        templateUrl: templateDir + "_resources.html",
-        controller: function() {}
+
+        tabIndex: 4,
+        title:       "Resources",
+        templateUrl: templateDir + "resources.html",
+        controller:  function() {}
       })
       .when("/contact", {
-        title :      "Contact" + baseTitle,
-        templateUrl: templateDir + "_contact.html",
-        controller: function() {}
+
+        tabIndex: 5,
+        title:       "Contact",
+        templateUrl: templateDir + "contact.html",
+        controller:  function() {}
       })
       .otherwise({
         redirectTo: "/"
       });
-  }
+
+  } // end config
+
+
+  // ---
+  // blogService
+  // ---
+
+
+  angular
+    .module( "app" )
+    .factory( "blogService", blogService )
+
+  blogService.$inject = [
+    "$http"
+  ];
+  function blogService( $http ) {
+
+    var service = {
+
+      load: load
+
+    };
+    return service;
+
+
+    /**
+     * Make a GET request to the blogger for blog data.
+     * @return A promise of this GET request.
+     */
+    function load() {
+
+      var url = "https://www.googleapis.com/blogger/v3/blogs/" +
+        "1351147858586990175/posts?key=AIzaSyAjac0SRkV6lY2-P1syIZ_oI74bCQyFcZU";
+
+      var promise = $http.get( url ).then(
+          function successCallback( response ) {
+            return response.data.items;
+          },
+          function errorCallback( reason ) {
+            console.log( "Error fetching movie data: " + reason);
+          }
+      ); // end promise
+
+      return promise;
+    };
+
+  } // end blogService
+
+
+  // ---
+  // blogController
+  // ---
+
+
+  angular
+    .module( "app" )
+    .controller("blogController", blogController)
+
+  blogController.$inject = [
+    "blogPosts"
+  ];
+  function blogController( blogPosts ) {
+
+    this.posts = blogPosts;
+
+  } // end blogController
 
 
   // ---
@@ -74,16 +157,23 @@
 
 
   run.$inject = [
-    "$rootScope",
-    "$route"
+    "$rootScope",  // To pass data to tabs.
+    "$route"       // To access route data.
   ];
   function run( $rootScope, $route ) {
 
+    var baseTitle   = " | Masatoshi Nishiguchi";
+
     $rootScope.$on( "$routeChangeSuccess", function() {
-        document.title = $route.current.title;
+
+        // Set page title.
+        document.title      = $route.current.title + baseTitle;
+
+        // Update tabIndex that is used by tabs.
+        $rootScope.tabIndex = $route.current.tabIndex;
     });
 
-  }
+  } // end run
 
 
 })();
