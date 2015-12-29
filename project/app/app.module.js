@@ -5,7 +5,7 @@
 
   // Module declaration.
   angular
-    .module( "app", [ ] );
+    .module( "app", [ "ngRoute" ] );
 
 
   // --------------------------------------------------------------------------- //
@@ -17,9 +17,101 @@
     .controller( "AppController", AppController );
 
   AppController.$inject = [ ];
-  function AppController() {
+  function AppController() { }
 
-    // Currently empty.
+
+  // --------------------------------------------------------------------------- //
+  // --------------------------------------------------------------------------- //
+
+
+  angular
+    .module( "app" )
+    .config( config )
+    .run( run );
+
+
+  // ---
+  // config
+  // ---
+
+
+  config.$inject = [
+    "$routeProvider"
+  ];
+  function config( $routeProvider ) {
+
+    var baseTitle = "Masatoshi Nishiguchi";
+
+    var titles = [
+        "About me | "   + baseTitle,
+        "Background | " + baseTitle,
+        "Projects | "   + baseTitle,
+        "Blog | "       + baseTitle,
+        "Resources | "  + baseTitle,
+        "Contact | "    + baseTitle,
+    ];
+
+    var urls = [
+        "app/contents/_about_me.html",
+        "app/contents/_background.html",
+        "app/contents/_projects.html",
+        "app/contents/_blog.html",
+        "app/contents/_resources.html",
+        "app/contents/_contact.html",
+    ];
+
+    $routeProvider.
+
+      when("/", {
+        title :      titles[0],
+        templateUrl: urls[0],
+        controller: function() {}
+      })
+      .when("/background", {
+        title :      titles[1],
+        templateUrl: urls[1],
+        controller: function() {}
+      })
+      .when("/project", {
+        title :      titles[2],
+        templateUrl: urls[2],
+        controller: function() {}
+      })
+      .when("/blog", {
+        title :      titles[3],
+        templateUrl: urls[3],
+        controller: function() {}
+      })
+      .when("/resources", {
+        title :      titles[4],
+        templateUrl: urls[4],
+        controller: function() {}
+      })
+      .when("/contact", {
+        title :      titles[5],
+        templateUrl: urls[5],
+        controller: function() {}
+      })
+      .otherwise({
+        redirectTo: "/"
+      });
+  }
+
+
+  // ---
+  // run
+  // ---
+
+
+  run.$inject = [
+    "$rootScope",
+    "$route"
+  ];
+  function run( $rootScope, $route ) {
+
+    $rootScope.$on( "$routeChangeSuccess", function() {
+        document.title = $route.current.title;
+    });
 
   }
 

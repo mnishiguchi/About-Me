@@ -1,0 +1,24 @@
+<!--
+  tabs
+-->
+
+<section>
+
+  <!--Navigation tabs-->
+  <ul class="nav nav-tabs">
+
+    <li ng-repeat="index in [ 0, 1, 2, 3, 4, 5 ]" class="nav-item">
+      <a
+        ng-href="#{{ tabs.getRoutes(index) }}"
+        ng-click="tabs.setTab( index ) ; tabs.setTitle( index )"
+        ng-class="{ active: tabs.isActive( index ) }"
+        class="nav-link">
+        {{ tabs.tabNames[ index ] }}
+      </a>
+    </li>
+  </ul>
+
+  <!--Page content-->
+  <div class="page-content" ng-view></div>
+
+</section>
