@@ -1,8 +1,9 @@
-<div ng-repeat="n in [ 1, 2, 3, 4, 5 ]" class="stars">
+<div ng-repeat="pos in [ 1, 2, 3, 4, 5 ]" class="stars">
   &nbsp;
-  <a ng-click="stars.count = n">
-    <i ng-class="stars.getIconClass( n )"></i>
-  </a>
+  <i
+    ng-class="stars.getIconClass( pos )"
+    ng-click="stars.count = pos">
+  </i>
 </div>
 
 <div class="star_count">

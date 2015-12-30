@@ -1,5 +1,5 @@
 /**
- * Defines blog related components.
+ * blog
  */
 (function() {
 
@@ -11,7 +11,28 @@
         posts: "="  // bindToController
       },
       templateUrl: "app/components/blog/blogPosts.html",
+      controller:  blogPostsController,
     });
+
+  blogPostsController.$inject = [
+    "$filter"
+  ];
+  function blogPostsController( $filter ) {
+
+    var vm = this;
+
+    // Initial state.
+    vm.filteredPosts = vm.posts;
+
+    // Expose the public methods.
+    vm.filterData = function ( filterKey ) {
+
+      var filtered = $filter( "filter" )( vm.posts, filterKey );
+      vm.filteredPosts = filtered;
+
+    }
+
+  } // end blogPostsController
 
 
   // --------------------------------------------------------------------------- //
@@ -25,11 +46,10 @@
       bindings: {
         post: "="  // bindToController
       },
-      templateUrl: 'app/components/blog/blogPost.html',
-      controller: blogPostController,
+      templateUrl: "app/components/blog/blogPost.html",
+      controller:  blogPostController,
 
     });
-
 
   blogPostController.$inject = [
     "$location",
@@ -39,9 +59,9 @@
 
     var vm = this;
 
-    // Expose the state.
-    vm.isVisible = false;  // visibility initially false;
-    vm.topId     = 'post-' + vm.post.id;
+    // Initial state.
+    vm.isVisible = false;                // visibility initially false;
+    vm.topId     = "post-" + vm.post.id; // For anchorScroll
 
     // Expose the public methods.
     vm.toggleVisibility = function() { vm.isVisible = !vm.isVisible; };

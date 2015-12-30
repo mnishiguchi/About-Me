@@ -2,6 +2,13 @@
   blogPosts
 -->
 
+<!-- Filter -->
+<input type="text"
+  ng-model="filterKey"
+  ng-change="blogPosts.filterData( filterKey )"
+  placeholder="Type to filter"
+  class="form-control">
+
 <!-- Loading indicator -->
 <div ng-if="! blogPosts.posts">
 
@@ -11,9 +18,12 @@
 </div>
 
 <!-- Blog list -->
-<div ng-repeat="post in blogPosts.posts" class="blog-posts">
+<div
+  ng-repeat="post in blogPosts.filteredPosts">
 
-  <blog-post post="post"></blog-post>
+  <blog-post
+    post="post">
+  </blog-post>
 
   <hr>
 

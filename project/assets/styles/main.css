@@ -88,6 +88,19 @@ label {
 
 
 /*
+  Forms
+ */
+
+
+textarea,
+textarea:required,
+input[type="text"] {
+
+    background-color: #DDDDDD;
+}
+
+
+/*
   Tables
  */
 
@@ -312,43 +325,54 @@ footer a {
   color: #DDDDDD;
 }
 
-.blog-posts h1,
-.blog-posts h2,
-.blog-posts h3,
-.blog-posts h4,
-.blog-posts h5,
-.blog-posts h6 {
+.page.blog input[type="text"] {
+  margin: 1.0em auto 1.5em auto;
+}
+
+.page.blog hr {
+  max-width: 720px;
+  border-color: #DDDDDD;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.blog_post h1,
+.blog_post h2,
+.blog_post h3,
+.blog_post h4,
+.blog_post h5,
+.blog_post h6 {
   font-weight: 300;
   letter-spacing: 1px;
 }
 
-.blog-posts h1 { font-size: 1.9em; }
-.blog-posts h2 { font-size: 1.7em; }
-.blog-posts h3 { font-size: 1.5em; }
-.blog-posts h4 { font-size: 1.3em; }
-.blog-posts h5 { font-size: 1.1em; }
-.blog-posts h6 { font-size: 0.9em; }
+.blog_post h1 { font-size: 1.9em; }
+.blog_post h2 { font-size: 1.7em; }
+.blog_post h3 { font-size: 1.5em; }
+.blog_post h4 { font-size: 1.3em; }
+.blog_post h5 { font-size: 1.1em; }
+.blog_post h6 { font-size: 0.9em; }
 
-.blog-posts img {
+.blog_post img {
   margin: 0 10px;
 }
 
-.blog-posts h2.post-title a {
-  color: #DDDDDD;
+.blog_post h2.post_title a {
+  color: #FFFFFF;
   font-weight: 700;
   -webkit-transition: all .2s ease-in-out;
   -moz-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
 }
 
-.blog-posts h2.post-title a:hover,
-.blog-posts h2.post-title a:focus,
-.blog-posts h2.post-title a:active {
+.blog_post h2.post_title a:hover,
+.blog_post h2.post_title a:focus,
+.blog_post h2.post_title a:active {
   text-decoration: none;
   color: #0084b4;
 }
 
-.blog-posts .post-meta {
+.blog_post .post_meta {
   font-size: 1.1em;
   font-style: italic;
   margin-top: 0;
@@ -356,22 +380,18 @@ footer a {
   color: #999999;
 }
 
-.blog-posts .post-meta a {
+.blog_post .post_meta a {
   text-decoration: none;
   color: #FFFFFF;
 }
 
-.blog-posts .post-meta a:hover,
-.blog-posts .post-meta a:focus {
+.blog_post .post_meta a:hover,
+.blog_post .post_meta a:focus {
   color:#DDDDDD;
   text-decoration:underline;
 }
 
-.blog-posts .post-body {
-
-}
-
-.blog-posts .post-body img {
+.blog_post .post_body img {
   height: 128px;
   width: 128px;
   border: 2px solid white;
@@ -379,46 +399,21 @@ footer a {
   margin: 20px auto;
 }
 
-.blog-posts .post-body a {
+.blog_post .post_body a {
   text-decoration: none;
-  color: #DDDDDD;
+  color: #FFFFFF;
+  font-style: italic;
 }
 
-.blog-posts .post-body a:hover,
-.blog-posts .post-body a:focus {
+.blog_post .post_body a:hover,
+.blog_post .post_body a:focus {
   color: #0084b4;
-}
-
-.blog-posts hr {
-  max-width: 720px;
-  border-color: #DDDDDD;
-  margin-top: 40px;
-  margin-bottom: 40px;
 }
 
 .page.contact .messageField label {
   color: #DDDDDD;
 }
 
-.page.contact .stars,
-.page.contact .plus_minus,
-.page.contact .star_count {
-  display: inline-block;
-  color: #FFFFFF;
-}
-
-
-.page.contact i.fa {
-  font-size: 1.5em;
-}
-
-.page.contact .stars > i.fa-star {
-  color: yellow;
-}
-
-.page.contact .stars > i.fa-star-o {
-  color: white;
-}
 
 .page.contact .messageField select.ng-invalid.ng-dirty,
 .page.contact .messageField textarea.ng-invalid.ng-dirty {
@@ -438,6 +433,24 @@ footer a {
 
 .page.contact .messageField .form-help {
   color: #FA787E;
+}
+
+.page.contact .stars,
+.page.contact .star_count {
+  display: inline-block;
+  color: #999999;
+}
+
+.page.contact i.fa {
+  font-size: 1.8em;
+}
+
+.page.contact .stars > i.fa-star {
+  color: yellow;
+}
+
+.page.contact .stars > i.fa-star-o {
+  color: white;
 }
 
 .page.resources img {

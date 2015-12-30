@@ -1,5 +1,5 @@
 /**
- * Defines movie-search related components.
+ * moviesearch
  * Fetches movie information based on the search term that is a full movie name.
  * http://www.omdbapi.com/
  */
@@ -10,7 +10,7 @@
     .component( "movieSearch", {
 
       templateUrl: "app/components/movieSearch/movieSearch.html",
-      controller: movieSearchController,
+      controller:  movieSearchController,
 
     });
 
@@ -70,10 +70,10 @@
     .component( "movie", {
 
       bindings: {
-        info: "="
+        info: "="  // bindToController
       },
       templateUrl: "app/components/movieSearch/movie.html",
-      controller: movieController,
+      controller:  movieController,
     });
 
   movieController.$inject = [

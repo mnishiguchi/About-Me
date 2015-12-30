@@ -2,85 +2,88 @@
   blogPost
 -->
 
-<!--
-  topId
-  - Dynamically generate ID for this element based on post id.
-  - Used for anchorHashLink.
--->
-<div ng-attr-id="{{ blogPost.topId }}"></div>
+<article class="blog_post">
+  <!--
+    topId
+    - Dynamically generate ID for this element based on post id.
+    - Used for anchorHashLink.
+  -->
+  <div ng-attr-id="{{ blogPost.topId }}"></div>
 
-<!--
-  Post title
-  - Toggle post-body when clicked.
--->
-<h2 class="post-title">
+  <!--
+    Post title
+    - Toggle post-body when clicked.
+  -->
+  <h2 class="post_title">
+    <a
+      ng-click="blogPost.toggleVisibility()">
+      {{ blogPost.post.title }}
+    </a>
+  </h2>
+
+
+  <!--
+    Post meta
+    - Link displayName to that URL when author_url exists.
+  -->
+  <p class="post_meta">
+    Posted by
+    <a
+      ng-if="blogPost.post.author_url.length > 0"
+      ng-href="{{ blogPost.post.author_url }}">
+      {{ blogPost.post.author.displayName }}
+    </a>
+    <span
+      ng-if="! blogPost.post.author_url" >
+      {{ blogPost.post.author.displayName }}
+    </span>
+    <!-- https://docs.angularjs.org/api/ng/filter/date -->
+    on {{ blogPost.post.published | date:'short' }}
+
+    <a
+      ng-href="{{ blogPost.post.url }}">
+      <img
+        src="https://cdn2.iconfinder.com/data/icons/aquaticus/48%20X%2048/blogger.png"
+        alt="ic-blogger"
+        class="ic-blogger"
+        height="24px" width="24px">
+    </a>
+  </p>
+
+
+  <!--
+    Post body
+    - Convert it into appropriate HTML format, using custom html filter because
+      the Blogger's format includes Unicode and escape sequence,
+  -->
+  <p
+    class="post_body"
+    ng-show="blogPost.isVisible"
+    ng-bind-html="blogPost.post.content | htmlFilter">
+  </p>
+
+  <!-- Link to top of this article -->
   <a
-    ng-click="blogPost.toggleVisibility()">
-    {{ blogPost.post.title }}
+    ng-show="blogPost.isVisible"
+    ng-click="scrollTo( blogPost.topId )"
+    anchor-hash-link>
+
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-square-o fa-stack-2x"></i>
+      <i class="fa fa-arrow-up fa-stack-1x"></i>
+    </span>
   </a>
-</h2>
 
-
-<!--
-  Post meta
-  - Link displayName to that URL when author_url exists.
--->
-<p class="post-meta">
-  Posted by
+  <!-- Toggle visibility -->
   <a
-    ng-if="blogPost.post.author_url.length > 0"
-    ng-href="{{ blogPost.post.author_url }}">
-    {{ blogPost.post.author.displayName }}
+    ng-show="blogPost.isVisible"
+    ng-click="blogPost.toggleVisibility() ; scrollTo( blogPost.topId )"
+    anchor-hash-link>
+
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-square-o fa-stack-2x"></i>
+      <i class="fa fa-times fa-stack-1x"></i>
+    </span>
   </a>
-  <span
-    ng-if="! blogPost.post.author_url" >
-    {{ blogPost.post.author.displayName }}
-  </span>
-  <!-- https://docs.angularjs.org/api/ng/filter/date -->
-  on {{ blogPost.post.published | date:'short' }}
 
-  <a
-    ng-href="{{ blogPost.post.url }}">
-    <img
-      src="https://cdn2.iconfinder.com/data/icons/aquaticus/48%20X%2048/blogger.png"
-      alt="ic-blogger"
-      class="ic-blogger"
-      height="24px" width="24px">
-  </a>
-</p>
-
-
-<!--
-  Post body
-  - Convert it into appropriate HTML format, using custom html filter because
-    the Blogger's format includes Unicode and escape sequence,
--->
-<p
-  class="post-body"
-  ng-show="blogPost.isVisible"
-  ng-bind-html="blogPost.post.content | htmlFilter">
-</p>
-
-<!-- Link to top of this article -->
-<a
-  ng-show="blogPost.isVisible"
-  ng-click="scrollTo( blogPost.topId )"
-  anchor-hash-link>
-
-  <span class="fa-stack fa-lg">
-    <i class="fa fa-square-o fa-stack-2x"></i>
-    <i class="fa fa-arrow-up fa-stack-1x"></i>
-  </span>
-</a>
-
-<!-- Toggle visibility -->
-<a
-  ng-show="blogPost.isVisible"
-  ng-click="blogPost.toggleVisibility() ; scrollTo( blogPost.topId )"
-  anchor-hash-link>
-
-  <span class="fa-stack fa-lg">
-    <i class="fa fa-square-o fa-stack-2x"></i>
-    <i class="fa fa-times fa-stack-1x"></i>
-  </span>
-</a>
+</article>
