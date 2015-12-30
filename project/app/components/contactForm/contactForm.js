@@ -184,10 +184,7 @@
         if ( newVal !== vm.count ) {
           vm.count = contactMeService.stars;
         }
-<<<<<<< HEAD
 
-=======
->>>>>>> a671084... Improve stars
       }); // end $watch
 
   } // end starsController
