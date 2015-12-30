@@ -1,15 +1,7 @@
 /**
- * The main Augular module for vm website.
+ * app.layout
  */
 (function() {
-
-  // Module declaration.
-  // none.
-
-
-  // --------------------------------------------------------------------------- //
-  // --------------------------------------------------------------------------- //
-
 
   angular
     .module( "app" )
@@ -20,10 +12,6 @@
 
     });
 
-
-  /**
-   * appHeaderController
-   */
   appHeaderController.$inject = [ ];
   function appHeaderController() {
 
@@ -94,7 +82,6 @@
       controller:  tabsController,
 
     });
-
 
   tabsController.$inject = [  ];
   function tabsController() {

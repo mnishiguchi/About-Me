@@ -1,26 +1,11 @@
 /**
- * The main Augular module for this website.
+ * app.config
  */
 (function() {
-
-  // Module declaration.
-  // none.
-
-
-  // --------------------------------------------------------------------------- //
-  // --------------------------------------------------------------------------- //
-
 
   angular
     .module( "app" )
     .config( config )
-    .run( run );
-
-
-  // ---
-  // config
-  // ---
-
 
   config.$inject = [
     "$routeProvider"
@@ -32,108 +17,52 @@
     $routeProvider
 
       .when("/", {
-        tabIndex: 0,
-        title:       "About me",
-        templateUrl: templateDir + "about_me.html",
-        controller:  function() {}
+          tabIndex: 0,
+          title:       "About me",
+          templateUrl: templateDir + "about_me.html",
+          controller:  "pageController as page"
       })
       .when("/background", {
-
-        tabIndex: 1,
-        title:       "Background",
-        templateUrl: templateDir + "background.html",
-        controller:  function() {}
+          tabIndex: 1,
+          title:       "Background",
+          templateUrl: templateDir + "background.html",
+          controller:  "pageController as page"
       })
       .when("/project", {
-
-        tabIndex: 2,
-        title:       "Projects",
-        templateUrl: templateDir + "projects.html",
-        controller:  function() {}
+          tabIndex: 2,
+          title:       "Projects",
+          templateUrl: templateDir + "projects.html",
+          controller:  "pageController as page"
       })
       .when("/blog", {
-
-        tabIndex: 3,
-        title:       "Blog",
-        templateUrl: templateDir + "blog.html",
-        controller:  "blogController as blog",
-        resolve: {
-          blogPosts: function( blogService ) {
-
-            return blogService.load();
-
-          }
-        }
+          tabIndex: 3,
+          title:       "Blog",
+          templateUrl: templateDir + "blog.html",
+          controller:  "blogController as page",
+          resolve:     blogController.resolve
       })
       .when("/resources", {
-
-        tabIndex: 4,
-        title:       "Resources",
-        templateUrl: templateDir + "resources.html",
-        controller:  function() {}
+          tabIndex: 4,
+          title:       "Resources",
+          templateUrl: templateDir + "resources.html",
+          controller:  "pageController as page"
       })
       .when("/contact", {
-
-        tabIndex: 5,
-        title:       "Contact",
-        templateUrl: templateDir + "contact.html",
-        controller:  function() {}
+          tabIndex: 5,
+          title:       "Contact",
+          templateUrl: templateDir + "contact.html",
+          controller:  "pageController as page"
       })
       .otherwise({
-        redirectTo: "/"
+          redirectTo: "/"
       });
 
   } // end config
 
 
   // ---
-  // blogService
-  // ---
-
-
-  angular
-    .module( "app" )
-    .factory( "blogService", blogService )
-
-  blogService.$inject = [
-    "$http"
-  ];
-  function blogService( $http ) {
-
-    var service = {
-
-      load: load
-
-    };
-    return service;
-
-
-    /**
-     * Make a GET request to the blogger for blog data.
-     * @return A promise of this GET request.
-     */
-    function load() {
-
-      var url = "https://www.googleapis.com/blogger/v3/blogs/" +
-        "1351147858586990175/posts?key=AIzaSyAjac0SRkV6lY2-P1syIZ_oI74bCQyFcZU";
-
-      var promise = $http.get( url ).then(
-          function successCallback( response ) {
-            return response.data.items;
-          },
-          function errorCallback( reason ) {
-            console.log( "Error fetching movie data: " + reason);
-          }
-      ); // end promise
-
-      return promise;
-    };
-
-  } // end blogService
-
-
-  // ---
-  // blogController
+  // controllers
+  // - Note: These controllers create scope for templates that are inserted into ng-view.
   // ---
 
 
@@ -141,20 +70,38 @@
     .module( "app" )
     .controller("blogController", blogController)
 
-  blogController.$inject = [
-    "blogPosts"
-  ];
-  function blogController( blogPosts ) {
+  blogController.resolve = {
+    _blogPosts: function( blogService ) {
+      return blogService.load();
+    }
+  };
 
-    this.posts = blogPosts;
+  blogController.$inject = [
+    "_blogPosts"
+  ];
+  function blogController( _blogPosts ) {
+
+    this.posts = _blogPosts;
 
   } // end blogController
+
+
+  angular
+    .module( "app" )
+    .controller("pageController", pageController)
+
+  pageController.$inject = [ ];
+  function pageController() {}
 
 
   // ---
   // run
   // ---
 
+
+  angular
+    .module( "app" )
+    .run( run );
 
   run.$inject = [
     "$rootScope",  // To pass data to tabs.

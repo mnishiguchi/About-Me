@@ -5,14 +5,6 @@
  */
 (function() {
 
-  // Module declaration.
-  // none
-
-
-  // --------------------------------------------------------------------------- //
-  // --------------------------------------------------------------------------- //
-
-
   angular
     .module( "app" )
     .component( "movieSearch", {
@@ -24,9 +16,9 @@
 
   movieSearchController.$inject = [
     "$scope",
-    "movieDataService"
+    "movieService"
   ];
-  function movieSearchController( $scope, movieDataService ) {
+  function movieSearchController( $scope, movieService ) {
 
     var vm    = this;
 
@@ -37,28 +29,23 @@
     vm.topID     = "main-container";  // For anchorHashLink
 
     // Expose the public methods.
-    vm.fetchData = fetchData;
+    vm.getData   = getData;
     vm.clearData = clearData;
-
-
-    // ---
-    // PUBLIC METHODS.
-    // ---
 
 
     /**
      * Fetch movie data based on the searchKey.
-     * The movieDataService is required.
+     * The movieService is required.
      */
-    function fetchData() {
+    function getData() {
 
       vm.loading = true;
 
-      movieDataService.fetchData( vm.searchKey )
+      movieService.getData( vm.searchKey )
       .then   ( function(movieInfo) { vm.movieInfo = movieInfo; } )
       .finally( function()          { vm.loading   = false; } );
 
-    } // end function
+    } // end getData
 
 
     /**
@@ -130,7 +117,7 @@
     function getPosterUrl() {
 
         return (vm.info.Poster == 'N/A')
-                ? "http://placehold.it/200x200&text=N/A" // Placeholer.
+                ? "http://placehold.it/200x200&text=N/A" // Placeholder.
                 : vm.info.Poster;
 
     }
