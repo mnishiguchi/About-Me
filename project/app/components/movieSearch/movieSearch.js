@@ -10,15 +10,15 @@
     .component( "movieSearch", {
 
       templateUrl: "app/components/movieSearch/movieSearch.html",
-      controller:  movieSearchController,
+      controller:  MovieSearchController,
 
     });
 
-  movieSearchController.$inject = [
+  MovieSearchController.$inject = [
     "$scope",
-    "movieService"
+    "MovieDataService"
   ];
-  function movieSearchController( $scope, movieService ) {
+  function MovieSearchController( $scope, MovieDataService ) {
 
     var vm    = this;
 
@@ -35,13 +35,13 @@
 
     /**
      * Fetch movie data based on the searchKey.
-     * The movieService is required.
+     * The MovieDataService is required.
      */
     function getData() {
 
       vm.loading = true;
 
-      movieService.getData( vm.searchKey )
+      MovieDataService.getData( vm.searchKey )
       .then   ( function(movieInfo) { vm.movieInfo = movieInfo; } )
       .finally( function()          { vm.loading   = false; } );
 
@@ -58,7 +58,7 @@
 
     }
 
-  } // end movieSearchController
+  } // end MovieSearchController
 
 
   // --------------------------------------------------------------------------- //

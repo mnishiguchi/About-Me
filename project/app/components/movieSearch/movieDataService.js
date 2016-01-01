@@ -1,5 +1,5 @@
 /**
- * movieService
+ * MovieDataService
  * Fetches movie information based on the search term that is a full movie name.
  * http://www.omdbapi.com/
  */
@@ -7,13 +7,13 @@
 
   angular
     .module( "app" )
-    .factory( "movieService", movieService );
+    .factory( "MovieDataService", MovieDataService );
 
-  movieService.$inject = [
+  MovieDataService.$inject = [
     "$http",
     "$q"
   ];
-  function movieService( $http, $q ) {
+  function MovieDataService( $http, $q ) {
 
     var service = {
 
@@ -52,7 +52,7 @@
 
     };
 
-  } // end movieService
+  } // end MovieDataService
 
 
 })();

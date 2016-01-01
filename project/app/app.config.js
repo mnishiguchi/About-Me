@@ -12,46 +12,44 @@
   ];
   function config( $routeProvider ) {
 
-    var templateDir = "app/contents/";
-
     $routeProvider
 
       .when("/", {
           tabIndex: 0,
           title:       "About me",
-          templateUrl: templateDir + "about_me.html",
-          controller:  "pageController as page"
+          templateUrl: "app/partials/about_me.html",
+          controller:  "PageController as page"
       })
       .when("/background", {
           tabIndex: 1,
           title:       "Background",
-          templateUrl: templateDir + "background.html",
-          controller:  "pageController as page"
+          templateUrl: "app/partials/background.html",
+          controller:  "PageController as page"
       })
       .when("/project", {
           tabIndex: 2,
           title:       "Projects",
-          templateUrl: templateDir + "projects.html",
-          controller:  "pageController as page"
+          templateUrl: "app/partials/projects.html",
+          controller:  "PageController as page"
       })
       .when("/blog", {
           tabIndex: 3,
           title:       "Blog",
-          templateUrl: templateDir + "blog.html",
-          controller:  "blogController as page",
-          resolve:     blogController.resolve
+          templateUrl: "app/partials/blog.html",
+          controller:  "BlogController as page",
+          resolve:     BlogController.resolve
       })
       .when("/resources", {
           tabIndex: 4,
           title:       "Resources",
-          templateUrl: templateDir + "resources.html",
-          controller:  "pageController as page"
+          templateUrl: "app/partials/resources.html",
+          controller:  "PageController as page"
       })
       .when("/contact", {
           tabIndex: 5,
           title:       "Contact",
-          templateUrl: templateDir + "contact.html",
-          controller:  "pageController as page"
+          templateUrl: "app/partials/contact.html",
+          controller:  "PageController as page"
       })
       .otherwise({
           redirectTo: "/"
@@ -68,30 +66,30 @@
 
   angular
     .module( "app" )
-    .controller("blogController", blogController)
+    .controller("BlogController", BlogController)
 
-  blogController.resolve = {
-    _blogPosts: function( blogService ) {
-      return blogService.load();
+  BlogController.resolve = {
+    _blogPosts: function( BlogService ) {
+      return BlogService.getData();
     }
   };
 
-  blogController.$inject = [
+  BlogController.$inject = [
     "_blogPosts"
   ];
-  function blogController( _blogPosts ) {
+  function BlogController( _blogPosts ) {
 
     this.posts = _blogPosts;
 
-  } // end blogController
+  } // end BlogController
 
 
   angular
     .module( "app" )
-    .controller("pageController", pageController)
+    .controller("PageController", PageController)
 
-  pageController.$inject = [ ];
-  function pageController() {}
+  PageController.$inject = [ ];
+  function PageController() {}
 
 
   // ---
@@ -105,19 +103,30 @@
 
   run.$inject = [
     "$rootScope",  // To pass data to tabs.
-    "$route"       // To access route data.
+    "$route",      // To access route data.
+    "$window"      // To access window.document
   ];
-  function run( $rootScope, $route ) {
+  function run( $rootScope, $route, $window ) {
+
+    // Set isStateLoading flag.
+    // $rootScope.$on( "$routeChangeStart", function() {
+    //   $rootScope.isStateLoading = true;
+    // });
 
     var baseTitle   = " | Masatoshi Nishiguchi";
 
     $rootScope.$on( "$routeChangeSuccess", function() {
 
-        // Set page title.
-        document.title      = $route.current.title + baseTitle;
+      // Set page title.
+      if ( $route.current.title ) {
+        $window.document.title = $route.current.title + baseTitle;
+      }
 
-        // Update tabIndex that is used by tabs.
-        $rootScope.tabIndex = $route.current.tabIndex;
+      // Update tabIndex that is used by tabs.
+      $rootScope.tabIndex = $route.current.tabIndex;
+
+      // Reset isStateLoading flag.
+      // $rootScope.isStateLoading = false;
     });
 
   } // end run

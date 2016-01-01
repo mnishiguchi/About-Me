@@ -11,13 +11,13 @@
         posts: "="  // bindToController
       },
       templateUrl: "app/components/blog/blogPosts.html",
-      controller:  blogPostsController,
+      controller:  BlogPostsController,
     });
 
-  blogPostsController.$inject = [
+  BlogPostsController.$inject = [
     "$filter"
   ];
-  function blogPostsController( $filter ) {
+  function BlogPostsController( $filter ) {
 
     var vm = this;
 
@@ -32,7 +32,7 @@
 
     }
 
-  } // end blogPostsController
+  } // end BlogPostsController
 
 
   // --------------------------------------------------------------------------- //
@@ -47,26 +47,26 @@
         post: "="  // bindToController
       },
       templateUrl: "app/components/blog/blogPost.html",
-      controller:  blogPostController,
+      controller:  BlogPostController,
 
     });
 
-  blogPostController.$inject = [
+  BlogPostController.$inject = [
     "$location",
     "$anchorScroll"
   ];
-  function blogPostController( $location, $anchorScroll ) {
+  function BlogPostController( $location, $anchorScroll ) {
 
     var vm = this;
 
     // Initial state.
-    vm.isVisible = false;                // visibility initially false;
+    vm.isVisible = false;
     vm.topId     = "post-" + vm.post.id; // For anchorScroll
 
     // Expose the public methods.
     vm.toggleVisibility = function() { vm.isVisible = !vm.isVisible; };
 
-  } // end blogPostController
+  } // end BlogPostController
 
 
 })();

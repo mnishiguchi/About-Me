@@ -5,12 +5,12 @@
 
   angular
     .module( "app" )
-    .factory( "contactMeService", contactMeService );
+    .factory( "ContactEmailService", ContactEmailService );
 
-  contactMeService.$inject = [
+  ContactEmailService.$inject = [
     "$window"
   ];
-  function contactMeService( $window ) {
+  function ContactEmailService( $window ) {
 
     var service = {
       clearData: clearData,
@@ -48,7 +48,7 @@
     } // clearData
 
 
-  } // end contactMeService
+  } // end ContactEmailService
 
 
   // --------------------------------------------------------------------------- //
@@ -66,26 +66,26 @@
 
   contactFormController.$inject = [
     "$scope",           // $scope.$watch and form validation.
-    "contactMeService"
+    "ContactEmailService"
   ];
-  function contactFormController( $scope, contactMeService ) {
+  function contactFormController( $scope, ContactEmailService ) {
 
     var vm = this;
 
     // Initial state.
-    vm.message = contactMeService.message;
-    vm.stars   = contactMeService.stars;
+    vm.message = ContactEmailService.message;
+    vm.stars   = ContactEmailService.stars;
 
     // Expose the public methods.
     vm.handleMessageSubmit = handleMessageSubmit;
 
-    // Keep watch on contactMeService.stars
-    // Ensure that vm.stars === contactMeService.stars
+    // Keep watch on ContactEmailService.stars
+    // Ensure that vm.stars === ContactEmailService.stars
     $scope.$watch(
-      function () { return contactMeService.stars; },
+      function () { return ContactEmailService.stars; },
       function (newVal, oldVal) {
         if (newVal !== vm.stars) {
-          vm.stars = contactMeService.stars;
+          vm.stars = ContactEmailService.stars;
         }
       }); // end $watch
 
@@ -105,7 +105,7 @@
       subject = "Hello Masa - " + vm.stars + " stars";
       body    = vm.message;
 
-      contactMeService.sendEmail( to, "", "", subject, body )
+      ContactEmailService.sendEmail( to, "", "", subject, body )
 
       // Clear the fields
       clearFields();
@@ -119,15 +119,15 @@
     function clearFields() {
 
       // Clear the central data store.
-      contactMeService.clearData();
+      ContactEmailService.clearData();
 
-      // Re-bind to contactMeService.
-      vm.message = contactMeService.message;
-      vm.stars   = contactMeService.stars;
+      // Reset the variables.
+      vm.message = ContactEmailService.message;
+      vm.stars   = ContactEmailService.stars;
 
       // Reset the form's state
-      $scope.messageField.$setPristine();
-      $scope.messageField.$setUntouched();
+      $scope.form_1.$setPristine();
+      $scope.form_1.$setUntouched();
 
     } // end clearFields
 
@@ -149,25 +149,25 @@
 
   starsController.$inject = [
     "$scope",
-    "contactMeService"
+    "ContactEmailService"
   ];
-  function starsController( $scope, contactMeService ) {
+  function starsController( $scope, ContactEmailService ) {
 
     var vm = this;
 
     // Initial state.
-    vm.count = contactMeService.stars;
+    vm.count = ContactEmailService.stars;
 
     // Expose the public methods.
     vm.incrementStar = function() {
       if ( vm.count < 5 ) {
-        contactMeService.stars += 1;
+        ContactEmailService.stars += 1;
       }
     };
 
     vm.decrementStar = function() {
       if ( vm.count > 0 ) {
-        contactMeService.stars -= 1;
+        ContactEmailService.stars -= 1;
       }
     };
 
@@ -175,14 +175,14 @@
       return ( index <= vm.count ) ? 'fa fa-star' : 'fa fa-star-o';
     }
 
-    // Keep watch on contactMeService.stars
-    // Ensure that vm.count === contactMeService.stars
+    // Keep watch on ContactEmailService.stars
+    // Ensure that vm.count === ContactEmailService.stars
     $scope.$watch(
 
-      function () { return contactMeService.stars; },
+      function () { return ContactEmailService.stars; },
       function ( newVal, oldVal ) {
         if ( newVal !== vm.count ) {
-          vm.count = contactMeService.stars;
+          vm.count = ContactEmailService.stars;
         }
 
       }); // end $watch

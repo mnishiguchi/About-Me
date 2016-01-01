@@ -299,11 +299,8 @@ footer a {
   color: #DDDDDD;
 }
 
-
-/**
- * Image filters for Qiita icon.
- * http://stackoverflow.com/questions/7415872/change-color-of-png-image-via-css
- */
+/* Image filters for Qiita icon.
+  http://stackoverflow.com/questions/7415872/change-color-of-png-image-via-css */
 .page.about_me img.qiita {
   -webkit-transition: all .2s ease-in-out;
   -moz-transition: all .2s ease-in-out;
@@ -321,6 +318,8 @@ footer a {
 
 .page.projects .movie-poster {
   padding: 20px 0;
+  height: auto;
+  width: 300px;
 }
 
 .page.projects .no-info {
@@ -330,14 +329,13 @@ footer a {
 }
 
 .page.blog input[type="text"] {
-  margin: 1.0em 0 2.2em 0;
+  margin: 1.0em 0 0 0;
 }
 
 .page.blog hr {
   max-width: 720px;
   border-color: #DDDDDD;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin: 0 0 0 0;
 }
 
 .blog_post h1,
@@ -377,7 +375,11 @@ footer a {
   margin: 0 auto;
 }
 
-.blog_post h2.post_title a {
+.blog_post header {
+  padding: 20px 0;
+}
+
+.blog_post header .post_title a {
   color: #FFFFFF;
   font-weight: 700;
   -webkit-transition: all .2s ease-in-out;
@@ -385,28 +387,27 @@ footer a {
   transition: all .2s ease-in-out;
 }
 
-.blog_post h2.post_title a:hover,
-.blog_post h2.post_title a:focus,
-.blog_post h2.post_title a:active {
+.blog_post header .post_title a:hover,
+.blog_post header .post_title a:focus,
+.blog_post header .post_title a:active {
   text-decoration: none;
   color: #BBBBBB;
 }
 
-.blog_post .post_meta {
+.blog_post header .post_meta {
   font-size: 1.1em;
   font-style: italic;
-  margin-top: 0;
-  margin-bottom: 40px;
+  margin: 0 0 0 0;
   color: #999999;
 }
 
-.blog_post .post_meta a {
+.blog_post header .post_meta a {
   text-decoration: none;
   color: #FFFFFF;
 }
 
-.blog_post .post_meta a:hover,
-.blog_post .post_meta a:focus {
+.blog_post header .post_meta a:hover,
+.blog_post header .post_meta a:focus {
   color:#DDDDDD;
   text-decoration:underline;
 }
@@ -546,6 +547,8 @@ footer a {
     width: 200px;
   }
 
+  /* By using percentage, we can automatically adjust image sizes. */
+  .page.projects .movie-poster,
   .page.resources img,
   .blog_post .post_body img {
     height: auto;

@@ -1,20 +1,20 @@
 /**
- * blogService
+ * BlogService
  */
 (function() {
 
   angular
     .module( "app" )
-    .factory( "blogService", blogService )
+    .factory( "BlogService", BlogService )
 
-  blogService.$inject = [
+  BlogService.$inject = [
     "$http"
   ];
-  function blogService( $http ) {
+  function BlogService( $http ) {
 
     var service = {
 
-      load: load
+      getData: getData
 
     };
     return service;
@@ -24,7 +24,7 @@
      * Make a GET request to the blogger for blog data.
      * @return A promise of this GET request.
      */
-    function load() {
+    function getData() {
 
       var url = "https://www.googleapis.com/blogger/v3/blogs/" +
         "1351147858586990175/posts?key=AIzaSyAjac0SRkV6lY2-P1syIZ_oI74bCQyFcZU";
@@ -42,7 +42,7 @@
       return promise;
     };
 
-  } // end blogService
+  } // end BlogService
 
 
 })();

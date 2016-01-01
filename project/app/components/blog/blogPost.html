@@ -10,45 +10,50 @@
   -->
   <div ng-attr-id="{{ blogPost.topId }}"></div>
 
-  <!--
-    Post title
-    - Toggle post-body when clicked.
-  -->
-  <h2 class="post_title">
-    <a
-      ng-click="blogPost.toggleVisibility()">
-      {{ blogPost.post.title }}
-    </a>
-  </h2>
+
+  <header>
+
+    <!--
+      Post title
+      - Toggle post-body when clicked.
+    -->
+    <h2 class="post_title">
+      <a
+        ng-click="blogPost.toggleVisibility()">
+        {{ blogPost.post.title }}
+      </a>
+    </h2>
 
 
-  <!--
-    Post meta
-    - Link displayName to that URL when author_url exists.
-  -->
-  <p class="post_meta">
-    Posted by
-    <a
-      ng-if="blogPost.post.author_url.length > 0"
-      ng-href="{{ blogPost.post.author_url }}">
-      {{ blogPost.post.author.displayName }}
-    </a>
-    <span
-      ng-if="! blogPost.post.author_url" >
-      {{ blogPost.post.author.displayName }}
-    </span>
-    <!-- https://docs.angularjs.org/api/ng/filter/date -->
-    on {{ blogPost.post.published | date:'short' }}
+    <!--
+      Post meta
+      - Link displayName to that URL when author_url exists.
+    -->
+    <p class="post_meta">
+      Posted by
+      <a
+        ng-if="blogPost.post.author_url.length > 0"
+        ng-href="{{ blogPost.post.author_url }}">
+        {{ blogPost.post.author.displayName }}
+      </a>
+      <span
+        ng-if="! blogPost.post.author_url" >
+        {{ blogPost.post.author.displayName }}
+      </span>
+      <!-- https://docs.angularjs.org/api/ng/filter/date -->
+      on {{ blogPost.post.published | date:'short' }}
 
-    <a
-      ng-href="{{ blogPost.post.url }}">
-      <img
-        src="https://cdn2.iconfinder.com/data/icons/aquaticus/48%20X%2048/blogger.png"
-        alt="ic-blogger"
-        class="ic-blogger"
-        height="24px" width="24px">
-    </a>
-  </p>
+      <a
+        ng-href="{{ blogPost.post.url }}">
+        <img
+          src="https://cdn2.iconfinder.com/data/icons/aquaticus/48%20X%2048/blogger.png"
+          alt="ic-blogger"
+          class="ic-blogger"
+          height="24px" width="24px">
+      </a>
+    </p>
+
+  </header>
 
 
   <!--
