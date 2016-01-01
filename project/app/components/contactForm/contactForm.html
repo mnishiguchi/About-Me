@@ -6,29 +6,38 @@
  -->
 
 <form novalidate
-  name="messageField"
-  class="messageField"
-  ng-submit="messageField.$valid && contactForm.handleMessageSubmit()">
+  name="form_1"
+  class="form_1"
+  ng-submit="form_1.$valid && contactForm.handleMessageSubmit()">
 
   <!-- Input field for message -->
   <fieldset class="form-group">
-    <label for="messages">Message</label>
-    <textarea required
+    <label for="message">Message</label>
+    <textarea
+      required
       ng-model="contactForm.message"
       ng-minlength="10"
       placeholder="Place questions or comments here"
       class="form-control"
-      id="message"
-      name="message"
-      title="Message">
+      id="messageField"
+      name="messageField"
+      title="Message" >
     </textarea>
 
     <!-- Alert box -->
-    <p
-      ng-show="messageField.message.$invalid && ! messageField.message.$pristine"
-      class="form-help">
-      <em>*minimum 10 characters</em>
+    <div
+      ng-if="! form_1.messageField.$pristine"
+      ng-messages="form_1.messageField.$error"
+      role="alert"
+      class="form_alert">
+      <p ng-message="required">
+        *Required
+      </p>
+      <p ng-message="minlength">
+        *Must be at least minimum 10 characters long
+      </p>
     </p>
+
   </fieldset>
 
 
@@ -43,8 +52,8 @@
   <!--  Submit -->
   <fieldset class="form-group">
     <button type="submit"
-      ng-class="messageField.$invalid ? 'btn-secondary-outline' : 'btn-success'"
-      ng-disabled="messageField.$invalid"
+      ng-class="form_1.$invalid ? 'btn-secondary-outline' : 'btn-success'"
+      ng-disabled="form_1.$invalid"
       class="btn pull-right">
       Send
     </button>

@@ -56,34 +56,37 @@
     - Convert it into appropriate HTML format, using custom html filter because
       the Blogger's format includes Unicode and escape sequence,
   -->
-  <p
-    class="post_body"
+  <div
     ng-show="blogPost.isVisible"
-    ng-bind-html="blogPost.post.content | htmlFilter">
-  </p>
+    class=" card card-block">
+    <p
+      class="post_body"
+      ng-bind-html="blogPost.post.content | htmlFilter">
+    </p>
 
-  <!-- Link to top of this article -->
-  <a
-    ng-show="blogPost.isVisible"
-    ng-click="scrollTo( blogPost.topId )"
-    anchor-hash-link>
+    <!-- Link to top of this article -->
+    <a
+      ng-show="blogPost.isVisible"
+      ng-click="scrollTo( blogPost.topId )"
+      anchor-hash-link>
 
-    <span class="fa-stack fa-lg">
-      <i class="fa fa-square-o fa-stack-2x"></i>
-      <i class="fa fa-arrow-up fa-stack-1x"></i>
-    </span>
-  </a>
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-square-o fa-stack-2x"></i>
+        <i class="fa fa-arrow-up fa-stack-1x"></i>
+      </span>
+    </a>
 
-  <!-- Toggle visibility -->
-  <a
-    ng-show="blogPost.isVisible"
-    ng-click="blogPost.toggleVisibility() ; scrollTo( blogPost.topId )"
-    anchor-hash-link>
+    <!-- Toggle visibility -->
+    <a
+      ng-show="blogPost.isVisible"
+      ng-click="blogPost.toggleVisibility() ; scrollTo( blogPost.topId )"
+      anchor-hash-link>
 
-    <span class="fa-stack fa-lg">
-      <i class="fa fa-square-o fa-stack-2x"></i>
-      <i class="fa fa-times fa-stack-1x"></i>
-    </span>
-  </a>
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-square-o fa-stack-2x"></i>
+        <i class="fa fa-times fa-stack-1x"></i>
+      </span>
+    </a>
+  </div>
 
 </article>

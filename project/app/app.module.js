@@ -5,7 +5,7 @@
 
   // Module declaration.
   angular
-    .module( "app", [ "ngRoute" ] );
+    .module( "app", [ "ngRoute", "ngMessages" ] );
 
 
   // --------------------------------------------------------------------------- //
