@@ -2,10 +2,10 @@
   &nbsp;
   <i
     ng-class="stars.getIconClass( pos )"
-    ng-click="stars.count = pos">
+    ng-click="stars.data.rating = pos">
   </i>
 </div>
 
 <div class="star_count">
-  &nbsp;( {{ stars.count }} )
+  &nbsp;( <span ng-bind="stars.data.rating"></span> )
 </div>
