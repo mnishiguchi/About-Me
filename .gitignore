@@ -3,7 +3,6 @@
 
 # NPM
 npm-debug.log
-node_modules/*
 
 # Tests
 coverage/*
