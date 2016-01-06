@@ -21,6 +21,8 @@
   "homepage": "https://github.com/mnishiguchi/my_one_page_website",
   "devDependencies": {
     "angular": "^1.5.0-rc.0",
+    "angular-route": "^1.5.0-rc.0",
+    "angular-messages": "^1.5.0-rc.0",
     "angular-mocks": "^1.5.0-rc.0",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.15",

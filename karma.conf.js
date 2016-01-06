@@ -15,10 +15,20 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      // Load angular modules in an appropriate order.
       'node_modules/angular/angular.js',
       'node_modules/angular-mocks/angular-mocks.js',
+      'node_modules/angular-route/angular-route.js',
+      'node_modules/angular-messages/angular-messages.js',
+
+      // Load app files in an appropriate order.
+      'app/app.module.js',
+      'app/*.js',
+      'app/**/*.js',
+
+      // Load test files in an appropriate order.
+      'tests/*.test.js',
       'tests/**/*.test.js',
-      'tests/*.test.js'
     ],
 
 

@@ -19,5 +19,4 @@
   AppController.$inject = [ ];
   function AppController() {}
 
-
 })();
