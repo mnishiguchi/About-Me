@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Sun Dec 13 2015 13:52:36 GMT-0500 (EST)
+// Generated on Wed Jan 06 2016 10:09:40 GMT-0500 (EST)
 
 module.exports = function(config) {
   config.set({
@@ -16,10 +16,9 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'node_modules/angular/angular.js',
-      'node_modules/angular-*/angular-*.js',
-      'project/app/**/*.html',
-      'project/app/**/*.js',
-      'project/tests/**/*.test.js'
+      'node_modules/angular-mocks/angular-mocks.js',
+      'tests/**/*.test.js',
+      'tests/*.test.js'
     ],
 
 
@@ -31,13 +30,12 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'project/app/**/*.html': ['ng-html2js'],
-      'project/app/**/!(*.mock|*.spec).js': ['coverage']
+      'app/**/*.html': ['ng-html2js']
     },
 
 
     ngHtml2JsPreprocessor: {
-      stripPrefix: "project/app/",
+      stripPrefix: "app/",
       moduleName: "templateModule"
     },
 
@@ -45,13 +43,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage'],
-
-    coverageReporter: {
-      type : 'html',
-      // output coverage reports
-      dir : 'coverage/'
-    },
+    reporters: ['progress'],
 
 
     // web server port
@@ -81,7 +73,7 @@ module.exports = function(config) {
     singleRun: false,
 
     // Concurrency level
-    // how many browser should be started simultanous
+    // how many browser should be started simultaneous
     concurrency: Infinity
   })
 }

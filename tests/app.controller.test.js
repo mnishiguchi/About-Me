@@ -1,7 +1,8 @@
 /**
  * AppController
+ * TODO
  */
-describe('app.controller', function() {
+xdescribe('app.controller', function() {
 
   // Declare variables.
   var controller, $scope;
@@ -26,7 +27,7 @@ describe('app.controller', function() {
   /**
    * Page title
    */
-  describe('title', function() {
+  xdescribe('title', function() {
 
     it('should reject a wrong title', function() {
       expect($scope.title).not.toBe('Wrong title');

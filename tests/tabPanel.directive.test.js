@@ -1,7 +1,7 @@
 /**
  * tabPanel
  */
-describe("tabPanel.directive", function () {
+xdescribe("tabPanel.directive", function () {
 
   // Declare variables.
   var el, scope, controller, template;
@@ -35,7 +35,7 @@ describe("tabPanel.directive", function () {
    * TODO
    * tabs
    */
-  describe('tabs', function() {
+  xdescribe('tabs', function() {
 
     // Sanity check.
     it("scope should be defined", function() {
